@@ -1,0 +1,7 @@
+<?php
+// $Id$
+/**
+ * @file
+ * Administer Skin Cancer Study participant photo uploads
+ */
+drupal_add_js(drupal_get_path('module', 'skincancer') . '/skincancer.js'); 
