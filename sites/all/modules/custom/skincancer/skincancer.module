@@ -4,4 +4,21 @@
  * @file
  * Administer Skin Cancer Study participant photo uploads
  */
-drupal_add_js(drupal_get_path('module', 'skincancer') . '/skincancer.js'); 
+define('SUBMITTED_BEFORE', 'Yes, this spot has changed since the last photo that I submitted');
+drupal_add_js(drupal_get_path('module', 'skincancer') . '/js/upload_form.js'); 
+//dpm($form);
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter
+ */
+
+function skincancer_form_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
+  $form['#validate'][] = 'image_upload_form_validate';
+}
+
+function image_upload_form_validate(&$form, &$form_state) {
+  if($form_state['input']['field_skin_submitted_before']['und'] == SUBMITTED_BEFORE) {
+    form_set_error('field_skin_saw_health_provider','You need to specify if you saw your health provider');
+  }
+}
+

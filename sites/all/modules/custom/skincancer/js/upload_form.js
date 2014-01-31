@@ -20,6 +20,26 @@
 			displayFollowup($(event.target));
 		});
 
+		/*
+		// May not use this form validation after all
+		form.submit(function(event){
+			if(spotChangedYes.is(':checked') && unTouched(spotChangedFollowup)){
+			  console.log('You need to fill in all fields!');
+				event.preventDefault();
+			}
+		});
+
+		function unTouched(question){
+		  var unChecked = true;
+			question.find('input').each(function(){
+			  if($(this).is(':checked')){
+				  return unChecked = false;
+				}
+			});
+			return unChecked;
+		}
+		*/
+
 		function displayFollowup(clicked){
 			switch($(clicked).get(0)){
 				case spotChangedYes.get(0) :
