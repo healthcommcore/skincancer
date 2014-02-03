@@ -10,12 +10,17 @@
 		var otherSymptoms = $('#edit-field-skin-symptom-other');
 		var na = $('#edit-field-skin-saw-health-provider-und-none');
 
-		// Start by hiding all decision tree components
+
+		/*
+		  Start by clearing all radio buttons and hiding all decision 
+		  tree components
+		*/
+		$('input:radio').removeAttr('checked');
 	  $([spotChangedFollowup, whatHappenedText, otherSymptoms, na.parent()]).each(function(){
 			$(this).addClass('hidden');
     });
 
-
+		// Show/hide different components when inputs are clicked
 		form.find('input').click(function(event){
 			displayFollowup($(event.target));
 		});
@@ -80,18 +85,5 @@
 			});
 		}
         
-
-
-
-		/*
-		submittedBefore.find('input').click(function(){
-			if(spotChangedYes.is(':checked')){
-				spotChangedFollowup.removeClass('hidden');
-			}
-		else{
-		  spotChangedFollowup.addClass('hidden');
-		}
-		});
-		*/
   });
 })(jQuery);
