@@ -5,8 +5,14 @@
  * Administer Skin Cancer Study participant photo uploads
  */
 define('SUBMITTED_BEFORE', 'Yes, this spot has changed since the last photo that I submitted');
-drupal_add_js(drupal_get_path('module', 'skincancer') . '/js/upload_form.js'); 
 //dpm($form);
+
+/**
+ * Implements hook_init()
+ */
+function skincancer_init() {
+  drupal_add_js(drupal_get_path('module', 'skincancer') . '/js/upload_form.js'); 
+}
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter
@@ -26,7 +32,7 @@ function image_upload_form_validate(&$form, &$form_state) {
   if($sawProvider == 'Yes' && $providerVisit == '') {
     form_set_error('field_skin_provider_visit','Please specify what happened when you visited your healthcare provider');
   }
-  dpm($providerVisit);
   //dpm($form_state['input']);
 }
+
 
