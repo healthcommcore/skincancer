@@ -9,44 +9,40 @@
 		var otherCheck = $('#edit-field-skin-symptom-other-checkbo-und');
 		var otherSymptoms = $('#edit-field-skin-symptom-other');
 		var na = $('#edit-field-skin-saw-health-provider-und-none');
+		var firstLoad = true;
 
 
 		/*
 		  Start by clearing all radio buttons and hiding all decision 
 		  tree components
-		*/
 		$('input:radio').removeAttr('checked');
 	  $([spotChangedFollowup, whatHappenedText, otherSymptoms, na.parent()]).each(function(){
 			$(this).addClass('hidden');
     });
+		*/
+		if(firstLoad){
+			hideAll();
+		}
 
-		// Show/hide different components when inputs are clicked
-		form.find('input').click(function(event){
-			displayFollowup($(event.target));
-		});
-
-		/*
-		// May not use this form validation after all
-		form.submit(function(event){
-			if(spotChangedYes.is(':checked') && unTouched(spotChangedFollowup)){
-			  console.log('You need to fill in all fields!');
-				event.preventDefault();
-			}
-		});
-
-		function unTouched(question){
-		  var unChecked = true;
-			question.find('input').each(function(){
-			  if($(this).is(':checked')){
-				  return unChecked = false;
+		$([spotChangedYes, sawProviderYes, otherCheck]).each(function(){
+				if($(this).is(':checked')){
+				  hideAndShow($(this));
 				}
 			});
-			return unChecked;
-		}
-		*/
+		
+		// Show/hide different components when inputs are clicked
+		form.find('input').bind('click', {clicked:true}, hideAndShow);
 
-		function displayFollowup(clicked){
-			switch($(clicked).get(0)){
+		function hideAll(){
+	    $([spotChangedFollowup, whatHappenedText, otherSymptoms, na.parent()]).each(function(){
+			  $(this).addClass('hidden');
+      });
+			firstLoad = false;
+		}
+
+		function hideAndShow(event){
+			var active = event.data.clicked ? event.target : event;
+			switch($(active).get(0)){
 				case spotChangedYes.get(0) :
 					spotChangedFollowup.removeClass('hidden');
 				break;
@@ -62,14 +58,14 @@
 					}
 				break;
 				default:
-				  hideOthers(clicked);
+				  hideOthers(active);
 				break;
 			}
 		}
 
-		function hideOthers(clicked){
+		function hideOthers(active){
 			form.find('.field-type-list-text').each(function(){
-        if($(this).find($(clicked))){
+        if($(this).find($(active))){
 				  switch($(this).get(0)){
 					  case spotChangedFollowup.get(0) :
 							whatHappenedText.addClass('hidden');
