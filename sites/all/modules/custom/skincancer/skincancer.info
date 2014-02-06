@@ -6,6 +6,7 @@ package = custom
 dependencies[] = views
 dependencies[] = views_bulk_operations
 dependencies[] = entityform
+files[] = skincancer.install
 files[] = skincancer.module
 stylesheets[all][] = skincancer.css
 stylesheets[print][] = skincancer_print.css
