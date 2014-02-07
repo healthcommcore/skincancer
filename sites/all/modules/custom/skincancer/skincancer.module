@@ -35,4 +35,12 @@ function image_upload_form_validate(&$form, &$form_state) {
   //dpm($form_state['input']);
 }
 
-
+/**
+ * Implements hook_views_api().
+ */
+function skincancer_views_api(){
+  return array(
+    'api' => 3,
+	'path' => drupal_get_path('module', 'skincancer') . '/views',
+  );
+}

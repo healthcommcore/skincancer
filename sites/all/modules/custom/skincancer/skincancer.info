@@ -8,5 +8,7 @@ dependencies[] = views_bulk_operations
 dependencies[] = entityform
 files[] = skincancer.install
 files[] = skincancer.module
+files[] = views/skincancer.views.inc
+files[] = views/skincancer_admin_form_field_handler.inc
 stylesheets[all][] = skincancer.css
 stylesheets[print][] = skincancer_print.css
