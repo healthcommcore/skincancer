@@ -5,6 +5,7 @@ core = 7.x
 package = custom
 dependencies[] = views
 dependencies[] = views_bulk_operations
+dependencies[] = views_field_view
 dependencies[] = entityform
 files[] = skincancer.install
 files[] = skincancer.module
