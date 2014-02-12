@@ -9,30 +9,28 @@
 		var otherCheck = $('#edit-field-skin-symptom-other-checkbo-und');
 		var otherSymptoms = $('#edit-field-skin-symptom-other');
 		var na = $('#edit-field-skin-saw-health-provider-und-none');
+		var revealButtons = [spotChangedYes, sawProviderYes, otherCheck];
 		var firstLoad = true;
 
 
-		/*
-		  Start by clearing all radio buttons and hiding all decision 
-		  tree components
-		$('input:radio').removeAttr('checked');
-	  $([spotChangedFollowup, whatHappenedText, otherSymptoms, na.parent()]).each(function(){
-			$(this).addClass('hidden');
-    });
-		*/
+// When page first loads, hide all decision tree options
 		if(firstLoad){
 			hideAll();
 		}
 
-		$([spotChangedYes, sawProviderYes, otherCheck]).each(function(){
-				if($(this).is(':checked')){
-				  hideAndShow($(this));
-				}
-			});
-		
-		// Show/hide different components when inputs are clicked
-		form.find('input').bind('click', {clicked:true}, hideAndShow);
+// If any radio buttons are already selected, keep them selected
+		$(revealButtons).each(function(){
+			if($(this).is(':checked')){
+				hideAndShow($(this));
+			}
+		});
 
+// If any radio buttons or Other symptom checkbox is clicked, determin
+// what should be hidden and what should be revealed
+    $([submittedBefore.find('input'), spotChangedFollowup.find('input'), otherCheck,]).each(function(){
+		  $(this).bind('click', {clicked:true}, hideAndShow);
+		});
+		
 		function hideAll(){
 	    $([spotChangedFollowup, whatHappenedText, otherSymptoms, na.parent()]).each(function(){
 			  $(this).addClass('hidden');
@@ -64,22 +62,14 @@
 		}
 
 		function hideOthers(active){
-			form.find('.field-type-list-text').each(function(){
-        if($(this).find($(active))){
-				  switch($(this).get(0)){
-					  case spotChangedFollowup.get(0) :
-							whatHappenedText.addClass('hidden');
-							break;
-					  case submittedBefore.get(0) :
-						  if(!spotChangedYes.is(':checked')){
-								spotChangedFollowup.addClass('hidden');
-							}
-							whatHappenedText.addClass('hidden');
-							break;
-				  }
-			  }
-			});
+			whatHappenedText.addClass('hidden');
+      $(whatHappenedText).find('textarea').val('');
+			if(submittedBefore.has(active).length > 0 && !spotChangedYes.is(':checked')){
+				if(sawProviderYes.is(':checked')){
+				  $(sawProviderYes).removeAttr('checked');
+				}
+			  spotChangedFollowup.addClass('hidden');
+			}
 		}
-        
   });
 })(jQuery);
