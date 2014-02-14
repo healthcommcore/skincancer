@@ -9,8 +9,49 @@
  */
 
 /**
+ * Implementst hook_views_pre_render().
+ */
+function skincancer_views_pre_render(&$view){
+	//dpm($view);
+}
+
+/**
+ * Implements hook_views_post_render().
+ */
+function skincancer_views_post_render(&$view, &$output, &$cache) {
+  //dpm($output);
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function skincancer_views_pre_view(&$view, &$display_id, &$args) {
+  //dpm($view);
+}
+
+/**
  * Implements hook_views_data().
  */
+function skincancer_views_data() {
+	$data['staff']['table']['group'] = t('Staff form');
+	$data['staff']['table']['join'] = array(
+		'#global' => array(),
+	);
+
+	$data['staff']['admin_handler'] = array(
+		'title' => t('Staff feedback form'),
+		'help' => t('Staff feedback form'),
+		'field' => array(
+			'handler' => 'skincancer_admin_handler',
+		),
+	);
+
+	return $data;
+}
+/**
+ * Implements hook_views_data().
+ */
+/*
 function skincancer_views_data() {
 	$data['skincancer_admin']['table']['group'] = t('Skin Cancer admin table');
 	$data['skincancer_admin']['table']['base'] = array(
@@ -128,6 +169,7 @@ function skincancer_views_data() {
 
 	return $data;
 }
+ */
 /*
 function skincancer_views_data_alter(&$data) {
   $data['skincancer_admin']['staff_form'] = array(

@@ -44,3 +44,25 @@ function skincancer_views_api(){
 	'path' => drupal_get_path('module', 'skincancer') . '/views',
   );
 }
+
+/**
+ * Implements hook_theme().
+ */
+/*
+function skincancer_theme($theme){
+  return array(
+    'views_view__skin_cancer_theme' => array(
+	  'arguments' => array('view' => NULL, 'field' => NULL, 'row' => NULL),
+	  'template' => 'views-view--skin-cancer-theme',
+	  'original hook' => 'views_view',
+	  'path' => drupal_get_path('module', 'skincancer') . '/theme',
+	),
+  'views_view__skincancer_unformatted' => array(
+	  'arguments' => array('view' => NULL, 'field' => NULL, 'row' => NULL),
+	  'template' => 'views-view--skincancer-unformatted',
+	  'original hook' => 'views_view_unformatted',
+	  'path' => drupal_get_path('module', 'skincancer') . '/theme',
+	),
+  );
+}
+*/
