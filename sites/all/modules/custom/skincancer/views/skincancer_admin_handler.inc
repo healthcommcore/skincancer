@@ -59,12 +59,6 @@ class skincancer_admin_handler extends views_handler_field {
 			'#title' => t('Admin form type'),
 			'#options' => array('staff' => t('Staff'), 'derma' => t('Dermatologist')),
 			'#description' => t('Select what type of admin form to create'),
-			/*
-			'#ajax' => array(
-				'path' => views_ui_build_form_url($form_state),
-			),
-			'#submit' => array('views_ui_config_item_form_submit_temporary'),
-			 */
 		);
 	}
 
@@ -76,6 +70,7 @@ class skincancer_admin_handler extends views_handler_field {
 		$role = $this->_adminSelectOptions[$option];
 		$form = '<div id="admin_form">';
 		$form .= '<h2>' . $role['title'] . '</h2>';
+		$form .= '<label for="date_reviewed" class="hidden">Reviewed:</label>';
 		$form .= '<div id="date_reviewed" class="hidden"></div>';
 		$form .= '<label for="select">' . $role['label'] . '</label>';
 		$form .= '<select id="select" name="select">';
@@ -85,7 +80,8 @@ class skincancer_admin_handler extends views_handler_field {
 		$form .= '</select>';
 		$form .= '<label for="comments">Comments:</label>';
 		$form .= '<textarea id="comments"></textarea>';
-		$form .= '<button name="' . $option . '" id="submit">Submit</button>';
+		$form .= '<input name="' . $option . '" id="submit" class="form-submit"
+			value="Submit" />';
 		$form .= '<input id="formid" type="hidden" name="formid" value="' . 
 			$id . '" />';
 		$form .= '</div>';
@@ -97,7 +93,6 @@ class skincancer_admin_handler extends views_handler_field {
 		$id = $values->entityform_id;
 		$output = '';
 		$output = $this->buildForm($this->options['skincancer_admin_type'], $id);
-		//dpm($this->options);
 		return $output;
 	}
 }
