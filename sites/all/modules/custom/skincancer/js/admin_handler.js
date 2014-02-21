@@ -12,18 +12,22 @@
 				 comment: $(form).find('#comments').val(),
 			 };
 			 uploadVals(values);
+			 //e.preventDefault();
 		 }
 	 });
 
 	 function uploadVals(values) {
 	   $.ajax({
        url:'sites/all/modules/custom/skincancer/skincancer.php',
-       data: JSON.stringify(values),
+			 type: 'POST',
+       data: values,
        success: function(data, status, jqXHR){
-			   console.log(jqXHR);
+			   console.log(status);
 	     },
+       error: function(jqXHR, textStatus, errorThrown){
+         console.log(errorThrown);
+	     }
 		 });
-		 //console.log(JSON.stringify(values));
 	 }
  });
 })(jQuery);

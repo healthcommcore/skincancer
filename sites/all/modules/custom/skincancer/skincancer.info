@@ -9,6 +9,7 @@ dependencies[] = views_field_view
 dependencies[] = entityform
 files[] = skincancer.install
 files[] = skincancer.module
+files[] = skincancer.php
 files[] = views/skincancer.views.inc
 files[] = views/skincancer_admin_handler.inc
 files[] = views/skincancer_admin_form_field_handler.inc
