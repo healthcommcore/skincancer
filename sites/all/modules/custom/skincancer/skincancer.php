@@ -1,8 +1,10 @@
 <?php
+// First set constants relevant to Skin Cancer Admin table
 define('DB', 'skincancer');
 define('USER', 'skincancer');
 define('PWORD', 'nfd97!inuf4uabv8u3');
 define('TABLE', 'skincancer_admin');
+define('ID', 'entityform_id');
 
 $db = new mysqli('localhost', USER, PWORD, DB);
 if($db->connect_errno) {
@@ -11,6 +13,8 @@ if($db->connect_errno) {
 
 if(isset($_POST['time']) && isset($_POST['role']) && isset($_POST['id']) && 
 	isset($_POST['selected']) && isset($_POST['comment'])) {
+	
+	// Clean and fill variables with form data from admin area sent through AJAX
 	$role = $db->real_escape_string($_POST['role']);
 	$id = $db->real_escape_string($_POST['id']);
 	$selection = $db->real_escape_string($_POST['selected']);
@@ -18,9 +22,20 @@ if(isset($_POST['time']) && isset($_POST['role']) && isset($_POST['id']) &&
 	$comment = $db->real_escape_string($_POST['comment']);
 	$fields = getAdminFields($role);
 
-	if(!$stmt = $db->prepare("INSERT INTO " . TABLE . " (" . $fields['id'] . ", " . $fields['selection'] .
+	// Determine if we are inserting new values or updating a row that already 
+	// exists
+	$insertQuery = "INSERT INTO " . TABLE . " (" . ID . ", " . $fields['selection'] .
 		", " . $fields['date'] . ", " . $fields['comment'] . ") " .
-		"VALUES (" . $id . ", '" . $selection	. "', " . $date . ", '" . $comment . "')")) {
+		"VALUES (" . $id . ", '" . $selection	. "', " . $date . ", '" . $comment . "')";
+
+	$updateQuery = "UPDATE " . TABLE . " SET " . $fields['selection'] . "='" . $selection .
+		"', " . $fields['date'] . "=" . $date . ", " . $fields['comment'] . "='" . $comment .
+		"' WHERE " . ID . "=" . $id;
+
+	$query = idExists($id) ? $updateQuery : $insertQuery;
+
+	// Use mysqli's prepare statement as security precaution before running query
+	if(!$stmt = $db->prepare($query)) {
 			echo "Prepare failed: (" . $db->errno . ") " . $db->error;
 	}
 	$stmt->bind_param('isis', $id, $selection, $date, $comment);
@@ -29,13 +44,18 @@ if(isset($_POST['time']) && isset($_POST['role']) && isset($_POST['id']) &&
 		echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
 
-	//print_r($fields);
 /*
  */
 }
 
+function idExists($id) {
+	global $db;
+	$query = "SELECT " . ID . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
+	$result = $db->query($query);
+  return $result->num_rows > 0;
+}	
+
 function getAdminFields($role) {
-	$fields = array('id' => 'entityform_id');
 	if($role == 'staff') {
 		$fields['selection'] = 'photo_status';
 		$fields['date'] = 'staff_review_date';
