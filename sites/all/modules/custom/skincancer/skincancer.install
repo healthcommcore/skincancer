@@ -6,14 +6,8 @@ function skincancer_schema() {
   $schema['skincancer_admin'] = array(
     'description' => 'This table contains all assessments and comments made by staff/doctor pertaining to a participant photo submission.',
 	'fields' => array(
-      'aid' => array(
-	    'description' => 'Primary identifier for table',
-		'type' => 'serial',
-		'unsigned' => TRUE,
-		'not null' => TRUE,
-	  ),
 	  'entityform_id' => array(
-	    'description' => 'Foreign key from the entityform table used to isolate a unique submission',
+	    'description' => 'Primary identifier for table and foreign key from the entityform table used to isolate a unique submission',
 		'type' => 'int',
 		'unsigned' => TRUE,
 		'not null' => TRUE,
@@ -57,7 +51,7 @@ function skincancer_schema() {
 		'default' => '',
 	  ),
 	),
-	'primary key' => array('aid'),
+	'primary key' => array('entityform_id'),
 	'foreign keys' => array(
 	  'table' => 'entityform',
 	  'columns' => array(
