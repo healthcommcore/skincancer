@@ -2,43 +2,14 @@
 /**
  * Handler for Skin Cancer admin purposes
  */
+module_load_include('inc', 'skincancer', 'includes/admin_output_builder');
+
 class skincancer_admin_handler extends views_handler_field {
 	var $adminData = array();
-	private $_adminSelectOptions = array(
-		'staff' => array(
-			'title' => 'Study staff',
-			'label' => 'Photo status:',
-			'options' => array(
-				'Select a photo status...',
-				'New photo needed, poor quality, request sent',
-				'New photo needed, unrelated content, request sent',
-				'Ready for review, photo is re-submission, study staff requested',
-				'Ready for review, photo is a re-submission, participant initiated',
-				'Ready for review',
-				'Re-submission, review complete, letter sent to participant to visit
-				RHCP',
-				'Review complete, report sent to RHCP',
-			),
-		),
-		'derma' => array(
-			'title' => 'Dermatologist',
-			'label' => 'Findings:',
-			'options' => array(
-				'Select finding...',
-				'Morphology is suggestive of a benign lesion',
-				'Morphology is indeterminate and management will require evaluation and
-				follow-up with a physician',
-				'Lesion has morphologic features suggestive of malignancy',
-				'Image of insufficiant quality - photograph needs to be re-taken',
-				'Patient initiated re-submission',
-			),
-		),
-	);
 
-										 
 	function construct() {
 		parent::construct();
-		$this->loadAdminData();
+		//$this->loadAdminData();
 	}
 	//function query(){}
 
@@ -71,47 +42,9 @@ class skincancer_admin_handler extends views_handler_field {
 		//$this->add_additional_fields();
 	}
 
-	function buildForm($option, $id) {
-		$role = $this->_adminSelectOptions[$option];
-		$form = '<div id="admin_form">';
-		$form .= '<h2>' . $role['title'] . '</h2>';
-		$form .= '<label for="date_reviewed" class="hidden">Reviewed:</label>';
-		$form .= '<div id="date_reviewed" class="hidden"></div>';
-		$form .= '<label for="select">' . $role['label'] . '</label>';
-		$form .= '<select id="select" name="select">';
-		foreach($role['options'] as $opt) {
-			$form .= '<option value="' . $opt . '"> ' . $opt . '</option>';
-		}
-		$form .= '</select>';
-		$form .= '<label for="comments">Comments:</label>';
-		$form .= '<textarea id="comments"></textarea>';
-		$form .= '<input name="' . $option . '" id="submit" class="form-submit"
-			value="Submit" />';
-		$form .= '<input id="formid" type="hidden" name="formid" value="' . 
-			$id . '" />';
-		$form .= '</div>';
-		return $form;
-	}
-
-	function createOutput($id) {
-		$role = $this->options['skincancer_admin_type'];
-		$output = '';
-		if(array_key_exists($id, $this->adminData)) {
-			if($role == 'staff' && $this->adminData[$id]['staff_date'] > 0) {
-				$output = '<p>Staff values here</p>';
-			}
-			else if($role == 'derma' && $this->adminData[$id]['derma_date'] > 0) {
-				$output = '<p>Derma values here</p>';
-			}
-		}
-		else{
-			$output = $this->buildForm($role, $id);
-		}
-		return $output;
-	}
-
-	function loadAdminData() {
-		$records = db_query("SELECT * FROM skincancer_admin");
+	function loadAdminData($id) {
+		$records = db_query("SELECT * FROM skincancer_admin WHERE entityform_id = " . $id);
+		//$records = db_query("SELECT * FROM skincancer_admin");
 		if(!$records) {
 			return;
 		}
@@ -127,10 +60,21 @@ class skincancer_admin_handler extends views_handler_field {
 		}
 	}
 
+	function pre_render($values) {
+		/*
+		$id = $values->entityform_id;
+		$this->loadAdminData($id);
+		dpm($values);
+		 */
+	}
+
+
 	function render($values) {
 		//dpm($this);
 		$id = $values->entityform_id;
-		$output = $this->createOutput($id);
-		return $output;
+		$this->loadAdminData($id);
+		$role = $this->options['skincancer_admin_type'];
+		$builder = new adminOutputBuilder($id, $role, $this->adminData);
+		return $builder->generateOutput();
 	}
 }

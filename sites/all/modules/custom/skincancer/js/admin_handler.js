@@ -18,7 +18,7 @@
 
 	 function uploadVals(values) {
 	   $.ajax({
-       url:'sites/all/modules/custom/skincancer/skincancer.php',
+       url:'sites/all/modules/custom/skincancer/includes/upload_data.php',
 			 type: 'POST',
        data: values,
        success: function(data, status, jqXHR){
