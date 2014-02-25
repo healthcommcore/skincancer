@@ -93,6 +93,23 @@ class skincancer_admin_handler extends views_handler_field {
 		return $form;
 	}
 
+	function createOutput($id) {
+		$role = $this->options['skincancer_admin_type'];
+		$output = '';
+		if(array_key_exists($id, $this->adminData)) {
+			if($role == 'staff' && $this->adminData[$id]['staff_date'] > 0) {
+				$output = '<p>Staff values here</p>';
+			}
+			else if($role == 'derma' && $this->adminData[$id]['derma_date'] > 0) {
+				$output = '<p>Derma values here</p>';
+			}
+		}
+		else{
+			$output = $this->buildForm($role, $id);
+		}
+		return $output;
+	}
+
 	function loadAdminData() {
 		$records = db_query("SELECT * FROM skincancer_admin");
 		if(!$records) {
@@ -113,8 +130,7 @@ class skincancer_admin_handler extends views_handler_field {
 	function render($values) {
 		//dpm($this);
 		$id = $values->entityform_id;
-		$output = '';
-		$output = $this->buildForm($this->options['skincancer_admin_type'], $id);
+		$output = $this->createOutput($id);
 		return $output;
 	}
 }
