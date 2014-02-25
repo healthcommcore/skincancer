@@ -11,6 +11,7 @@ if($db->connect_errno) {
 	echo "Connection failure";
 }
 
+// This area is for inserting/updating data to database from admin forms
 if(isset($_POST['time']) && isset($_POST['role']) && isset($_POST['id']) && 
 	isset($_POST['selected']) && isset($_POST['comment'])) {
 	
