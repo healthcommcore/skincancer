@@ -3,6 +3,7 @@
  * Handler for Skin Cancer admin purposes
  */
 class skincancer_admin_handler extends views_handler_field {
+	var $adminData = array();
 	private $_adminSelectOptions = array(
 		'staff' => array(
 			'title' => 'Study staff',
@@ -28,13 +29,17 @@ class skincancer_admin_handler extends views_handler_field {
 				'Morphology is indeterminate and management will require evaluation and
 				follow-up with a physician',
 				'Lesion has morphologic features suggestive of malignancy',
-				'Image of insuggiciant quality - photograph needs to be re-taken',
+				'Image of insufficiant quality - photograph needs to be re-taken',
 				'Patient initiated re-submission',
 			),
 		),
 	);
 
 										 
+	function construct() {
+		parent::construct();
+		$this->loadAdminData();
+	}
 	//function query(){}
 
 	function option_definition(){
@@ -88,8 +93,25 @@ class skincancer_admin_handler extends views_handler_field {
 		return $form;
 	}
 
+	function loadAdminData() {
+		$records = db_query("SELECT * FROM skincancer_admin");
+		if(!$records) {
+			return;
+		}
+		foreach($records as $record) {
+			$this->adminData[$record->entityform_id] = array(
+				'status' => $record->photo_status,
+				'staff_date' => $record->staff_review_date,
+				'staff_comments' => $record->staff_comments,
+				'findings' => $record->findings,
+				'derma_date' => $record->derma_review_date,
+				'derma_comments' => $record->derma_comments,
+			);
+		}
+	}
+
 	function render($values) {
-		//dpm($values);
+		//dpm($this);
 		$id = $values->entityform_id;
 		$output = '';
 		$output = $this->buildForm($this->options['skincancer_admin_type'], $id);

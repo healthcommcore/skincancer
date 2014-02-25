@@ -33,14 +33,14 @@ function skincancer_views_pre_view(&$view, &$display_id, &$args) {
  * Implements hook_views_data().
  */
 function skincancer_views_data() {
-	$data['staff']['table']['group'] = t('Staff form');
-	$data['staff']['table']['join'] = array(
+	$data['admin']['table']['group'] = t('Admin form');
+	$data['admin']['table']['join'] = array(
 		'#global' => array(),
 	);
 
-	$data['staff']['admin_handler'] = array(
-		'title' => t('Staff feedback form'),
-		'help' => t('Staff feedback form'),
+	$data['admin']['admin_handler'] = array(
+		'title' => t('Admin feedback form'),
+		'help' => t('Admin feedback form'),
 		'field' => array(
 			'handler' => 'skincancer_admin_handler',
 		),
