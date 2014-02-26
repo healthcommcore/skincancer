@@ -84,10 +84,11 @@ class adminOutputBuilder {
 	}
 
 	function dataLayout($cellData) {
-		$date = $this->role . '_date';
-		$comments = $this->role . '_comments';
+		$dateType = $this->role . '_date';
+		$date = $cellData[$dateType];
+		$commentType = $this->role . '_comments';
 		$data = '<label for="date_reviewed">Reviewed:</label>';
-		$data .= '<p id="date_reviewed">' . $cellData[$date] . '</p>';
+		$data .= '<p id="date_reviewed">' . $date . '</p>';
 		if($this->role == 'staff') {
 			$data .= '<label for="status">Status:</label>';
 			$data .= '<p id="status">' . $cellData['status'] . '</p>';
@@ -97,7 +98,13 @@ class adminOutputBuilder {
 			$data .= '<p id="findings">' . $cellData['findings'] . '</p>';
 		}
 		$data .= '<label for="comments">Comments:</label>';
-		$data .= '<p id="comments"> ' . $cellData[$comments] . '</p>';
+		$commentData = trim($cellData[$commentType]);
+		if(!empty($commentData)) {
+			$data .= '<p id="comments"> ' . $commentData . '</p>';
+		}
+		else{
+			$data .= '<p id="comments">No comments</p>';
+		}
 		$data .= '<input name="' . $this->role . '" id="submit" class="form-submit"
 			value="Edit" />';
 		$data .= '<input id="formid" type="hidden" name="formid" value="' . 

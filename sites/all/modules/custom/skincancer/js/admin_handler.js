@@ -12,6 +12,7 @@
 				 comment: $(form).find('#comments').val(),
 			 };
 			 uploadVals(values);
+			 console.log(e.timeStamp);
 			 //e.preventDefault();
 		 }
 	 });
