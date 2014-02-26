@@ -35,12 +35,6 @@ class adminOutputBuilder {
 		),
 	);
 
-	private $_html = array(
-		'dateLabel' => '<label for="date_reviewed" class="hidden">Reviewed:</label>',
-		'date' => '<div id="date_reviewed" class="hidden"></div>',
-		'commentsLabel' => '<label for="comments">Comments:</label>',
-	);
-
 	function __construct($id, $role, $data = NULL) {
 		$this->id = $id;
 		$this->role = $role;
@@ -51,32 +45,64 @@ class adminOutputBuilder {
 	  $output = '<div id="admin_form">';	
 		$title = $this->_adminSelectOptions[$this->role]['title'];
 		$output .= '<h2>' . $title . '</h2>';
+		if(array_key_exists($this->id, $this->data)){
+		  $cellData = $this->data[$this->id];
+		  $date = $this->role . '_date';
+			if($cellData[$date] > 0) {
+			  $output .= $this->dataLayout($cellData);
+			}
+			else{
+			  $output .= $this->formLayout();
+			}
+			//dpm($this->data);
+		}
+		else{
+			//$output .= $this->dataLayout();
+			$output .= $this->formLayout();
+		}
 	  $output .= '</div>';
 		return $output;
 	}
 
-	function buildContent() {
-	}
-
-
-	function getDate() {
-	}
-
-  function buildForm($option, $id) {
-		$role = $this->_adminSelectOptions[$option];
-		$form .= '<label for="select">' . $role['label'] . '</label>';
+	function formLayout() {
+		$admin = $this->_adminSelectOptions[$this->role];
+		$form = '<label for="date_reviewed" class="hidden">Reviewed:</label>';
+		$form .= '<p id="date_reviewed" class="hidden"></p>';
+		$form .= '<label for="select">' . $admin['label'] . '</label>';
 		$form .= '<select id="select" name="select">';
-		foreach($role['options'] as $opt) {
+		foreach($admin['options'] as $opt) {
 			$form .= '<option value="' . $opt . '"> ' . $opt . '</option>';
 		}
 		$form .= '</select>';
-		$form .= $this->_html['commentsLabel'];
+		$form .= '<label for="comments">Comments:</label>';
 		$form .= '<textarea id="comments"></textarea>';
-		$form .= '<input name="' . $option . '" id="submit" class="form-submit"
+		$form .= '<input name="' . $this->role . '" id="submit" class="form-submit"
 			value="Submit" />';
 		$form .= '<input id="formid" type="hidden" name="formid" value="' . 
-			$id . '" />';
+			$this->id . '" />';
 		return $form;
+	}
+
+	function dataLayout($cellData) {
+		$date = $this->role . '_date';
+		$comments = $this->role . '_comments';
+		$data = '<label for="date_reviewed">Reviewed:</label>';
+		$data .= '<p id="date_reviewed">' . $cellData[$date] . '</p>';
+		if($this->role == 'staff') {
+			$data .= '<label for="status">Status:</label>';
+			$data .= '<p id="status">' . $cellData['status'] . '</p>';
+		}
+		else if($this->role == 'derma') {
+			$data .= '<label for="findings">Findings:</label>';
+			$data .= '<p id="findings">' . $cellData['findings'] . '</p>';
+		}
+		$data .= '<label for="comments">Comments:</label>';
+		$data .= '<p id="comments"> ' . $cellData[$comments] . '</p>';
+		$data .= '<input name="' . $this->role . '" id="submit" class="form-submit"
+			value="Edit" />';
+		$data .= '<input id="formid" type="hidden" name="formid" value="' . 
+			$this->id . '" />';
+		return $data;
 	}
 
 	function createOutput($id) {
