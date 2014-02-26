@@ -9,7 +9,6 @@ class skincancer_admin_handler extends views_handler_field {
 
 	function construct() {
 		parent::construct();
-		//$this->loadAdminData();
 	}
 	//function query(){}
 
@@ -61,13 +60,7 @@ class skincancer_admin_handler extends views_handler_field {
 	}
 
 	function pre_render($values) {
-		/*
-		$id = $values->entityform_id;
-		$this->loadAdminData($id);
-		dpm($values);
-		 */
 	}
-
 
 	function render($values) {
 		//dpm($this);

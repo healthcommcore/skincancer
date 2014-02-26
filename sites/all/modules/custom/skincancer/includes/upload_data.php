@@ -12,16 +12,16 @@ if($db->connect_errno) {
 }
 
 // This area is for inserting/updating data to database from admin forms
-if(isset($_POST['time']) && isset($_POST['role']) && isset($_POST['id']) && 
+if(isset($_POST['role']) && isset($_POST['id']) && 
 	isset($_POST['selected']) && isset($_POST['comment'])) {
 	
 	// Clean and fill variables with form data from admin area sent through AJAX
 	$role = $db->real_escape_string($_POST['role']);
 	$id = $db->real_escape_string($_POST['id']);
 	$selection = $db->real_escape_string($_POST['selected']);
-	$date = $db->real_escape_string($_POST['time']);
 	$comment = $db->real_escape_string($_POST['comment']);
 	$fields = getAdminFields($role);
+	$date = strtotime('now');
 
 	// Determine if we are inserting new values or updating a row that already 
 	// exists

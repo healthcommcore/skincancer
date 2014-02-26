@@ -5,14 +5,12 @@
 		 if(e.target.id === 'submit'){
 		   var form = $(e.target).parent();
 			 var values ={
-			   time: e.timeStamp,
 			   role: e.target.name,
 				 id: $(form).find('#formid').val(),
 			   selected: $(form).find('option:selected').val(),
 				 comment: $(form).find('#comments').val(),
 			 };
 			 uploadVals(values);
-			 console.log(e.timeStamp);
 			 //e.preventDefault();
 		 }
 	 });

@@ -15,8 +15,7 @@ class adminOutputBuilder {
 				'Ready for review, photo is re-submission, study staff requested',
 				'Ready for review, photo is a re-submission, participant initiated',
 				'Ready for review',
-				'Re-submission, review complete, letter sent to participant to visit
-				RHCP',
+				'Re-submission, review complete, letter sent to participant to visit RHCP',
 				'Review complete, report sent to RHCP',
 			),
 		),
@@ -26,8 +25,7 @@ class adminOutputBuilder {
 			'options' => array(
 				'Select finding...',
 				'Morphology is suggestive of a benign lesion',
-				'Morphology is indeterminate and management will require evaluation and
-				follow-up with a physician',
+				'Morphology is indeterminate and management will require evaluation and follow-up with a physician',
 				'Lesion has morphologic features suggestive of malignancy',
 				'Image of insufficiant quality - photograph needs to be re-taken',
 				'Patient initiated re-submission',
@@ -47,6 +45,8 @@ class adminOutputBuilder {
 		$output .= '<h2>' . $title . '</h2>';
 		if(array_key_exists($this->id, $this->data)){
 		  $cellData = $this->data[$this->id];
+			// I chose the required date field to check if a record exists for this
+			// admin type.
 		  $date = $this->role . '_date';
 			if($cellData[$date] > 0) {
 			  $output .= $this->dataLayout($cellData);
@@ -85,7 +85,8 @@ class adminOutputBuilder {
 
 	function dataLayout($cellData) {
 		$dateType = $this->role . '_date';
-		$date = $cellData[$dateType];
+		$date = date('m/d/Y', $cellData[$dateType]);
+		$date .= '<br />' . date('g:i a', $cellData[$dateType]);
 		$commentType = $this->role . '_comments';
 		$data = '<label for="date_reviewed">Reviewed:</label>';
 		$data .= '<p id="date_reviewed">' . $date . '</p>';
@@ -111,26 +112,5 @@ class adminOutputBuilder {
 			$this->id . '" />';
 		return $data;
 	}
-
-	function createOutput($id) {
-		$admin = 
-		$output = $this->_html['open'];
-		$output .= '<h2>' . $admin['title'] . '</h2>';
-		if(array_key_exists($id, $this->adminData)) {
-			/*
-			if($admin == 'staff' && $this->adminData[$id]['staff_date'] > 0) {
-				$output = '<p>Staff values here</p>';
-			}
-			else if($admin == 'derma' && $this->adminData[$id]['derma_date'] > 0) {
-				$output = '<p>Derma values here</p>';
-			}
-			 */
-		}
-		else{
-		  $output .= $this->_html['dateLabel'];
-		  $output .= $this->_html['date'];
-			$output .= $this->buildForm($admin, $id);
-		}
-		return $output;
-	}
+	
 }
