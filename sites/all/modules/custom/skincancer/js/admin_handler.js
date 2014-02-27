@@ -1,20 +1,34 @@
 (function($){
  $(document).ready(function(){
+	 var page = {};
+	 page.form = null;
 	 $(document).click(function(e){
 		 //console.log(e);
-		 var form = $(e.target).parent();
-		 var cancel = $(form).find('#cancel');
-		 var values ={
+		 page.form = $(e.target).parent();
+		 var form = page.form;
+		 page.values ={
 			 role: e.target.name,
 			 id: $(form).find('#formid').val(),
-			 selected: $(form).find('option:selected').val(),
+			 selected: $(form).find('option:selected').html(),
 			 comment: $(form).find('#commentField').val(),
 		 };
-		 if(e.target.id === 'submit'){
-			 uploadVals(values);
+		 page.tags = {
+		   reviewedLabel: $(form).find('label[for="date_reviewed"]'),
+			 selectLabel: $(form).find('label[for="select"]'),
+			 commentsLabel: $(form).find('label[for="commentField"]'),
+		   reviewed: $(form).find('#date_reviewed'),
+			 select: $(form).find('#select'),
+			 textarea: $(form).find('#commentField'),
+		   cancel: $(form).find('#cancel'),
+			};
+		 if(e.target.id === 'submit' || e.target === 'save'){
+			 uploadVals(page.values);
+			 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
 			 //e.preventDefault();
 		 }
 		 else if(e.target.id === 'edit'){
+			 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
+			 page.tags.cancel.removeClass('hidden');
 		 }
 		 else if(e.target.id === 'cancel'){
 		 }
@@ -26,13 +40,28 @@
        url:'sites/all/modules/custom/skincancer/includes/upload_data.php',
 			 type: 'POST',
        data: values,
+			 dataType: 'json',
        success: function(data, status, jqXHR){
-			   console.log(status);
+			   displayData(data);
+			   //console.log();
 	     },
        error: function(jqXHR, textStatus, errorThrown){
          console.log(errorThrown);
 	     }
 		 });
+	 }
+
+	 function displayData(time) {
+		 var selectId = page.values.role == 'staff' ? 'status' : 'findings';
+		 var comments = page.values.comment ==='' ? 'No comments' : page.values.comment;
+		 page.tags.reviewedLabel.removeClass('hidden');
+		 page.tags.reviewed.removeClass('hidden').append(time);
+		 page.tags.select.addClass('hidden');
+		 page.tags.selectLabel.after('<p id="' + selectId + '">' + page.values.selected + '</p>');
+		 page.tags.textarea.addClass('hidden');
+		 page.tags.commentsLabel.after('<p id="comments">' + comments + '</p>');
+
+		 //console.log(time);
 	 }
  });
 })(jQuery);

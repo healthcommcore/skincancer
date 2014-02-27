@@ -12,8 +12,7 @@ if($db->connect_errno) {
 }
 
 // This area is for inserting/updating data to database from admin forms
-if(isset($_POST['role']) && isset($_POST['id']) && 
-	isset($_POST['selected']) && isset($_POST['comment'])) {
+if(isset($_POST['role']) && isset($_POST['id']) && isset($_POST['selected'])) {
 	
 	// Clean and fill variables with form data from admin area sent through AJAX
 	$role = $db->real_escape_string($_POST['role']);
@@ -44,6 +43,10 @@ if(isset($_POST['role']) && isset($_POST['id']) &&
 	if(!$stmt->execute()) {
 		echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
+
+	$mdy = date('m/d/Y', $date);
+	$time .= '<br />' . date('g:i a', $date);
+	echo json_encode($mdy . $time);
 
 /*
  */

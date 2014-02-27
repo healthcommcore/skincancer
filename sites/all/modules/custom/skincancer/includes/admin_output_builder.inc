@@ -81,13 +81,14 @@ class adminOutputBuilder {
 		}
 		$form .= '</select>';
 		$form .= '<label for="commentField">Comments:</label>';
-		$form .= '<textarea id="commentfield"></textarea>';
+		$form .= '<textarea id="commentField"></textarea>';
 		$form .= '<input name="' . $this->role . '" id="submit" class="form-submit"
 			value="Submit" />';
 		return $form;
 	}
 
 	function dataLayout($cellData) {
+		$admin = $this->_adminSelectOptions[$this->role];
 		$dateType = $this->role . '_date';
 		$date = date('m/d/Y', $cellData[$dateType]);
 		$date .= '<br />' . date('g:i a', $cellData[$dateType]);
@@ -95,14 +96,14 @@ class adminOutputBuilder {
 		$data = '<label for="date_reviewed">Reviewed:</label>';
 		$data .= '<p id="date_reviewed">' . $date . '</p>';
 		if($this->role == 'staff') {
-			$data .= '<label for="status">Status:</label>';
+			$data .= '<label for="status">' . $admin['label'] . '</label>';
 			$data .= '<p id="status">' . $cellData['status'] . '</p>';
 		}
 		else if($this->role == 'derma') {
-			$data .= '<label for="findings">Findings:</label>';
+			$data .= '<label for="findings">' . $admin['label'] . '</label>';
 			$data .= '<p id="findings">' . $cellData['findings'] . '</p>';
 		}
-		$data .= '<label for="comments">Comments:</label>';
+		$data .= '<label for="commentField">Comments:</label>';
 		$commentData = 'No comments';
 		if(!empty($cellData[$commentType])) {
 			$commentData = trim($cellData[$commentType]);
