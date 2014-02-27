@@ -9,26 +9,29 @@ class adminOutputBuilder {
 			'title' => 'Study staff',
 			'label' => 'Photo status:',
 			'options' => array(
-				'Select a photo status...',
-				'New photo needed, poor quality, request sent',
-				'New photo needed, unrelated content, request sent',
-				'Ready for review, photo is re-submission, study staff requested',
-				'Ready for review, photo is a re-submission, participant initiated',
-				'Ready for review',
-				'Re-submission, review complete, letter sent to participant to visit RHCP',
-				'Review complete, report sent to RHCP',
+				array('val' => 0, 'label' => 'Select a photo status...'),
+				array('val' => 'poor', 'label' => 'New photo needed, poor quality, request sent'),
+				array('val' => 'unrelated', 'label' => 'New photo needed, unrelated content, request sent'),
+				array('val' => 'staff_resubmit', 'label' => 'Ready for review, photo is re-submission, study staff requested'),
+				array('val' => 'part_resubmit', 'label' => 'Ready for review, photo is a re-submission, participant initiated'),
+				array('val' => 'ready', 'label' => 'Ready for review'),
+				array('val' => 'visit_rhcp', 'label' => 'Re-submission, review complete, letter sent to participant to visit RHCP'),
+				array('val' => 'report_send', 'label' => 'Review complete, report sent to RHCP'),
 			),
 		),
 		'derma' => array(
 			'title' => 'Dermatologist',
 			'label' => 'Findings:',
 			'options' => array(
-				'Select finding...',
-				'Morphology is suggestive of a benign lesion',
-				'Morphology is indeterminate and management will require evaluation and follow-up with a physician',
-				'Lesion has morphologic features suggestive of malignancy',
-				'Image of insufficiant quality - photograph needs to be re-taken',
-				'Patient initiated re-submission',
+				array('val' => 0, 'label' => 'Select finding...'),
+				array('val' => 'benign', 'label' => 'Morphology is suggestive of a benign lesion'),
+				array(
+					'val' => 'indeterminate', 
+					'label' => 'Morphology is indeterminate and management will require evaluation and follow-up with a physician',
+				),
+				array('val' => 'malignancy', 'label' => 'Lesion has morphologic features suggestive of malignancy'),
+				array('val' => 'quality', 'label' => 'Image of insufficiant quality - photograph needs to be re-taken'),
+				array('val' => 'resubmit', 'label' => 'Patient initiated re-submission'),
 			),
 		),
 	);
@@ -60,6 +63,9 @@ class adminOutputBuilder {
 			//$output .= $this->dataLayout();
 			$output .= $this->formLayout();
 		}
+		$output .= '<input name="' . $this->role . '" id="cancel" class="form-submit hidden" value="Cancel" />';
+		$output .= '<input id="formid" type="hidden" name="formid" value="' . 
+			$this->id . '" />';
 	  $output .= '</div>';
 		return $output;
 	}
@@ -71,15 +77,13 @@ class adminOutputBuilder {
 		$form .= '<label for="select">' . $admin['label'] . '</label>';
 		$form .= '<select id="select" name="select">';
 		foreach($admin['options'] as $opt) {
-			$form .= '<option value="' . $opt . '"> ' . $opt . '</option>';
+			$form .= '<option value="' . $opt['val'] . '"> ' . $opt['label'] . '</option>';
 		}
 		$form .= '</select>';
-		$form .= '<label for="comments">Comments:</label>';
-		$form .= '<textarea id="comments"></textarea>';
+		$form .= '<label for="commentField">Comments:</label>';
+		$form .= '<textarea id="commentfield"></textarea>';
 		$form .= '<input name="' . $this->role . '" id="submit" class="form-submit"
 			value="Submit" />';
-		$form .= '<input id="formid" type="hidden" name="formid" value="' . 
-			$this->id . '" />';
 		return $form;
 	}
 
@@ -99,17 +103,13 @@ class adminOutputBuilder {
 			$data .= '<p id="findings">' . $cellData['findings'] . '</p>';
 		}
 		$data .= '<label for="comments">Comments:</label>';
-		$commentData = trim($cellData[$commentType]);
-		if(!empty($commentData)) {
-			$data .= '<p id="comments"> ' . $commentData . '</p>';
+		$commentData = 'No comments';
+		if(!empty($cellData[$commentType])) {
+			$commentData = trim($cellData[$commentType]);
 		}
-		else{
-			$data .= '<p id="comments">No comments</p>';
-		}
-		$data .= '<input name="' . $this->role . '" id="submit" class="form-submit"
+		$data .= '<p id="comments"> ' . $commentData . '</p>';
+		$data .= '<input name="' . $this->role . '" id="edit" class="form-submit"
 			value="Edit" />';
-		$data .= '<input id="formid" type="hidden" name="formid" value="' . 
-			$this->id . '" />';
 		return $data;
 	}
 	

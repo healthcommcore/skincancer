@@ -2,17 +2,23 @@
  $(document).ready(function(){
 	 $(document).click(function(e){
 		 //console.log(e);
+		 var form = $(e.target).parent();
+		 var cancel = $(form).find('#cancel');
+		 var values ={
+			 role: e.target.name,
+			 id: $(form).find('#formid').val(),
+			 selected: $(form).find('option:selected').val(),
+			 comment: $(form).find('#commentField').val(),
+		 };
 		 if(e.target.id === 'submit'){
-		   var form = $(e.target).parent();
-			 var values ={
-			   role: e.target.name,
-				 id: $(form).find('#formid').val(),
-			   selected: $(form).find('option:selected').val(),
-				 comment: $(form).find('#comments').val(),
-			 };
 			 uploadVals(values);
 			 //e.preventDefault();
 		 }
+		 else if(e.target.id === 'edit'){
+		 }
+		 else if(e.target.id === 'cancel'){
+		 }
+		 
 	 });
 
 	 function uploadVals(values) {
