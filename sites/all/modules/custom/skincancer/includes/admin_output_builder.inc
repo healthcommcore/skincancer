@@ -109,6 +109,7 @@ class adminOutputBuilder {
 			$commentData = trim($cellData[$commentType]);
 		}
 		$data .= '<p id="comments"> ' . $commentData . '</p>';
+		$data .= '<textarea id="commentField" class="hidden"></textarea>';
 		$data .= '<input name="' . $this->role . '" id="edit" class="form-submit"
 			value="Edit" />';
 		return $data;

@@ -1,18 +1,18 @@
 (function($){
  $(document).ready(function(){
-	 var page = {};
-	 page.form = null;
+	 var div = {};
+	 div.form = null;
 	 $(document).click(function(e){
 		 //console.log(e);
-		 page.form = $(e.target).parent();
-		 var form = page.form;
-		 page.values ={
+		 div.form = $(e.target).parent();
+		 var form = div.form;
+		 div.values ={
 			 role: e.target.name,
 			 id: $(form).find('#formid').val(),
 			 selected: $(form).find('option:selected').html(),
 			 comment: $(form).find('#commentField').val(),
 		 };
-		 page.tags = {
+		 div.tags = {
 		   reviewedLabel: $(form).find('label[for="date_reviewed"]'),
 			 selectLabel: $(form).find('label[for="select"]'),
 			 commentsLabel: $(form).find('label[for="commentField"]'),
@@ -22,13 +22,13 @@
 		   cancel: $(form).find('#cancel'),
 			};
 		 if(e.target.id === 'submit' || e.target === 'save'){
-			 uploadVals(page.values);
+			 uploadVals(div.values);
 			 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
 			 //e.preventDefault();
-		 }
+form		 }
 		 else if(e.target.id === 'edit'){
 			 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
-			 page.tags.cancel.removeClass('hidden');
+			 div.tags.cancel.removeClass('hidden');
 		 }
 		 else if(e.target.id === 'cancel'){
 		 }
@@ -52,14 +52,14 @@
 	 }
 
 	 function displayData(time) {
-		 var selectId = page.values.role == 'staff' ? 'status' : 'findings';
-		 var comments = page.values.comment ==='' ? 'No comments' : page.values.comment;
-		 page.tags.reviewedLabel.removeClass('hidden');
-		 page.tags.reviewed.removeClass('hidden').append(time);
-		 page.tags.select.addClass('hidden');
-		 page.tags.selectLabel.after('<p id="' + selectId + '">' + page.values.selected + '</p>');
-		 page.tags.textarea.addClass('hidden');
-		 page.tags.commentsLabel.after('<p id="comments">' + comments + '</p>');
+		 var selectId = div.values.role == 'staff' ? 'status' : 'findings';
+		 var comments = div.values.comment ==='' ? 'No comments' : div.values.comment;
+		 div.tags.reviewedLabel.removeClass('hidden');
+		 div.tags.reviewed.removeClass('hidden').append(time);
+		 div.tags.select.addClass('hidden');
+		 div.tags.selectLabel.after('<p id="' + selectId + '">' + div.values.selected + '</p>');
+		 div.tags.textarea.addClass('hidden');
+		 div.tags.commentsLabel.after('<p id="comments">' + comments + '</p>');
 
 		 //console.log(time);
 	 }
