@@ -25,9 +25,12 @@
 			};
 
 // Determine which button was pushed and trigger corresponding actions
-		 if(e.target.id === 'submit' || e.target === 'save'){
+		 if(e.target.id === 'submit' || e.target.id === 'save'){
+			 // Clear the date and time field in case it already exists
+			 div.tags.reviewed.html('');
 			 uploadVals(div.values);
 			 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
+			 div.tags.cancel.addClass('hidden');
 		 }
 		 else if(e.target.id === 'edit'){
 			 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
