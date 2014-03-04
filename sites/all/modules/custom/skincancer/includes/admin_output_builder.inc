@@ -119,50 +119,5 @@ class adminOutputBuilder {
 	  $output .= '</div>';
 		return $output;
 	}
-
-	function formLayout() {
-		$admin = $this->_adminSelectOptions[$this->role];
-		$form = '<label for="date_reviewed" class="hidden">Reviewed:</label>';
-		$form .= '<p id="date_reviewed" class="hidden"></p>';
-		$form .= '<label for="select">' . $admin['label'] . '</label>';
-		$form .= '<select id="select" name="select">';
-		foreach($admin['options'] as $opt) {
-			$form .= '<option value="' . $opt['val'] . '"> ' . $opt['label'] . '</option>';
-		}
-		$form .= '</select>';
-		$form .= '<label for="commentField">Comments:</label>';
-		$form .= '<textarea id="commentField"></textarea>';
-		$form .= '<input name="' . $this->role . '" id="submit" class="form-submit"
-			value="Submit" />';
-		return $form;
-	}
-
-	function dataLayout($cellData) {
-		$admin = $this->_adminSelectOptions[$this->role];
-		$dateType = $this->role . '_date';
-		$date = date('m/d/Y', $cellData[$dateType]);
-		$date .= '<br />' . date('g:i a', $cellData[$dateType]);
-		$commentType = $this->role . '_comments';
-		$data = '<label for="date_reviewed">Reviewed:</label>';
-		$data .= '<p id="date_reviewed">' . $date . '</p>';
-		if($this->role == 'staff') {
-			$data .= '<label for="status">' . $admin['label'] . '</label>';
-			$data .= '<p id="status">' . $cellData['status'] . '</p>';
-		}
-		else if($this->role == 'derma') {
-			$data .= '<label for="findings">' . $admin['label'] . '</label>';
-			$data .= '<p id="findings">' . $cellData['findings'] . '</p>';
-		}
-		$data .= '<label for="commentField">Comments:</label>';
-		$commentData = 'No comments';
-		if(!empty($cellData[$commentType])) {
-			$commentData = trim($cellData[$commentType]);
-		}
-		$data .= '<p id="comments"> ' . $commentData . '</p>';
-		$data .= '<textarea id="commentField" class="hidden"></textarea>';
-		$data .= '<input name="' . $this->role . '" id="edit" class="form-submit"
-			value="Edit" />';
-		return $data;
-	}
 	
 }
