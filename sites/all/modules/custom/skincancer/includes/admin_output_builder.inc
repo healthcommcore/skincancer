@@ -80,15 +80,15 @@ class adminOutputBuilder {
 		return $comments;
 	}
 
-	function getAdminButtons($cellData) {
-		$buttons = '<input type="submit" class="form-submit';
-		if(empty($cellData) || $cellData == '') {
-			$buttons .= ' name="submit" id="submit" value="Submit" />';
+	function getAdminButtons($cellData, $date) {
+		$buttons = '<input type="submit" class="form-submit"';
+		if($cellData == '' || $date == ''){
+			$buttons .= ' name="' . $this->role . '" id="submit" value="Submit" />';
 		}
 		else{
-			$buttons .= ' name="edit" id="edit" value="Edit" />';
+			$buttons .= ' name="' . $this->role . '" id="edit" value="Edit" />';
 		}
-		$buttons .= '<input name="' . $this->role . '" id="cancel" class="form-submit hidden" value="Cancel" />';
+		$buttons .= '<input name="' . $this->role . '" id="cancel" type="submit" class="form-submit hidden" value="Cancel" />';
 		return $buttons;
 	}
 
@@ -118,14 +118,14 @@ class adminOutputBuilder {
 	  $output .= '<label for="select"' . $hideForm . '>' . $admin['label'] . '</label>';
 		$output .= '<select id="select" name="select"' . $hideForm . '>';
 		foreach($admin['options'] as $opt) {
-			$output .= '<option value="' . $opt['val'] . '"> ' . $opt['label'] . '</option>';
+			$output .= '<option value="' . $opt['val'] . '">' . $opt['label'] . '</option>';
 		}
 		$output .= '</select>';
 		$output .= $this->getAdminSelections($cellData, $admin, $hideData);
 		$output .= '<label for="commentField">Comments:</label>';
 		$output .= '<textarea id="commentField"' . $hideForm . '></textarea>';
 		$output .= $this->getAdminComments($cellData, $hideData);
-		$output .= $this->getAdminButtons($cellData);
+		$output .= $this->getAdminButtons($cellData, $date);
 		$output .= '<input id="formid" type="hidden" name="formid" value="' . 
 			$this->id . '" />';
 	  $output .= '</div>';
