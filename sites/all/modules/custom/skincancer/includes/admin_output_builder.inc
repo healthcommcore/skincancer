@@ -80,6 +80,18 @@ class adminOutputBuilder {
 		return $comments;
 	}
 
+	function getAdminButtons($cellData) {
+		$buttons = '<input type="submit" class="form-submit';
+		if(empty($cellData) || $cellData == '') {
+			$buttons .= ' name="submit" id="submit" value="Submit" />';
+		}
+		else{
+			$buttons .= ' name="edit" id="edit" value="Edit" />';
+		}
+		$buttons .= '<input name="' . $this->role . '" id="cancel" class="form-submit hidden" value="Cancel" />';
+		return $buttons;
+	}
+
   function generateOutput() {
 		$hideForm = $hideData = $date = $cellData = '';
 		$admin = $this->_adminSelectOptions[$this->role];
@@ -113,7 +125,7 @@ class adminOutputBuilder {
 		$output .= '<label for="commentField">Comments:</label>';
 		$output .= '<textarea id="commentField"' . $hideForm . '></textarea>';
 		$output .= $this->getAdminComments($cellData, $hideData);
-		$output .= '<input name="' . $this->role . '" id="cancel" class="form-submit hidden" value="Cancel" />';
+		$output .= $this->getAdminButtons($cellData);
 		$output .= '<input id="formid" type="hidden" name="formid" value="' . 
 			$this->id . '" />';
 	  $output .= '</div>';
