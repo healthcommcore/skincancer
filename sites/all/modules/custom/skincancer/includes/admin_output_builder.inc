@@ -42,27 +42,77 @@ class adminOutputBuilder {
 		$this->data = $data;
 	}
 
-	function generateOutput() {
+
+	function getDate($dateType, $cellData){
+		$date = '';
+		if(isset($cellData[$dateType])) {
+			$date = date('m/d/Y', $cellData[$dateType]);
+			$date .= '<br />' . date('g:i a', $cellData[$dateType]);
+		}
+		return $date;
+	}
+
+	function getAdminSelections($cellData, $admin, $hideData){
+		$selections = '';
+		if($this->role == 'staff') {
+			$selections .= '<label for="status"' . $hideData . '>' . $admin['label'] . '</label>';
+			$selections .= '<p id="status"' . $hideData . '>';
+      $selections .= isset($cellData['status']) ? $cellData['status'] : '';
+			$selections .= '</p>';
+		}
+		else if($this->role == 'derma') {
+			$selections .= '<label for="findings"' . $hideData . '>' . $admin['label'] . '</label>';
+			$selections .= '<p id="findings"' . $hideData . '>';
+      $selections .= isset($cellData['findings']) ? $cellData['findings'] : '';
+			$selections .= '</p>';
+		}
+		return $selections;
+	}
+
+	function getAdminComments($cellData, $hideData){
+		$comments = '';
+		$commentData = 'No comments';
+		$commentType = $this->role . '_comments';
+		if(isset($cellData[$commentType]) && !empty($cellData[$commentType])) {
+			$commentData = trim($cellData[$commentType]);
+		}
+		$comments .= '<p id="comments"' . $hideData . '> ' . $commentData . '</p>';
+		return $comments;
+	}
+
+  function generateOutput() {
+		$hideForm = $hideData = $date = $cellData = '';
+		$admin = $this->_adminSelectOptions[$this->role];
 	  $output = '<div id="admin_form">';	
-		$title = $this->_adminSelectOptions[$this->role]['title'];
-		$output .= '<h2>' . $title . '</h2>';
+		$output .= '<h2>' . $admin['title'] . '</h2>';
 		if(array_key_exists($this->id, $this->data)){
 		  $cellData = $this->data[$this->id];
 			// I chose the required date field to check if a record exists for this
 			// admin type.
-		  $date = $this->role . '_date';
-			if($cellData[$date] > 0) {
-			  $output .= $this->dataLayout($cellData);
+		  $dateType = $this->role . '_date';
+			if($cellData[$dateType] > 0) {
+				$hideForm = ' class="hidden"';
+				$date = $this->getDate($dateType, $cellData);
 			}
 			else{
-			  $output .= $this->formLayout();
+				$hideData = ' class="hidden"';
 			}
-			//dpm($this->data);
 		}
 		else{
-			//$output .= $this->dataLayout();
-			$output .= $this->formLayout();
+			$hideData = 'class="hidden"';
 		}
+		$output .= '<label for="date_reviewed"' . $hideData . '>Reviewed:</label>';
+		$output .= '<p id="date_reviewed"' .  $hideData . '>' . $date . '</p>';
+	  $output .= '<label for="select"' . $hideForm . '>' . $admin['label'] . '</label>';
+		$output .= '<select id="select" name="select"' . $hideForm . '>';
+		foreach($admin['options'] as $opt) {
+			$output .= '<option value="' . $opt['val'] . '"> ' . $opt['label'] . '</option>';
+		}
+		$output .= '</select>';
+		$output .= $this->getAdminSelections($cellData, $admin, $hideData);
+		$output .= '<label for="commentField">Comments:</label>';
+		$output .= '<textarea id="commentField"' . $hideForm . '></textarea>';
+		$output .= $this->getAdminComments($cellData, $hideData);
 		$output .= '<input name="' . $this->role . '" id="cancel" class="form-submit hidden" value="Cancel" />';
 		$output .= '<input id="formid" type="hidden" name="formid" value="' . 
 			$this->id . '" />';
