@@ -3,7 +3,6 @@
 	 var div = {};
 	 div.form = null;
 	 $(document).click(function(e){
-		 //console.log(e);
 		 div.form = $(e.target).parent();
 		 var form = div.form;
 		 div.values ={
@@ -23,7 +22,7 @@
 			 textarea: $(form).find('#commentField'),
 		   cancel: $(form).find('#cancel'),
 			};
-
+			e.target.blur();
 // Determine which button was pushed and trigger corresponding actions
 		 if(e.target.id === 'submit' || e.target.id === 'save'){
 			 // Clear the date and time field in case it already exists
@@ -38,6 +37,9 @@
 			 editView(form, div.values, div.tags);
 		 }
 		 else if(e.target.id === 'cancel'){
+			 revertView(form, div.values, div.tags);
+			 $('#save').attr({'id' : 'edit', 'value' : 'Edit'});
+			 div.tags.cancel.addClass('hidden');
 		 }
 		 
 	 });
@@ -90,42 +92,21 @@
 				 $(this).attr('selected', true);
 			 }
 		 });
-		 //tags.select.find('option[value="' + tags.selectVal + '"]').attr('selected', true);
-			 //console.log(id);
 	 }
+
    function revertView(form, values, tags) {
-		 var toShow = [tags.reviewedLabel, tags.reviewed, tags.commentVal];
 		 var toHide = [tags.select, tags.textarea, tags.selectLabel];
+		 var toShow = [tags.reviewedLabel, tags.reviewed, tags.commentVal];
 		 var selection = (values.role === 'staff' ? 'status' : 'findings');
-		 toHide.push(form.find('label[for="' + selection + '"]'));
-		 toHide.push(form.find('#' + selection));
+		 toShow.push(form.find('label[for="' + selection + '"]'));
+		 toShow.push(form.find('#' + selection));
 		 $(toHide).each(function() {
 		   $(this).addClass('hidden');
 		 });
 		 $(toShow).each(function() {
 		   $(this).removeClass('hidden');
 		 });
-		 tags.textarea.html(tags.commentVal.text());
-		 var selectText = form.find('#' + selection).text();
-		 tags.select.find('option').each(function(){
-			 if($(this).text() == selectText) {
-				 $(this).attr('selected', true);
-			 }
-		 });
-		 //tags.select.find('option[value="' + tags.selectVal + '"]').attr('selected', true);
-			 //console.log(id);
-	 }
-
-	 /*
-	function reformatView(values, tags, id) {
-		if(id === 'edit'){
-			$(e.target).attr({'id' : 'save', 'value' : 'Save'});
-			div.tags.cancel.removeClass('hidden');
-		}
-		else if(id === 'cancel'){
-		}
 	}
-*/
 	 
  });
 })(jQuery);
