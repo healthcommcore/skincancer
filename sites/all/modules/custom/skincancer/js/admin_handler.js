@@ -2,7 +2,7 @@
  $(document).ready(function(){
 	 var div = {};
 	 div.form = null;
-	 $(document).click(function(e){
+	 $(document).on('click', function(e){
 		 div.form = $(e.target).parent();
 		 var form = div.form;
 		 div.values ={
@@ -22,26 +22,33 @@
 			 textarea: $(form).find('#commentField'),
 		   cancel: $(form).find('#cancel'),
 			};
+
+		 div.arrays = {
+		  dataArray: [this.tags.reviewedLabel, this.tags.reviewed, this.tags.commentVal],
+      formArray: [this.tags.select, this.tags.textarea, this.tags.selectLabel],
+		 };
 			e.target.blur();
+		  var selection = (div.values.role === 'staff' ? 'status' : 'findings');
+		  div.arrays.dataArray.push(form.find('label[for="' + selection + '"]'));
+		  div.arrays.dataArray.push(form.find('#' + selection));
 // Determine which button was pushed and trigger corresponding actions
 		 if(e.target.id === 'submit' || e.target.id === 'save'){
 			 // Clear the date and time field in case it already exists
 			 div.tags.reviewed.html('');
-			 uploadVals(div.values);
 			 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
 			 div.tags.cancel.addClass('hidden');
+			 uploadVals(div.values);
 		 }
 		 else if(e.target.id === 'edit'){
 			 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
 			 div.tags.cancel.removeClass('hidden');
-			 editView(form, div.values, div.tags);
+			 visibility(div.arrays.dataArray, div.arrays.formArray);
 		 }
 		 else if(e.target.id === 'cancel'){
-			 revertView(form, div.values, div.tags);
 			 $('#save').attr({'id' : 'edit', 'value' : 'Edit'});
 			 div.tags.cancel.addClass('hidden');
+			 visibility(div.arrays.formArray, div.arrays.dataArray);
 		 }
-		 
 	 });
 
    function uploadVals(values) {
@@ -69,8 +76,6 @@
 		 div.tags.selectLabel.after('<p id="' + selectId + '">' + div.values.selected + '</p>');
 		 div.tags.textarea.addClass('hidden');
 		 div.tags.commentsLabel.after('<p id="comments">' + comments + '</p>');
-
-		 //console.log(time);
 	 }
 
 	 function editView(form, values, tags) {
