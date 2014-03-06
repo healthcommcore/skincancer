@@ -1,8 +1,13 @@
 (function($){
  $(document).ready(function(){
+
+// Create div object in which targeted DOM elements will be stored
 	 var div = {};
 	 div.form = null;
-	 $(document).on('click', function(e){
+	 $(document).bind('click', function(e){
+
+// Load all DOM elements native to the admin form which contains the button
+// just clicked
 		 div.form = $(e.target).parent();
 		 var form = div.form;
 		 div.values ={
@@ -21,45 +26,56 @@
 			 commentVal: $(form).find('#comments'),
 			 textarea: $(form).find('#commentField'),
 		   cancel: $(form).find('#cancel'),
+		   del: $(form).find('#delete'),
 			};
-
 		 div.arrays = {
-		  dataArray: [this.tags.reviewedLabel, this.tags.reviewed, this.tags.commentVal],
-      formArray: [this.tags.select, this.tags.textarea, this.tags.selectLabel],
+		  dataArray: [div.tags.reviewedLabel, div.tags.reviewed, div.tags.commentVal, div.tags.del],
+      formArray: [div.tags.select, div.tags.textarea, div.tags.selectLabel, div.tags.cancel],
 		 };
-			e.target.blur();
-		  var selection = (div.values.role === 'staff' ? 'status' : 'findings');
-		  div.arrays.dataArray.push(form.find('label[for="' + selection + '"]'));
-		  div.arrays.dataArray.push(form.find('#' + selection));
-// Determine which button was pushed and trigger corresponding actions
+
+// Add to div arrays now that role is determined
+		  var selectId = (div.values.role === 'staff' ? 'status' : 'findings');
+		  div.arrays.dataArray.push(form.find('label[for="' + selectId + '"]'));
+		  div.arrays.dataArray.push(form.find('#' + selectId));
+
+// Determine the id of the clicked button and trigger corresponding actions
 		 if(e.target.id === 'submit' || e.target.id === 'save'){
-			 // Clear the date and time field in case it already exists
-			 div.tags.reviewed.html('');
-			 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
-			 div.tags.cancel.addClass('hidden');
-			 uploadVals(div.values);
+			 if(div.tags.selectVal === '0') {
+				 var toSelect = (div.values.role === 'staff' ? 'photo status' : 'finding');
+				 warn('You must select a <strong>' + toSelect + '</strong>').fadeIn();
+			 }
+			 else{
+// Clear the date and time field in case it already exists
+				 div.tags.reviewed.html('');
+				 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
+				 uploadVals(div.values, selectId);
+			 }
 		 }
 		 else if(e.target.id === 'edit'){
 			 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
-			 div.tags.cancel.removeClass('hidden');
-			 visibility(div.arrays.dataArray, div.arrays.formArray);
+			 editView(div.form, div.tags, selectId);
+			 showHide(div.arrays.formArray, div.arrays.dataArray);
 		 }
 		 else if(e.target.id === 'cancel'){
 			 $('#save').attr({'id' : 'edit', 'value' : 'Edit'});
-			 div.tags.cancel.addClass('hidden');
-			 visibility(div.arrays.formArray, div.arrays.dataArray);
+			 showHide(div.arrays.dataArray, div.arrays.formArray);
+		 }
+		 else if(e.target.id === 'closeWarn'){
+			 e.preventDefault();
+			 $('#warn').remove();
 		 }
 	 });
 
-   function uploadVals(values) {
+// AJAX upload to php script and then format active admin form to reflect data submission
+   function uploadVals(values, selectId) {
 	   $.ajax({
        url:'sites/all/modules/custom/skincancer/includes/upload_data.php',
 			 type: 'POST',
        data: values,
 			 dataType: 'json',
        success: function(data, status, jqXHR){
-			   loadView(data);
-			   //console.log();
+			   loadView(data, selectId);
+			   showHide(div.arrays.dataArray, div.arrays.formArray);
 	     },
        error: function(jqXHR, textStatus, errorThrown){
          console.log(errorThrown);
@@ -67,31 +83,20 @@
 		 });
 	 }
 
-	 function loadView(time) {
-		 var selectId = div.values.role == 'staff' ? 'status' : 'findings';
-		 var comments = div.values.comment ==='' ? 'No comments' : div.values.comment;
-		 div.tags.reviewedLabel.removeClass('hidden');
-		 div.tags.reviewed.removeClass('hidden').append(time);
-		 div.tags.select.addClass('hidden');
-		 div.tags.selectLabel.after('<p id="' + selectId + '">' + div.values.selected + '</p>');
-		 div.tags.textarea.addClass('hidden');
-		 div.tags.commentsLabel.after('<p id="comments">' + comments + '</p>');
+// Load selected data into active admin form for view only
+	 function loadView(time, selectId) {
+		 var selectTag = div.form.find('#' + selectId);
+		 div.tags.reviewed.append(time);
+		 $(selectTag).html(div.values.selected);
+		 if(div.values.comment != '') {
+			 $(div.tags.commentVal).html(div.values.comment);
+		 }
 	 }
 
-	 function editView(form, values, tags) {
-		 var toHide = [tags.reviewedLabel, tags.reviewed, tags.commentVal];
-		 var toShow = [tags.select, tags.textarea, tags.selectLabel];
-		 var selection = (values.role === 'staff' ? 'status' : 'findings');
-		 toHide.push(form.find('label[for="' + selection + '"]'));
-		 toHide.push(form.find('#' + selection));
-		 $(toHide).each(function() {
-		   $(this).addClass('hidden');
-		 });
-		 $(toShow).each(function() {
-		   $(this).removeClass('hidden');
-		 });
-		 tags.textarea.html(tags.commentVal.text());
-		 var selectText = form.find('#' + selection).text();
+// Revert active admin form from view only to edit mode but load most recent data
+   function editView(form, tags, selectId) {
+     tags.textarea.html(tags.commentVal.text());
+		 var selectText = form.find('#' + selectId).text();
 		 tags.select.find('option').each(function(){
 			 if($(this).text() == selectText) {
 				 $(this).attr('selected', true);
@@ -99,20 +104,31 @@
 		 });
 	 }
 
-   function revertView(form, values, tags) {
-		 var toHide = [tags.select, tags.textarea, tags.selectLabel];
-		 var toShow = [tags.reviewedLabel, tags.reviewed, tags.commentVal];
-		 var selection = (values.role === 'staff' ? 'status' : 'findings');
-		 toShow.push(form.find('label[for="' + selection + '"]'));
-		 toShow.push(form.find('#' + selection));
-		 $(toHide).each(function() {
-		   $(this).addClass('hidden');
-		 });
-		 $(toShow).each(function() {
+// Efficiency function to show array elements in first argument and hide array
+// elements in second argument
+	 function showHide(toShow, toHide) {
+		 $(toShow).each(function(){
 		   $(this).removeClass('hidden');
 		 });
-	}
-	 
+		 $(toHide).each(function(){
+		   $(this).addClass('hidden');
+		 });
+	 }
+
+// Create a container for the purposes of alerting the user with a message
+	 function warn(warning){
+		 var warnDiv = $('<div id="warn" class="warn" />');
+		 var close = $('<a id="closeWarn" class="closeWarn" href="#">X</a>');
+		 var title = $('<h2>Warning!</h2>');
+		 var message = $('<p>' + warning + '</p>');
+		 $([close, title, message]).each(function(){
+		   warnDiv.append($(this));
+		 });
+		 $('body').prepend(warnDiv);
+		 var leftPos = ($(document).width() / 2) - (warnDiv.width() / 2);
+		 warnDiv.css({'left': leftPos}).hide();
+		 return warnDiv;
+	 }
  });
 })(jQuery);
 
