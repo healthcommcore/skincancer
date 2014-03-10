@@ -70,10 +70,18 @@
 				 warn('Are you sure you want to delete this entry?', true).fadeIn();
 				 $('#ok').bind('click', function(){
 				   var toDelete = {'delete' : true, id : div.values.id, role : div.values.role};
-					 //console.log(toDelete);
 					 uploadVals(toDelete, null);
+				   resetView(div.tags);
+			     showHide(div.arrays.formArray, div.arrays.dataArray);
 				 });
 			 break;
+			 /*
+		   case 'ok':
+				 var toDelete = {'delete' : true, id : div.values.id, role : div.values.role};
+				 uploadVals(toDelete, null);
+				 $('#warn').remove();
+			 break;
+			 */
 		 }
 	 });
 
@@ -85,11 +93,7 @@
        data: values,
 			 dataType: 'json',
        success: function(data, status, jqXHR){
-			   if(selectId == null) {
-				   resetView(div.tags);
-			     showHide(div.arrays.formArray, div.arrays.dataArray);
-				 }
-				 else{
+			   if(selectId !== null) {
 			     loadView(data, selectId);
 			     showHide(div.arrays.dataArray, div.arrays.formArray);
 				 }

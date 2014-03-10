@@ -20,7 +20,7 @@ if(isset($_POST['role']) && isset($_POST['id'])) {
 	$id = $db->real_escape_string($_POST['id']);
 	$fields = getAdminFields($role);
 
-	if(isset($_POST['selected']) {
+	if(isset($_POST['selected'])) {
 			$selection = $db->real_escape_string($_POST['selected']);
 			$comment = $db->real_escape_string($_POST['comment']);
 			$date = strtotime('now');
@@ -45,7 +45,6 @@ if(isset($_POST['role']) && isset($_POST['id'])) {
 			echo json_encode($mdy . $time);
 	}
 	else if(isset($_POST['delete'])) {
-		echo "Delete has been triggered";
 		$deleteRecord = "DELETE FROM " . TABLE . " WHERE " . ID . "=" . $id;
 		$deleteFields = "UPDATE " . TABLE . " SET " . $fields['selection'] . "='', " . 
 			          $fields['date'] . "=0, " . $fields['comment'] . "=''" . " WHERE " . ID . "=" . $id;
@@ -78,7 +77,8 @@ function fieldsExist($role, $id) {
 	$otherFields = getAdminFields($otherRole);
 	$query = "SELECT " . $otherFields['date'] . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
 	$result = $db->query($query);
-  return $result->num_rows > 0;
+  //return $result;
+  return $result->fetch_assoc;
 }	
 
 function getAdminFields($role) {
