@@ -39,30 +39,41 @@
 		  div.arrays.dataArray.push(form.find('#' + selectId));
 
 // Determine the id of the clicked button and trigger corresponding actions
-		 if(e.target.id === 'submit' || e.target.id === 'save'){
-			 if(div.tags.selectVal === '0') {
-				 var toSelect = (div.values.role === 'staff' ? 'photo status' : 'finding');
-				 warn('You must select a <strong>' + toSelect + '</strong>').fadeIn();
-			 }
-			 else{
-// Clear the date and time field in case it already exists
-				 div.tags.reviewed.html('');
-				 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
-				 uploadVals(div.values, selectId);
-			 }
-		 }
-		 else if(e.target.id === 'edit'){
-			 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
-			 editView(div.form, div.tags, selectId);
-			 showHide(div.arrays.formArray, div.arrays.dataArray);
-		 }
-		 else if(e.target.id === 'cancel'){
-			 $('#save').attr({'id' : 'edit', 'value' : 'Edit'});
-			 showHide(div.arrays.dataArray, div.arrays.formArray);
-		 }
-		 else if(e.target.id === 'closeWarn'){
-			 e.preventDefault();
-			 $('#warn').remove();
+		 switch(e.target.id) {
+			 case 'submit':
+			 case 'save':
+				 if(div.tags.selectVal === '0') {
+					 var toSelect = (div.values.role === 'staff' ? 'photo status' : 'finding');
+					 warn('You must select a <strong>' + toSelect + '</strong>', false).fadeIn();
+				 }
+				 else{
+	// Clear the date and time field in case it already exists
+					 div.tags.reviewed.html('');
+					 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
+					 uploadVals(div.values, selectId);
+				 }
+			 break;
+		   case 'edit':
+				 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
+				 editView(div.form, div.tags, selectId);
+				 showHide(div.arrays.formArray, div.arrays.dataArray);
+			 break;
+		   case 'cancel':
+				 $('#save').attr({'id' : 'edit', 'value' : 'Edit'});
+				 showHide(div.arrays.dataArray, div.arrays.formArray);
+			 break;
+		   case 'closeWarn':
+				 e.preventDefault();
+				 $('#warn').remove();
+			 break;
+		   case 'delete':
+				 warn('Are you sure you want to delete this entry?', true).fadeIn();
+				 $('#ok').bind('click', function(){
+				   var toDelete = {'delete' : true, id : div.values.id, role : div.values.role};
+					 //console.log(toDelete);
+					 uploadVals(toDelete, null);
+				 });
+			 break;
 		 }
 	 });
 
@@ -74,8 +85,14 @@
        data: values,
 			 dataType: 'json',
        success: function(data, status, jqXHR){
-			   loadView(data, selectId);
-			   showHide(div.arrays.dataArray, div.arrays.formArray);
+			   if(selectId == null) {
+				   resetView(div.tags);
+			     showHide(div.arrays.formArray, div.arrays.dataArray);
+				 }
+				 else{
+			     loadView(data, selectId);
+			     showHide(div.arrays.dataArray, div.arrays.formArray);
+				 }
 	     },
        error: function(jqXHR, textStatus, errorThrown){
          console.log(errorThrown);
@@ -104,6 +121,11 @@
 		 });
 	 }
 
+   function resetView(tags) {
+     tags.textarea.html('');
+		 tags.select.find('option[value="0"]').attr('selected', true);
+	 }
+
 // Efficiency function to show array elements in first argument and hide array
 // elements in second argument
 	 function showHide(toShow, toHide) {
@@ -116,17 +138,22 @@
 	 }
 
 // Create a container for the purposes of alerting the user with a message
-	 function warn(warning){
+	 function warn(warning, showButton){
 		 var warnDiv = $('<div id="warn" class="warn" />');
 		 var close = $('<a id="closeWarn" class="closeWarn" href="#">X</a>');
 		 var title = $('<h2>Warning!</h2>');
 		 var message = $('<p>' + warning + '</p>');
+		 var ok = $('<input type="Submit" id="ok" class="form-submit" value="OK" />');
 		 $([close, title, message]).each(function(){
 		   warnDiv.append($(this));
 		 });
+		 if(showButton) {
+			 warnDiv.append(ok);
+		 }
 		 $('body').prepend(warnDiv);
 		 var leftPos = ($(document).width() / 2) - (warnDiv.width() / 2);
 		 warnDiv.css({'left': leftPos}).hide();
+
 		 return warnDiv;
 	 }
  });

@@ -12,30 +12,48 @@ if($db->connect_errno) {
 }
 
 // This area is for inserting/updating data to database from admin forms
-if(isset($_POST['role']) && isset($_POST['id']) && isset($_POST['selected'])) {
+if(isset($_POST['role']) && isset($_POST['id'])) {
 	
 	// Clean and fill variables with form data from admin area sent through AJAX
+	$query;
 	$role = $db->real_escape_string($_POST['role']);
 	$id = $db->real_escape_string($_POST['id']);
-	$selection = $db->real_escape_string($_POST['selected']);
-	$comment = $db->real_escape_string($_POST['comment']);
 	$fields = getAdminFields($role);
-	$date = strtotime('now');
 
-	// Determine if we are inserting new values or updating a row that already 
-	// exists
-	$insertQuery = "INSERT INTO " . TABLE . " (" . ID . ", " . $fields['selection'] .
-		", " . $fields['date'] . ", " . $fields['comment'] . ") " .
-		"VALUES (" . $id . ", '" . $selection	. "', " . $date . ", '" . $comment . "')";
+	if(isset($_POST['selected']) {
+			$selection = $db->real_escape_string($_POST['selected']);
+			$comment = $db->real_escape_string($_POST['comment']);
+			$date = strtotime('now');
 
-	$updateQuery = "UPDATE " . TABLE . " SET " . $fields['selection'] . "='" . $selection .
-		"', " . $fields['date'] . "=" . $date . ", " . $fields['comment'] . "='" . $comment .
-		"' WHERE " . ID . "=" . $id;
+			// Determine if we are inserting new values or updating a row that already 
+			// exists
+			$insertQuery = "INSERT INTO " . TABLE . " (" . ID . ", " . $fields['selection'] .
+				", " . $fields['date'] . ", " . $fields['comment'] . ") " .
+				"VALUES (" . $id . ", '" . $selection	. "', " . $date . ", '" . $comment . "')";
 
-	$query = idExists($id) ? $updateQuery : $insertQuery;
+			$updateQuery = "UPDATE " . TABLE . " SET " . $fields['selection'] . "='" . $selection .
+				"', " . $fields['date'] . "=" . $date . ", " . $fields['comment'] . "='" . $comment .
+				"' WHERE " . ID . "=" . $id;
 
-	// Use mysqli's prepare statement as security precaution before running query
-	if(!$stmt = $db->prepare($query)) {
+			$query = idExists($id) ? $updateQuery : $insertQuery;
+
+			// Use mysqli's prepare statement as security precaution before running query
+			
+
+			$mdy = date('m/d/Y', $date);
+			$time .= '<br />' . date('g:i a', $date);
+			echo json_encode($mdy . $time);
+	}
+	else if(isset($_POST['delete'])) {
+		echo "Delete has been triggered";
+		$deleteRecord = "DELETE FROM " . TABLE . " WHERE " . ID . "=" . $id;
+		$deleteFields = "UPDATE " . TABLE . " SET " . $fields['selection'] . "='', " . 
+			          $fields['date'] . "=0, " . $fields['comment'] . "=''" . " WHERE " . ID . "=" . $id;
+
+		$query = fieldsExist($role, $id) ? $deleteFields : $deleteRecord;
+	}
+
+	if(isset($query) && !$stmt = $db->prepare($query)) {
 			echo "Prepare failed: (" . $db->errno . ") " . $db->error;
 	}
 	$stmt->bind_param('isis', $id, $selection, $date, $comment);
@@ -43,18 +61,22 @@ if(isset($_POST['role']) && isset($_POST['id']) && isset($_POST['selected'])) {
 	if(!$stmt->execute()) {
 		echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
-
-	$mdy = date('m/d/Y', $date);
-	$time .= '<br />' . date('g:i a', $date);
-	echo json_encode($mdy . $time);
-
+}
 /*
  */
-}
 
 function idExists($id) {
 	global $db;
 	$query = "SELECT " . ID . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
+	$result = $db->query($query);
+  return $result->num_rows > 0;
+}	
+
+function fieldsExist($role, $id) {
+	global $db;
+	$otherRole = ($role == 'staff' ? 'derma' : 'staff');
+	$otherFields = getAdminFields($otherRole);
+	$query = "SELECT " . $otherFields['date'] . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
 	$result = $db->query($query);
   return $result->num_rows > 0;
 }	
