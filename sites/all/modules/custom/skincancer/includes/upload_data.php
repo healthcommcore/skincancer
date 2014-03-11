@@ -10,6 +10,13 @@ $db = new mysqli('localhost', USER, PWORD, DB);
 if($db->connect_errno) {
 	echo "Connection failure";
 }
+/*
+	//$query = "SELECT " . ID . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
+	$query = "SELECT derma_review_date FROM " . TABLE . " WHERE " . ID . "=5";
+	//$query = "SELECT * FROM " . TABLE;
+	$result = $db->query($query);
+	print_r($result->fetch_assoc());
+ */
 
 // This area is for inserting/updating data to database from admin forms
 if(isset($_POST['role']) && isset($_POST['id'])) {
@@ -77,8 +84,9 @@ function fieldsExist($role, $id) {
 	$otherFields = getAdminFields($otherRole);
 	$query = "SELECT " . $otherFields['date'] . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
 	$result = $db->query($query);
+	$row = $result->fetch_assoc();
   //return $result;
-  return $result->fetch_assoc;
+  return $row[$otherFields['date']] > 0;
 }	
 
 function getAdminFields($role) {

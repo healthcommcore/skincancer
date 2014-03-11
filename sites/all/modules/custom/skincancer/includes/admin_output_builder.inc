@@ -87,7 +87,8 @@ class adminOutputBuilder {
 		}
 		else{
 			$buttons .= ' name="' . $this->role . '" id="edit" value="Edit" />';
-		  $buttons .= '<input name="' . $this->role . '" id="delete" type="submit" class="form-submit" value="Delete" />';
+		  $buttons .= '<input name="' . $this->role . '" id="clear" type="submit"
+				                                class="form-submit" value="Clear" />';
 		}
 		$buttons .= '<input name="' . $this->role . '" id="cancel" type="submit" class="form-submit hidden" value="Cancel" />';
 		return $buttons;

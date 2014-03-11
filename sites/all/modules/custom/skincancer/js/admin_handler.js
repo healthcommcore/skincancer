@@ -25,12 +25,12 @@
 			 commentsLabel: $(form).find('label[for="commentField"]'),
 			 commentVal: $(form).find('#comments'),
 			 textarea: $(form).find('#commentField'),
+		   clear: $(form).find('#clear'),
 		   cancel: $(form).find('#cancel'),
-		   del: $(form).find('#delete'),
 			};
 		 div.arrays = {
-		  dataArray: [div.tags.reviewedLabel, div.tags.reviewed, div.tags.commentVal, div.tags.del],
-      formArray: [div.tags.select, div.tags.textarea, div.tags.selectLabel, div.tags.cancel],
+		  dataArray: [div.tags.reviewedLabel, div.tags.reviewed, div.tags.commentVal],
+      formArray: [div.tags.select, div.tags.textarea, div.tags.selectLabel],
 		 };
 
 // Add to div arrays now that role is determined
@@ -47,41 +47,48 @@
 					 warn('You must select a <strong>' + toSelect + '</strong>', false).fadeIn();
 				 }
 				 else{
+					 if(e.target.id == 'submit') {
+						 $(e.target).after($('<input type="Submit" id="clear" class="form-submit" value="Clear" />'));
+					 }
 	// Clear the date and time field in case it already exists
 					 div.tags.reviewed.html('');
 					 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
 					 uploadVals(div.values, selectId);
+				   div.tags.cancel.addClass('hidden');
+				   div.tags.clear.removeClass('hidden');
 				 }
 			 break;
 		   case 'edit':
 				 $(e.target).attr({'id' : 'save', 'value' : 'Save'});
 				 editView(div.form, div.tags, selectId);
 				 showHide(div.arrays.formArray, div.arrays.dataArray);
+				 div.tags.cancel.removeClass('hidden');
+				 div.tags.clear.addClass('hidden');
 			 break;
 		   case 'cancel':
 				 $('#save').attr({'id' : 'edit', 'value' : 'Edit'});
 				 showHide(div.arrays.dataArray, div.arrays.formArray);
+				 div.tags.cancel.addClass('hidden');
+				 div.tags.clear.removeClass('hidden');
 			 break;
 		   case 'closeWarn':
 				 e.preventDefault();
 				 $('#warn').remove();
 			 break;
-		   case 'delete':
-				 warn('Are you sure you want to delete this entry?', true).fadeIn();
+		   case 'clear':
+// Clear entry option and corresponding click handler. View will reset 
+// and certain buttons will appear/disappear
+				 warn('Are you sure you want to clear all feedback in this table cell??', true).fadeIn();
 				 $('#ok').bind('click', function(){
 				   var toDelete = {'delete' : true, id : div.values.id, role : div.values.role};
 					 uploadVals(toDelete, null);
 				   resetView(div.tags);
 			     showHide(div.arrays.formArray, div.arrays.dataArray);
+					 div.tags.clear.addClass('hidden');
+					 $('#edit').attr({'id' : 'submit', 'value' : 'Submit'});
+				   $('#warn').remove();
 				 });
 			 break;
-			 /*
-		   case 'ok':
-				 var toDelete = {'delete' : true, id : div.values.id, role : div.values.role};
-				 uploadVals(toDelete, null);
-				 $('#warn').remove();
-			 break;
-			 */
 		 }
 	 });
 
@@ -125,6 +132,7 @@
 		 });
 	 }
 
+// Clear all data and reset view back to default
    function resetView(tags) {
      tags.textarea.html('');
 		 tags.select.find('option[value="0"]').attr('selected', true);
