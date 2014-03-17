@@ -22,6 +22,8 @@
 			 selectLabel: $(form).find('label[for="select"]'),
 			 select: $(form).find('#select'),
 			 selectVal: $(form).find('option:selected').val(),
+			 statusLabel: $(form).find('label[for="status"]'),
+			 adminStatus: $(form).find('#status'),
 			 commentsLabel: $(form).find('label[for="commentField"]'),
 			 commentVal: $(form).find('#comments'),
 			 textarea: $(form).find('#commentField'),
@@ -29,7 +31,13 @@
 		   cancel: $(form).find('#cancel'),
 			};
 		 div.arrays = {
-		  dataArray: [div.tags.reviewedLabel, div.tags.reviewed, div.tags.commentVal],
+       dataArray: [
+		     div.tags.reviewedLabel, 
+				 div.tags.reviewed, 
+				 div.tags.statusLabel, 
+				 div.tags.adminStatus, 
+				 div.tags.commentVal
+			 ],
       formArray: [div.tags.select, div.tags.textarea, div.tags.selectLabel],
 		 };
 
@@ -47,9 +55,6 @@
 					 warn('You must select a <strong>' + toSelect + '</strong>', false).fadeIn();
 				 }
 				 else{
-					 if(e.target.id == 'submit') {
-						 $(e.target).after($('<input type="Submit" id="clear" class="form-submit" value="Clear" />'));
-					 }
 	// Clear the date and time field in case it already exists
 					 div.tags.reviewed.html('');
 					 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});

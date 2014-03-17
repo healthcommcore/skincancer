@@ -81,15 +81,17 @@ class adminOutputBuilder {
 	}
 
 	function getAdminButtons($cellData, $date) {
+		$clrButClass = 'form-submit';
 		$buttons = '<input type="submit" class="form-submit"';
 		if($cellData == '' || $date == ''){
 			$buttons .= ' name="' . $this->role . '" id="submit" value="Submit" />';
+			$clrButClass = $clrButClass . ' hidden';
 		}
 		else{
 			$buttons .= ' name="' . $this->role . '" id="edit" value="Edit" />';
-		  $buttons .= '<input name="' . $this->role . '" id="clear" type="submit"
-				                                class="form-submit" value="Clear" />';
 		}
+		$buttons .= '<input name="' . $this->role . '" id="clear" type="submit"
+			                      class="' . $clrButClass . '" value="Clear" />';
 		$buttons .= '<input name="' . $this->role . '" id="cancel" type="submit" class="form-submit hidden" value="Cancel" />';
 		return $buttons;
 	}
