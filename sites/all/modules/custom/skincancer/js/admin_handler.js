@@ -1,5 +1,6 @@
 (function($){
  $(document).ready(function(){
+	 rowColorSetup();
 
 // Create div object in which targeted DOM elements will be stored
 	 var div = {};
@@ -172,6 +173,26 @@
 		 warnDiv.css({'left': leftPos}).hide();
 
 		 return warnDiv;
+	 }
+
+   function rowColorSetup(){
+     var findings = $('p#findings');
+     var photoStatus = $('p#status').filter(':contains(Ready for review)');
+     var complete = $('p#status').filter(':contains(Review complete)');
+     //var photoStatus = $('p#status');
+		 /*
+		 */
+		 $(photoStatus).each(function(){
+		   $(this).parent().parent().parent().addClass('yellowRow');
+		 });
+		 $(findings).each(function(){
+			 if($(this).text() != ''){
+		     $(this).parent().parent().parent().removeClass('yellowRow').addClass('blueRow');
+			 }
+		 });
+		 $(complete).each(function(){
+		   $(this).parent().parent().parent().removeClass('blueRow').addClass('complete');
+		 });
 	 }
  });
 })(jQuery);

@@ -1,3 +1,36 @@
 .hidden{display:none;}
-#warn{position:fixed; z-index:200; padding:10px 20px; background:#fff; top:200px; width:200px; border:#666 3px solid;}
+#warn{
+	font-size:1.2em;
+	position:fixed; 
+	z-index:200; 
+	padding:15px 25px; 
+	background:#FFEA70; 
+	top:200px; 
+	width:500px; 
+	border:#666 3px solid;
+	box-shadow: 0px 0px 18px #666;
+	-webkit-box-shadow: 0px 0px 18px #666;
+	-moz-box-shadow: 0px 0px 18px #666;
+}
+#warn h2{color:#BA2323;}
+#warn a{background:#689EE8; color:#fff;}
 .closeWarn{float:right; padding:0 5px; border:#000 1px solid;}
+
+.view-skin-cancer-admin-view table{font-size:1em;}
+.view-skin-cancer-admin-view td.views-field-view{width:40%;}
+.view-skin-cancer-admin-view td{padding:30px; vertical-align: top; overflow:hidden; width:30%;}
+.yellowRow{background:#FCFC9A;}
+.blueRow{background:#CCE6FF;}
+.complete{background:#999; font-style:italic;}
+
+.view-skin-cancer-admin img{margin: 0 15px 0 0; float:left;}
+.view-skin-cancer-admin .views-label{font-weight:bold;}
+.admin-select, .commentField, .view-skin-cancer-admin-view td{border:#bbb 1px solid;}
+#admin_form label{margin:12px 0 0 0;}
+#admin_form h2{margin:0 0 10px 0;}
+#admin_form p{margin:0 0 5px 0;}
+#admin_form input[type=submit]{margin:10px 20px 10px 0;}
+.admin-select, .commentField{margin-bottom:15px;}
+.admin-select{width:300px; font-size:1.1em; margin:5px 0;}
+.commentField{width:100%; margin:5px 0; min-height:70px;}
+
