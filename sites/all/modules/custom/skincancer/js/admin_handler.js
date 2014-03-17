@@ -59,6 +59,7 @@
 	// Clear the date and time field in case it already exists
 					 div.tags.reviewed.html('');
 					 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
+					 changeRowColor();
 					 uploadVals(div.values, selectId);
 				   div.tags.cancel.addClass('hidden');
 				   div.tags.clear.removeClass('hidden');
@@ -90,6 +91,7 @@
 					 uploadVals(toDelete, null);
 				   resetView(div.tags);
 			     showHide(div.arrays.formArray, div.arrays.dataArray);
+					 changeRowColor(div.values.role);
 					 div.tags.clear.addClass('hidden');
 					 $('#edit').attr({'id' : 'submit', 'value' : 'Submit'});
 				   $('#warn').remove();
@@ -193,6 +195,31 @@
 		 $(complete).each(function(){
 		   $(this).parent().parent().parent().removeClass('blueRow').addClass('complete');
 		 });
+	 }
+
+   function changeRowColor(){
+		 var add = remove = '';
+		 var selected = div.values.selected;
+		 var readyPatt = /Ready/;
+		 var completePatt = /complete/;
+		 if(arguments[0] != undefined){
+			 //remove = arguments[0] == 'staff' ? 'yellowRow' : 'blueRow';
+     }
+		 else{
+			 if(readyPatt.test(selected)){
+				 add = 'yellowRow';
+			 }
+			 else if(completePatt.test(selected)){
+				 add = 'complete';
+				 remove = 'yellowRow blueRow';
+			 }
+			 else if( $(div.tags.selectLabel).text() == 'Findings:' ){
+				 add = 'blueRow';
+				 remove = 'yellowRow';
+			 }
+		 }
+		 console.log([add, remove].join(', '));
+		 div.form.parent().parent().removeClass(remove).addClass(add);
 	 }
  });
 })(jQuery);

@@ -21,16 +21,16 @@
 .view-skin-cancer-admin-view td{padding:30px; vertical-align: top; overflow:hidden; width:30%;}
 .yellowRow{background:#FCFC9A;}
 .blueRow{background:#CCE6FF;}
-.complete{background:#999; font-style:italic;}
+.complete{background:#ccc; font-style:italic;}
 
 .view-skin-cancer-admin img{margin: 0 15px 0 0; float:left;}
 .view-skin-cancer-admin .views-label{font-weight:bold;}
-.admin-select, .commentField, .view-skin-cancer-admin-view td{border:#bbb 1px solid;}
+#select, #commentField, .view-skin-cancer-admin-view td{border:#bbb 1px solid;}
 #admin_form label{margin:12px 0 0 0;}
 #admin_form h2{margin:0 0 10px 0;}
 #admin_form p{margin:0 0 5px 0;}
 #admin_form input[type=submit]{margin:10px 20px 10px 0;}
-.admin-select, .commentField{margin-bottom:15px;}
-.admin-select{width:300px; font-size:1.1em; margin:5px 0;}
-.commentField{width:100%; margin:5px 0; min-height:70px;}
+#select, #commentField{margin-bottom:15px;}
+#select{width:300px; font-size:1.1em; margin:5px 0;}
+#commentField{width:100%; margin:5px 0; min-height:70px;}
 
