@@ -11,6 +11,7 @@
 // just clicked
 		 div.form = $(e.target).parent();
 		 var form = div.form;
+		 div.row = form.parent().parent();
 		 div.values ={
 			 role: e.target.name,
 			 id: $(form).find('#formid').val(),
@@ -198,29 +199,38 @@
 	 }
 
    function changeRowColor(){
-		 var add = remove = '';
+		 var styles = {add: '', remove: ''};
 		 var selected = div.values.selected;
-		 var readyPatt = /Ready/;
-		 var completePatt = /complete/;
-		 if(arguments[0] != undefined){
-			 //remove = arguments[0] == 'staff' ? 'yellowRow' : 'blueRow';
-     }
+		 var isReady = isComplete = triggerSource(selected);
+		 var isExamined = triggerSource($(div.tags.selectLabel).text());
+		 if(isReady(/Ready/)){
+			 styles.add = 'yellowRow';
+		 }
+		 else if(isComplete(/complete/)){
+			 styles.add = 'complete';
+			 styles.remove = 'yellowRow blueRow';
+		 }
+		 else if(isExamined('Findings:')){
+			 styles.add = 'blueRow';
+			 styles.remove = 'yellowRow';
+		 }
 		 else{
-			 if(readyPatt.test(selected)){
-				 add = 'yellowRow';
+			 styles.remove = 'yellowRow blueRow';
+		 }
+		 div.row.removeClass(styles.remove).addClass(styles.add);
+	 }
+
+	 function triggerSource(source){
+	   return function(tester){
+		   if(tester instanceof RegExp){
+			   return tester.test(source);
 			 }
-			 else if(completePatt.test(selected)){
-				 add = 'complete';
-				 remove = 'yellowRow blueRow';
-			 }
-			 else if( $(div.tags.selectLabel).text() == 'Findings:' ){
-				 add = 'blueRow';
-				 remove = 'yellowRow';
+			 else{
+				 return tester == source;
 			 }
 		 }
-		 console.log([add, remove].join(', '));
-		 div.form.parent().parent().removeClass(remove).addClass(add);
 	 }
+
  });
 })(jQuery);
 
