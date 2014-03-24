@@ -63,7 +63,7 @@ class skincancer_admin_handler extends views_handler_field {
 	}
 
 	function render($values) {
-		//dpm($this);
+		//dpm($values);
 		$id = $values->entityform_id;
 		$this->loadAdminData($id);
 		$role = $this->options['skincancer_admin_type'];

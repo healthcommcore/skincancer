@@ -11,6 +11,13 @@
 /**
  * Implementst hook_views_pre_render().
  */
+function skincancer_views_query_alter(&$view, &$query){
+	//dpm($view->name);
+}
+
+/**
+ * Implementst hook_views_pre_render().
+ */
 function skincancer_views_pre_render(&$view){
 	//dpm($view);
 }
@@ -43,6 +50,15 @@ function skincancer_views_data() {
 		'help' => t('Admin feedback form'),
 		'field' => array(
 			'handler' => 'skincancer_admin_handler',
+		),
+	);
+
+  $data['admin']['admin_filter'] = array(
+		'title' => t('Admin form filter'),
+		'help' => t('Enables admin form to be filtered by otherwise inaccessible
+		             fields in skin cancer view'),
+		'filter' => array(
+			'handler' => 'skincancer_admin_handler_filter',
 		),
 	);
 
