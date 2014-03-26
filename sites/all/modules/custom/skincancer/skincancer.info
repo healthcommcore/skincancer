@@ -14,6 +14,7 @@ files[] = includes/upload_data.php
 files[] = includes/admin_output_builder.inc
 files[] = views/skincancer.views.inc
 files[] = views/skincancer_admin_handler.inc
+files[] = views/skincancer_admin_handler_filter.inc
 files[] = views/skincancer_admin_form_field_handler.inc
 stylesheets[all][] = skincancer.css
 stylesheets[print][] = skincancer_print.css

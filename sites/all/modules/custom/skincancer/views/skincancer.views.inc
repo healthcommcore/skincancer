@@ -51,9 +51,15 @@ function skincancer_views_data() {
 		'field' => array(
 			'handler' => 'skincancer_admin_handler',
 		),
+		'filter' => array(
+			'handler' => 'skincancer_admin_handler_filter',
+		),
 	);
+	return $data;
+}
 
-  $data['admin']['admin_filter'] = array(
+	/*
+  $data['admin']['admin_test'] = array(
 		'title' => t('Admin form filter'),
 		'help' => t('Enables admin form to be filtered by otherwise inaccessible
 		             fields in skin cancer view'),
@@ -62,8 +68,8 @@ function skincancer_views_data() {
 		),
 	);
 
-	return $data;
-}
+	 */
+
 /**
  * Implements hook_views_data().
  */
