@@ -30,6 +30,7 @@
 			 commentVal: $(form).find('#comments'),
 			 textarea: $(form).find('#commentField'),
 		   clear: $(form).find('#clear'),
+		   edit: $(form).find('#edit'),
 		   cancel: $(form).find('#cancel'),
 			};
 		 div.arrays = {
@@ -94,7 +95,8 @@
 			     showHide(div.arrays.formArray, div.arrays.dataArray);
 					 changeRowColor(div.values.role);
 					 div.tags.clear.addClass('hidden');
-					 $('#edit').attr({'id' : 'submit', 'value' : 'Submit'});
+					 //$('#edit').addClass('hidden');
+					 div.tags.edit.attr({'id' : 'submit', 'value' : 'Submit'});
 				   $('#warn').remove();
 				 });
 			 break;
@@ -181,7 +183,16 @@
    function rowColorSetup(){
      var findings = $('p#findings');
      var photoStatus = $('p#status').filter(':contains(Ready for review)');
-     var complete = $('p#status').filter(':contains(Review complete)');
+     //var complete = $('p#status').filter(':contains(Review complete)');
+		 $('p#status').each(function(){
+				 //console.log('triggered!');
+				 var isComplete = triggerSource($(this).text());
+				 if(isComplete(/complete|needed/)){
+					 $(this).parent().parent().parent().addClass('complete');
+					 $(this).parent().parent().parent().removeClass('yellowRow blueRow');
+				 }
+			});
+
      //var photoStatus = $('p#status');
 		 /*
 		 */
@@ -193,9 +204,11 @@
 		     $(this).parent().parent().parent().removeClass('yellowRow').addClass('blueRow');
 			 }
 		 });
+		 /*
 		 $(complete).each(function(){
 		   $(this).parent().parent().parent().removeClass('blueRow').addClass('complete');
 		 });
+		 */
 	 }
 
    function changeRowColor(){
@@ -206,7 +219,7 @@
 		 if(isReady(/Ready/)){
 			 styles.add = 'yellowRow';
 		 }
-		 else if(isComplete(/complete/)){
+		 else if(isComplete(/complete|needed/)){
 			 styles.add = 'complete';
 			 styles.remove = 'yellowRow blueRow';
 		 }
