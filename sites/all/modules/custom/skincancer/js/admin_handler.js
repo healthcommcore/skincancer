@@ -183,9 +183,7 @@
    function rowColorSetup(){
      var findings = $('p#findings');
      var photoStatus = $('p#status').filter(':contains(Ready for review)');
-     //var complete = $('p#status').filter(':contains(Review complete)');
 		 $('p#status').each(function(){
-				 //console.log('triggered!');
 				 var isComplete = triggerSource($(this).text());
 				 if(isComplete(/complete|needed/)){
 					 $(this).parent().parent().parent().addClass('complete');
@@ -193,7 +191,6 @@
 				 }
 			});
 
-     //var photoStatus = $('p#status');
 		 /*
 		 */
 		 $(photoStatus).each(function(){
@@ -204,11 +201,6 @@
 		     $(this).parent().parent().parent().removeClass('yellowRow').addClass('blueRow');
 			 }
 		 });
-		 /*
-		 $(complete).each(function(){
-		   $(this).parent().parent().parent().removeClass('blueRow').addClass('complete');
-		 });
-		 */
 	 }
 
    function changeRowColor(){
