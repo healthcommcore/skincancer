@@ -17,7 +17,7 @@
 .closeWarn{float:right; padding:0 5px; border:#000 1px solid;}
 
 .view-skin-cancer-admin-view table{font-size:1em;}
-.view-skin-cancer-admin-view td.views-field-view{width:40%;}
+.view-skin-cancer-admin-view td.views-field-view{min-width:420px;}
 .view-skin-cancer-admin-view td{padding:30px; vertical-align: top; overflow:hidden; width:30%;}
 .yellowRow{background:#FCFC9A;}
 .blueRow{background:#CCE6FF;}
