@@ -1,7 +1,7 @@
 (function($){
  $(document).ready(function(){
-	 rowColorSetup();
-	 imgBottomMargin();
+	 //rowColorSetup();
+	 //imgBottomMargin();
 
 // Create div object in which targeted DOM elements will be stored
 	 var div = {};
