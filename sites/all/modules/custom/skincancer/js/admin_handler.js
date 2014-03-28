@@ -1,6 +1,7 @@
 (function($){
  $(document).ready(function(){
 	 rowColorSetup();
+	 imgBottomMargin();
 
 // Create div object in which targeted DOM elements will be stored
 	 var div = {};
@@ -179,6 +180,17 @@
 
 		 return warnDiv;
 	 }
+
+	 function imgBottomMargin(){
+		 var imgCells = $('table.views-table td').has('img');
+		 imgCells.each(function(){
+		   var img = $(this).find('img');
+			 var botMarg = $(this).height() - $(img).height() + 5;
+			 //console.log(botMarg);
+			 $(img).css('margin-bottom', botMarg + 'px');
+		 });
+	 }
+ 
 
    function rowColorSetup(){
      var findings = $('p#findings');
