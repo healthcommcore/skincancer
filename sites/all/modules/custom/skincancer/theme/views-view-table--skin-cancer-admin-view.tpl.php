@@ -1,4 +1,3 @@
-<?php //dpm($rows[0]); ?>
 <table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
    <?php if (!empty($title) || !empty($caption)) : ?>
      <caption><?php print $caption . $title; ?></caption>
@@ -26,9 +25,37 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+
 <?php 
+/**
+ * This function is used to correct some of the subpar default views formatting
+ * of the Participant Data. It parses through the view's html output, inserts 
+ * a new div into the Participant Data cell, extracts all participant data 
+ * fields (except the image) from the output, then places them back in to 
+ * the newly created div.
+ */
 function reformatContent($content) {
-  //dpm($content);
-  return $content;
+	$doc = new DOMDocument();
+	$doc->preserveWhiteSpace = false;
+	$doc->loadHTML($content);
+	$newDiv = $doc->createElement('div');
+	$newDiv->setAttribute('class', 'patient_details');
+	$imgs = $doc->getElementsByTagName('img');
+	foreach($imgs as $img){
+// Get the uppermost parent div that holds only participant data divs
+		$parent = $img->parentNode->parentNode->parentNode->parentNode;
+		$parent->appendChild($newDiv);
+// This is the div directly following the img div which we want to skip over
+		$divToRemove = $parent->firstChild->nextSibling->nextSibling->nextSibling;
+// Iterate through Part Data, extracting and inserting into new div
+		while($divToRemove->nextSibling){
+			$nextNode = $divToRemove->nextSibling->nextSibling;
+			$divToInsert = $divToRemove->cloneNode(true);
+			$newDiv->appendChild($divToInsert);
+			$remove = $parent->removeChild($divToRemove);
+			$divToRemove = $nextNode;
+		}// while
+	}// foreach
+	return $doc->saveHTML();
 }
 ?>

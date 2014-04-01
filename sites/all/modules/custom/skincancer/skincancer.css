@@ -16,14 +16,15 @@
 #warn a{background:#689EE8; color:#fff;}
 .closeWarn{float:right; padding:0 5px; border:#000 1px solid;}
 
+.patient_details{width:210px; float:left;}
 .view-skin-cancer-admin-view table{font-size:1em;}
-.view-skin-cancer-admin-view td.views-field-view{min-width:420px;}
-.view-skin-cancer-admin-view td{padding:30px; vertical-align: top; overflow:hidden; width:30%;}
+.view-skin-cancer-admin-view td.views-field-view{min-width:460px;}
+.view-skin-cancer-admin-view td{padding:30px; vertical-align: top; overflow:hidden; width:300px;}
 .yellowRow{background:#FCFC9A;}
 .blueRow{background:#CCE6FF;}
 .complete{background:#ccc; font-style:italic;}
 
-.view-skin-cancer-admin img{margin: 0 15px 0 0; float:left;}
+.view-skin-cancer-admin img{margin: 0 20px 0 0; float:left;}
 .view-skin-cancer-admin .views-label{font-weight:bold;}
 #select, #commentField, .view-skin-cancer-admin-view td{border:#bbb 1px solid;}
 #admin_form label{margin:12px 0 0 0;}
