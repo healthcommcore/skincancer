@@ -180,7 +180,9 @@
 		 return warnDiv;
 	 }
 
-	 /*
+/*
+// This is an old hack to prevent Participant Data from wrapping
+// around the floated image
 	 function imgBottomMargin(){
 		 var imgCells = $('table.views-table td').has('img');
 		 imgCells.each(function(){
@@ -190,7 +192,7 @@
 			 $(img).css('margin-bottom', botMarg + 'px');
 		 });
 	 }
-	 */
+*/
 
    function rowColorSetup(){
      var findings = $('p#findings');

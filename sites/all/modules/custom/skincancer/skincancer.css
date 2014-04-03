@@ -16,10 +16,10 @@
 #warn a{background:#689EE8; color:#fff;}
 .closeWarn{float:right; padding:0 5px; border:#000 1px solid;}
 
-.patient_details{width:210px; float:left;}
 .view-skin-cancer-admin-view table{font-size:1em;}
 .view-skin-cancer-admin-view td.views-field-view{min-width:460px;}
 .view-skin-cancer-admin-view td{padding:30px; vertical-align: top; overflow:hidden; width:300px;}
+.patient_details{width:210px; float:left;}
 .yellowRow{background:#FCFC9A;}
 .blueRow{background:#CCE6FF;}
 .complete{background:#ccc; font-style:italic;}
