@@ -1,7 +1,19 @@
+/**
+ * @file upload_form.js
+ * Author: Dave Rothfarb
+ * Date: 4-4-14
+ * Copyright 2014 Health Communication Core
+ *
+ * This file is responsible for controlling visibility of
+ * certain decision tree questions within the ASK study 
+ * participant upload form. Follow-up questions must appear
+ * only if the participant answers "Yes" to certain questions.
+ */
 (function($){
   $(document).ready(function(){
 		var form = $('#image-upload-entityform-edit-form');
 		var submittedBefore = $('#edit-field-skin-submitted-before');
+// Gotta love Drupals's auto-generated IDs
     var spotChangedYes = $('#edit-field-skin-submitted-before-und-yes-this-spot-has-changed-since-the-last-photo-that-i-submitted');
     var spotChangedFollowup = $('#edit-field-skin-saw-health-provider');
     var sawProviderYes = $('#edit-field-skin-saw-health-provider-und-yes');
@@ -25,7 +37,7 @@
 			}
 		});
 
-// If any radio buttons or Other symptom checkbox is clicked, determin
+// If any radio buttons or Other symptom checkbox is clicked, determine
 // what should be hidden and what should be revealed
     $([submittedBefore.find('input'), spotChangedFollowup.find('input'), otherCheck,]).each(function(){
 		  $(this).bind('click', {clicked:true}, hideAndShow);
@@ -38,6 +50,7 @@
 			firstLoad = false;
 		}
 
+// Look at the event source and show corresponding follow-up question
 		function hideAndShow(event){
 			var active = event.data.clicked ? event.target : event;
 			switch($(active).get(0)){
@@ -61,6 +74,8 @@
 			}
 		}
 
+// This is used to hide all the other unrelated questions once
+// the appropriate question is shown
 		function hideOthers(active){
 			whatHappenedText.addClass('hidden');
       $(whatHappenedText).find('textarea').val('');
