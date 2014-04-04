@@ -2,7 +2,7 @@
 // $Id$
 /**
  * @file
- * Administer ASK Skin Cancer Study participant photo uploads
+ * Administer ASK Skin Cancer Study functionality for participants and study admins
  */
 define('SUBMITTED_BEFORE', 'Yes, this spot has changed since the last photo that I submitted');
 
@@ -51,8 +51,13 @@ function skincancer_views_api(){
 	'path' => drupal_get_path('module', 'skincancer') . '/views',
   );
 }
+
 /*
 */
+
+/**
+ * Implements hook_theme()
+ */
 function skincancer_theme($existing, $type, $theme, $path) {
   return array(
     'views_view_table__skin_cancer_admin_view' => array(

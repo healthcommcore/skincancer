@@ -1,8 +1,24 @@
+/*
+ * @file admin_handler.js
+ * Author: Dave Rothfarb
+ * Date: 4-4-14
+ * Copyright 2014 Health Communication Core
+ *
+ * This file handles all input and data loading of the ASK admin
+ * observation forms that are loaded within cells of the Drupal View.
+ * The primary functionality is determining the origin of an admin user's
+ * click event within the form and taking the appropriate actions. This 
+ * probably could've been implemented more cleanly with Backbone.js but 
+ * I didn't have time to learn it and opted to go with what I knew.
+ */
 (function($){
  $(document).ready(function(){
+// First stripe the table rows according to values in either the photo
+// status or findings fields
 	 rowColorSetup();
 
-// Create div object in which targeted DOM elements will be stored
+// Create div object in which targeted DOM elements related to the clicked 
+// item will be stored
 	 var div = {};
 	 div.form = null;
 	 $(document).bind('click', function(e){
@@ -58,7 +74,7 @@
 					 warn('You must select a <strong>' + toSelect + '</strong>', false).fadeIn();
 				 }
 				 else{
-	// Clear the date and time field in case it already exists
+// Clear the date and time field in case it already exists
 					 div.tags.reviewed.html('');
 					 $(e.target).attr({'id' : 'edit', 'value' : 'Edit'});
 					 changeRowColor();
@@ -95,7 +111,6 @@
 			     showHide(div.arrays.formArray, div.arrays.dataArray);
 					 changeRowColor(div.values.role);
 					 div.tags.clear.addClass('hidden');
-					 //$('#edit').addClass('hidden');
 					 div.tags.edit.attr({'id' : 'submit', 'value' : 'Submit'});
 				   $('#warn').remove();
 				 });
@@ -182,7 +197,8 @@
 
 /*
 // This is an old hack to prevent Participant Data from wrapping
-// around the floated image
+// around the floated image. I solved it in the backend but left
+// this just in case the backend solution ends up not workng out.
 	 function imgBottomMargin(){
 		 var imgCells = $('table.views-table td').has('img');
 		 imgCells.each(function(){
@@ -194,6 +210,9 @@
 	 }
 */
 
+// I know the following 2 row color functions are redundant and could be
+// further optimized but I've already had to make several changes based on
+// client requests so I opted to leave them be in case of any future mods.
    function rowColorSetup(){
      var findings = $('p#findings');
      var photoStatus = $('p#status').filter(':contains(Ready for review)');

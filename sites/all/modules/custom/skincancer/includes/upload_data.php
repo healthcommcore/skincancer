@@ -1,4 +1,15 @@
 <?php
+/**
+ * @file upload_data.php
+ * Author: Dave Rothfarb
+ * Date: 4-4-14
+ * Copyright 2014 Health Communication Core
+ *
+ * This file acts as the server-side script, working in conjunction with
+ * AJAX requests within the js/admin_handler.js script. It is responsible
+ * for all CRUD operations on the skincancer_admin table of the database.
+ */
+
 // First set constants relevant to Skin Cancer Admin table
 define('DB', 'skincancer');
 define('USER', 'skincancer');
@@ -10,18 +21,11 @@ $db = new mysqli('localhost', USER, PWORD, DB);
 if($db->connect_errno) {
 	echo "Connection failure";
 }
-/*
-	//$query = "SELECT " . ID . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
-	$query = "SELECT derma_review_date FROM " . TABLE . " WHERE " . ID . "=5";
-	//$query = "SELECT * FROM " . TABLE;
-	$result = $db->query($query);
-	print_r($result->fetch_assoc());
- */
 
 // This area is for inserting/updating data to database from admin forms
 if(isset($_POST['role']) && isset($_POST['id'])) {
 	
-	// Clean and fill variables with form data from admin area sent through AJAX
+// Clean and fill variables with form data from admin area sent through AJAX
 	$query;
 	$role = $db->real_escape_string($_POST['role']);
 	$id = $db->real_escape_string($_POST['id']);
@@ -32,8 +36,7 @@ if(isset($_POST['role']) && isset($_POST['id'])) {
 			$comment = $db->real_escape_string($_POST['comment']);
 			$date = strtotime('now');
 
-			// Determine if we are inserting new values or updating a row that already 
-			// exists
+// Determine if we are inserting new values or updating a row that already exists
 			$insertQuery = "INSERT INTO " . TABLE . " (" . ID . ", " . $fields['selection'] .
 				", " . $fields['date'] . ", " . $fields['comment'] . ") " .
 				"VALUES (" . $id . ", '" . $selection	. "', " . $date . ", '" . $comment . "')";
@@ -44,9 +47,7 @@ if(isset($_POST['role']) && isset($_POST['id'])) {
 
 			$query = idExists($id) ? $updateQuery : $insertQuery;
 
-			// Use mysqli's prepare statement as security precaution before running query
-			
-
+// Format the date and pass it back as JSON
 			$mdy = date('m/d/Y', $date);
 			$time .= '<br />' . date('g:i a', $date);
 			echo json_encode($mdy . $time);
@@ -59,6 +60,7 @@ if(isset($_POST['role']) && isset($_POST['id'])) {
 		$query = fieldsExist($role, $id) ? $deleteFields : $deleteRecord;
 	}
 
+// Use mysqli's prepare statement as security precaution before running query
 	if(isset($query) && !$stmt = $db->prepare($query)) {
 			echo "Prepare failed: (" . $db->errno . ") " . $db->error;
 	}
@@ -71,6 +73,7 @@ if(isset($_POST['role']) && isset($_POST['id'])) {
 /*
  */
 
+// Using the entityform_id primary key, check if any records exist in db
 function idExists($id) {
 	global $db;
 	$query = "SELECT " . ID . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
@@ -78,6 +81,8 @@ function idExists($id) {
   return $result->num_rows > 0;
 }	
 
+// Using the date field of the corresponding admin to see if any
+// observation data exists in database
 function fieldsExist($role, $id) {
 	global $db;
 	$otherRole = ($role == 'staff' ? 'derma' : 'staff');
@@ -85,10 +90,11 @@ function fieldsExist($role, $id) {
 	$query = "SELECT " . $otherFields['date'] . " FROM " . TABLE . " WHERE " . ID . "=" . $id;
 	$result = $db->query($query);
 	$row = $result->fetch_assoc();
-  //return $result;
   return $row[$otherFields['date']] > 0;
 }	
 
+// Determine which database table fields to use based on
+// the role of the admin
 function getAdminFields($role) {
 	if($role == 'staff') {
 		$fields['selection'] = 'photo_status';

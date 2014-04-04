@@ -67,7 +67,7 @@ class skincancer_admin_handler extends views_handler_field {
 		$id = $values->entityform_id;
 		$this->loadAdminData($id);
 		$role = $this->options['skincancer_admin_type'];
-		$builder = new adminOutputBuilder($id, $role, $this->adminData);
+		$builder = new AdminOutputBuilder($id, $role, $this->adminData);
 		return $builder->generateOutput();
 	}
 }

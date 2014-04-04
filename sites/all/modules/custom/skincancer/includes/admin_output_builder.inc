@@ -1,9 +1,24 @@
 <?php
-
-class adminOutputBuilder {
+/**
+ * @file AdminOutputBuilder
+ * Author: Dave Rothfarb
+ * Date: 4-4-14
+ * Copyright 2014 Health COmmunication Core
+ *
+ * This class is used to construct the html output of the Study Admin and
+ * Dermatologist feedback forms where observations can be made based on
+ * corresponding participant uploaded skin examination data. These feedback 
+ * forms are programmed as fields within a View and are available only as part 
+ * of Views. Construction of the feedback forms requires data be passed to the 
+ * constructor, specifying the EntityForm ID, admin role, and any admin feedback 
+ * data stored in the database.
+ */
+class AdminOutputBuilder {
 	var $id;
 	var $role;
 	var $data;
+// These select list items could have been stored in the database but I chose
+// to simply declare and initialize them here.
   private $_adminSelectOptions = array(
 		'staff' => array(
 			'title' => 'Study staff',
@@ -42,7 +57,7 @@ class adminOutputBuilder {
 		$this->data = $data;
 	}
 
-
+// Reformat date from Unix timestamp to human-friendly
 	function getDate($dateType, $cellData){
 		$date = '';
 		if(isset($cellData[$dateType])) {
@@ -52,6 +67,7 @@ class adminOutputBuilder {
 		return $date;
 	}
 
+// Load data from prior select list selections if there is any
 	function getAdminSelections($cellData, $admin, $hideData){
 		$selections = '';
 		if($this->role == 'staff') {
@@ -69,6 +85,7 @@ class adminOutputBuilder {
 		return $selections;
 	}
 
+// Load comments from database if there are any. Otherwise add "No comments."
 	function getAdminComments($cellData, $hideData){
 		$comments = '';
 		$commentData = 'No comments';
@@ -80,6 +97,8 @@ class adminOutputBuilder {
 		return $comments;
 	}
 
+// Determine which action buttons should accomany admin feedback form depending
+// on whether or not data already exists
 	function getAdminButtons($cellData, $date) {
 		$clrButClass = 'form-submit';
 		$buttons = '<input type="submit" class="form-submit"';
@@ -96,6 +115,9 @@ class adminOutputBuilder {
 		return $buttons;
 	}
 
+// Main function responsible for html output generation of admin feedback form
+// All html elements are present at all times but their visibility is
+// determined by whether or not data already exists in database.
   function generateOutput() {
 		$hideForm = $hideData = $date = $cellData = '';
 		$admin = $this->_adminSelectOptions[$this->role];
@@ -103,8 +125,7 @@ class adminOutputBuilder {
 		$output .= '<h2>' . $admin['title'] . '</h2>';
 		if(array_key_exists($this->id, $this->data)){
 		  $cellData = $this->data[$this->id];
-			// I chose the required date field to check if a record exists for this
-			// admin type.
+// I chose the required date field to check if a record exists for this admin type.
 		  $dateType = $this->role . '_date';
 			if($cellData[$dateType] > 0) {
 				$hideForm = ' class="hidden"';

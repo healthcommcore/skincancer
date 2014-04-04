@@ -1,3 +1,17 @@
+<?php
+/**
+ * @file
+ * Author: Dave Rothfarb
+ * Date: 4-4-14
+ * Copyright 2014 Health Communication Core
+ *
+ * This is a template file used to override the table output of a Drupal
+ * View. I needed to insert a div into the participant data listing in the 
+ * first cells of the View in which all text data should be placed. This 
+ * allowed me to isolate the participant uploaded photo and corresponding
+ * data as 2 entities, giving me more control over the output.
+ */
+?>
 <table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
    <?php if (!empty($title) || !empty($caption)) : ?>
      <caption><?php print $caption . $title; ?></caption>
@@ -45,9 +59,9 @@ function reformatContent($content) {
 // Get the uppermost parent div that holds only participant data divs
 		$parent = $img->parentNode->parentNode->parentNode->parentNode;
 		$parent->appendChild($newDiv);
-// This is the div directly following the img div which we want to skip over
+// Skip over the img div and start with the next one.
 		$divToRemove = $parent->firstChild->nextSibling->nextSibling->nextSibling;
-// Iterate through Part Data, extracting and inserting into new div
+// Iterate through participant data, extracting and inserting into new div
 		while($divToRemove->nextSibling){
 			$nextNode = $divToRemove->nextSibling->nextSibling;
 			$divToInsert = $divToRemove->cloneNode(true);
