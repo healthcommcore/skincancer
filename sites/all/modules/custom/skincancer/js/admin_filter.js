@@ -34,9 +34,9 @@
     });//click
 
 		function isInRow(row, option){
-		  var pattern = new RegExp($(option).val());
+		  var pattern = new RegExp($(option).val(), 'i');
 		  var stat = $(row).find('#status').text();
-		  var finding = $(row).find('#findings').text();
+		  var finding = $(row).find('#findings').val();
 // I know this could've been written more succinctly but it took me a while to
 // get it to work properly and I chose not to mess with it anymore.
 			if(pattern.test(stat) || pattern.test(finding) || $(option).val() == 'all'){

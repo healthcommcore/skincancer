@@ -14,11 +14,12 @@ class skincancer_admin_handler_filter extends views_handler_filter{
 			'indeterminate' => t('Indeterminate'),
 			'malignant' => t('Malignant'),
 			'quality' => t('Insufficient quality'),
+			're-submission' => t('Patient re-submission'),
 		);
 
 		$form['admin_options'] = array(
 			'#type' => 'select',
-			'#title' => t('Filter by:'),
+			'#title' => t('Filter results by:'),
 			'#options' => $options,
 		);
 	}

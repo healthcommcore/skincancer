@@ -44,9 +44,9 @@ class AdminOutputBuilder {
 					'val' => 'indeterminate', 
 					'label' => 'Morphology is indeterminate and management will require evaluation and follow-up with a physician',
 				),
-				array('val' => 'malignancy', 'label' => 'Lesion has morphologic features suggestive of malignancy'),
+				array('val' => 'malignant', 'label' => 'Lesion has morphologic features suggestive of malignancy'),
 				array('val' => 'quality', 'label' => 'Image of insufficiant quality - photograph needs to be re-taken'),
-				array('val' => 'resubmit', 'label' => 'Patient initiated re-submission'),
+				array('val' => 're-submission', 'label' => 'Patient initiated re-submission'),
 			),
 		),
 	);
