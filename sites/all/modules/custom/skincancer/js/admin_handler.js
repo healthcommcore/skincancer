@@ -14,8 +14,10 @@
 (function($){
  $(document).ready(function(){
 // First stripe the table rows according to values in either the photo
-// status or findings fields
-	 rowColorSetup();
+// status or findings fields and sort them according to the ASK admin
+// that's currently viewing
+	 var userRoles = Drupal.settings.roles;
+	 rowsSetup(userRoles);
 
 // Create div object in which targeted DOM elements related to the clicked 
 // item will be stored
@@ -213,7 +215,7 @@
 // I know the following 2 row color functions are redundant and could be
 // further optimized but I've already had to make several changes based on
 // client requests so I opted to leave them be in case of any future mods.
-   function rowColorSetup(){
+   function rowsSetup(roles){
      var findings = $('p#findings');
      var photoStatus = $('p#status').filter(':contains(Ready for review)');
 		 $('p#status').each(function(){
