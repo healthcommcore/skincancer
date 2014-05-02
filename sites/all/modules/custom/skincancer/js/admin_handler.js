@@ -212,10 +212,48 @@
 	 }
 */
 
+
 // I know the following 2 row color functions are redundant and could be
 // further optimized but I've already had to make several changes based on
 // client requests so I opted to leave them be in case of any future mods.
    function rowsSetup(roles){
+		 //console.log(roles);
+		 /*
+		 if(roles.hasOwnProperty(5) && roles[5] == 'ASK study admin'){
+			 console.log('study admin');
+		 }
+		 else if(roles.hasOwnProperty(8) && roles[8] == 'ASK dermatologist'){
+			 console.log('dermatologist');
+		 }
+		 */
+		 var tbody = $('.views-table tbody');
+		 $(tbody).find('tr').map(function(){
+			 var findings = $(this).find('#findings');
+			 var photoStatus = $(this).find('#status');
+			 if($(findings).text() != ''){
+		     $(this).removeClass('yellowRow').addClass('blueRow');
+		     if(roles.hasOwnProperty(5) && roles[5] == 'ASK study admin'){
+				   rowRearrange(tbody, this);
+				 }
+			 }
+			 else if($(photoStatus).text() != ''){
+				 var isComplete = triggerSource($(photoStatus).text());
+				 if(isComplete(/complete|needed/)){
+					 $(this).addClass('complete');
+					 $(this).removeClass('yellowRow blueRow');
+				 }
+				 else {
+					 $(this).addClass('yellowRow');
+					 if(roles.hasOwnProperty(8) && roles[8] == 'ASK dermatologist'){
+						 rowRearrange(tbody, this);
+					 }
+				 }
+			 }//else if
+		 });//map
+
+
+
+		 /*
      var findings = $('p#findings');
      var photoStatus = $('p#status').filter(':contains(Ready for review)');
 		 $('p#status').each(function(){
@@ -226,8 +264,6 @@
 				 }
 			});
 
-		 /*
-		 */
 		 $(photoStatus).each(function(){
 		   $(this).parent().parent().parent().addClass('yellowRow');
 		 });
@@ -236,6 +272,13 @@
 		     $(this).parent().parent().parent().removeClass('yellowRow').addClass('blueRow');
 			 }
 		 });
+		 */
+	 }
+
+	 function rowRearrange(tbody, row){
+		 var insert = row;
+		 $(row).remove();
+		 $(tbody).prepend(insert);
 	 }
 
    function changeRowColor(){
