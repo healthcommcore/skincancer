@@ -100,6 +100,12 @@ class AdminOutputBuilder {
 // Determine which action buttons should accomany admin feedback form depending
 // on whether or not data already exists
 	function getAdminButtons($cellData, $date) {
+		global $user;
+		if($this->role == 'staff' && isset($user->roles[8])) {
+			if($user->roles[8] == 'ASK dermatologist') {
+				return '';
+			}
+		}
 		$clrButClass = 'form-submit';
 		$buttons = '<input type="submit" class="form-submit"';
 		if($cellData == '' || $date == ''){
