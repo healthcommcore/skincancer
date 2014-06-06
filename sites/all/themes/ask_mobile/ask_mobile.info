@@ -1,0 +1,12 @@
+name = ASK mobile web theme
+description = A theme for the ASK study, targeted toward cell phones
+package = Core
+version = 1.0
+core = 7.x
+stylesheets[screen][] = reset.css
+stylesheets[screen][] = theme.css
+regions[content] = Content
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[sidebar_first] = First sidebar

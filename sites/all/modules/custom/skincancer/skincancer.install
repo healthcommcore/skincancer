@@ -1,0 +1,63 @@
+<?php
+/**
+ * Implements hook_schema()
+ */
+function skincancer_schema() {
+  $schema['skincancer_admin'] = array(
+    'description' => 'This table contains all assessments and comments made by staff/doctor pertaining to a participant photo submission.',
+	'fields' => array(
+	  'entityform_id' => array(
+	    'description' => 'Primary identifier for table and foreign key from the entityform table used to isolate a unique submission',
+		'type' => 'int',
+		'unsigned' => TRUE,
+		'not null' => TRUE,
+	  ),
+	  'photo_status' => array(
+	    'description' => 'What condition or stage of review the photo submission is',
+		'type' => 'varchar',
+		'length' => 255,
+		'not null' => TRUE,
+		'default' => '',
+	  ),
+	  'staff_review_date' => array(
+	    'description' => 'The Unix timestamp of when a staff reviewed the photo submission',
+		'type' => 'int',
+		'not null' => TRUE,
+		'default' => 0,
+	  ),
+	  'staff_comments' => array(
+	    'description' => 'Comments a staff member has for the Dermatologist',
+		'type' => 'varchar',
+		'length' => 255,
+		'default' => '',
+	  ),
+	    'findings' => array(
+	    'description' => 'What the Dermatologist found based on a participant photo submission',
+		'type' => 'varchar',
+		'length' => 255,
+		'not null' => TRUE,
+		'default' => '',
+	  ),
+	  'derma_review_date' => array(
+	    'description' => 'The Unix timestamp of when the Dermatologist reviewed the photo submission',
+		'type' => 'int',
+		'not null' => TRUE,
+		'default' => 0,
+	  ),
+	  'derma_comments' => array(
+	    'description' => 'Comments the Dermatologist has for staff',
+		'type' => 'varchar',
+		'length' => 255,
+		'default' => '',
+	  ),
+	),
+	'primary key' => array('entityform_id'),
+	'foreign keys' => array(
+	  'table' => 'entityform',
+	  'columns' => array(
+	    'entityform_id' => 'entityform_id',
+	   ),
+     ),
+   ); //schema
+   return $schema;
+ }

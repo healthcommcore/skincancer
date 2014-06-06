@@ -2,26 +2,36 @@
 // $Id$
 /**
  * @file
- * Administer Skin Cancer Study participant photo uploads
+ * Administer ASK Skin Cancer Study functionality for participants and study admins
  */
 define('SUBMITTED_BEFORE', 'Yes, this spot has changed since the last photo that I submitted');
-//dpm($form);
 
 /**
  * Implements hook_init()
  */
 function skincancer_init() {
-  drupal_add_js(drupal_get_path('module', 'skincancer') . '/js/upload_form.js'); 
+  global $user;
+  $path = drupal_get_path('module', 'skincancer');
+  drupal_add_js($path . '/js/upload_form.js'); 
+  drupal_add_js($path . '/js/admin_handler.js'); 
+  drupal_add_css($path . 'skincancer.css'); 
+  drupal_add_js(array('roles' => $user->roles), 'setting');
 }
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter
+ *
+ * This is used to add Drupal validation to decision-tree questions on 
+ * participant photo upload form that only appear based on answers to 
+ * previous questions
  */
-
 function skincancer_form_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
   $form['#validate'][] = 'image_upload_form_validate';
 }
 
+/**
+ * Customized validation for decision-tree questions using Drupal api
+ */
 function image_upload_form_validate(&$form, &$form_state) {
   $submittedBefore = $form_state['input']['field_skin_submitted_before']['und'];
   $sawProvider = $form_state['input']['field_skin_saw_health_provider']['und'];
@@ -32,7 +42,46 @@ function image_upload_form_validate(&$form, &$form_state) {
   if($sawProvider == 'Yes' && $providerVisit == '') {
     form_set_error('field_skin_provider_visit','Please specify what happened when you visited your healthcare provider');
   }
-  //dpm($form_state['input']);
 }
 
+/**
+ * Implements hook_views_api().
+ */
+function skincancer_views_api(){
+  return array(
+    'api' => 3,
+	'path' => drupal_get_path('module', 'skincancer') . '/views',
+  );
+}
 
+/*
+*/
+
+/**
+ * Implements hook_theme()
+ */
+function skincancer_theme($existing, $type, $theme, $path) {
+  return array(
+    'views_view_table__skin_cancer_admin_view' => array(
+	  'arguments' => array(
+	    'view' => NULL,
+		'title' => NULL,
+		'header' => NULL,
+		'fields' => NULL,
+		'class' => NULL,
+		'row_classes' => NULL,
+		'rows' => NULL,
+	  ),
+	  'template' => 'views-view-table--skin-cancer-admin-view',
+	  'base hook' => 'views_view_table',
+	  'path' => drupal_get_path('module', 'skincancer') . '/theme',
+	),
+	/*
+    'views_exposed_form__skin_cancer_admin_view' => array(
+	  'template' => 'views-exposed-form--skin-cancer-admin-view',
+	  'base hook' => 'views_exposed_form',
+	  'path' => drupal_get_path('module', 'skincancer') . '/theme',
+	),
+	*/
+  );
+}

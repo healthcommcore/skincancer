@@ -1,11 +1,21 @@
 ;$Id$
-name = Childhood Cancer Survivors Skin Cancer Intervention
+name = ASK Childhood Cancer Survivors Skin Cancer Intervention
 description = This module provides all functionality required for the Childhood Cancer Survivors Skin Cancer Intervention including photo upload functionality, admin interfaces, and other miscellaneous features 
 core = 7.x
 package = custom
 dependencies[] = views
 dependencies[] = views_bulk_operations
+dependencies[] = views_field_view
 dependencies[] = entityform
+files[] = skincancer.install
 files[] = skincancer.module
+files[] = skincancer.php
+files[] = includes/upload_data.php
+files[] = includes/admin_output_builder.inc
+files[] = views/skincancer.views.inc
+files[] = views/skincancer_admin_handler.inc
+files[] = views/skincancer_admin_handler_filter.inc
+files[] = views/skincancer_admin_form_field_handler.inc
+files[] = theme/views-view-table--skin-cancer-admin-view.tpl.php
 stylesheets[all][] = skincancer.css
 stylesheets[print][] = skincancer_print.css
