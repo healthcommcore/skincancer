@@ -1,0 +1,15 @@
+<?php
+// $Id$
+/**
+ * @file
+ * ASK Customized login
+ */
+
+ /**
+  * Implements hook_init()
+  */
+
+function ask_login_init() {
+  global $user;
+  dpm($user);
+}

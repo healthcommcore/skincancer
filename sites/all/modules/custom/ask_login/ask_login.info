@@ -1,0 +1,6 @@
+;$Id$
+name = ASK Customized login
+description = This module allows anonymous users to see the website's menu, forces the user to login if a menu item is clicked, then redirects the user to the page he/she was trying to access.
+core = 7.x
+package = custom
+files[] = ask_login.module
