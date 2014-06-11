@@ -11,5 +11,22 @@
 
 function ask_login_init() {
   global $user;
-  dpm($user);
+  $dest = drupal_get_destination();
+  if(!drupal_is_front_page() && empty($user->name) && $dest['destination'] != 'user') {
+  //if(!drupal_is_front_page()) {
+    //dpm(drupal_get_destination());
+    //drupal_set_message(drupal_get_destination());
+	drupal_goto('user');
+  }
 }
+
+/**
+ * Implements hook_user_login
+ */
+function ask_login_user_login(&$edit, $account) {
+  $dest = drupal_get_destination();
+  $edit['redirect'] = 'providers';
+  //dpm($edit);
+}
+  
+
