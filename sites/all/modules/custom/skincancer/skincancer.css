@@ -1,3 +1,8 @@
+/* Temporary overall site styles */
+.feature-box{width:900px; border:#000 1px solid; height:300px;}
+.home-feature{margin: 0 auto;}
+.home-feature a{float:left; height: 110px; width: 180px; border:#000 1px solid; background:#fff;
+	text-align:center; vertical-align: middle; margin:15px; font-size:1.4em; padding-top:70px}
 .hidden{display:none;}
 #warn{
 	font-size:1.2em;
