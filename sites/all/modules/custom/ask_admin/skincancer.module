@@ -14,7 +14,7 @@ function skincancer_init() {
   $path = drupal_get_path('module', 'skincancer');
   drupal_add_js($path . '/js/upload_form.js'); 
   drupal_add_js($path . '/js/admin_handler.js'); 
-  drupal_add_js($path . '/js/image_expand.js'); 
+  drupal_add_js($path . '/js/reveal.js'); 
   drupal_add_css($path . 'skincancer.css'); 
   drupal_add_js(array('roles' => $user->roles), 'setting');
 }
