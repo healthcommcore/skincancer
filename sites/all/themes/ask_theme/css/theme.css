@@ -1,7 +1,12 @@
-.header{height:174px; position:relative;}
-.top-area{height:50px; background:#7A992C;}
-.main-header{background:#F9F1C1;}
+body{background:#0095BA;}
+.header{height:162px; position:relative;}
+.top-area{height:38px; background:#7A992C;}
+.tagline{background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px;}
+.main-header{background:#F9F1C1; height:124px;}
+.logo{height:164px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 20px solid; padding:0 15px;}
 nav li{float:left;}
 nav li ul{display:none;}
 .subnav{float:left;}
-.logo{height:144px; background:#0095BA; position:absolute; top:0; width:206px;z-index:50;}
+.title{background:#D8A014;}
+.page{background:#fff;}
+.content-padding{padding:80px 15px;}

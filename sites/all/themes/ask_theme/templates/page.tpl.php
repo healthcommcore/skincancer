@@ -5,9 +5,10 @@
 		<div id="top-area" class="top-area">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-offset-3 col-md-9">
+					<div class="col-md-offset-2 col-md-10">
 						<!-- Tagline to go here -->	
 						<div id="top-header" class="top-header">
+							<div id="tagline" class="tagline"></div>
 							<?php print render($page['top_header']); ?>
 						</div>
 					</div>
@@ -17,15 +18,17 @@
 		<div id="main-header" class="main-header">
 			<div class="container">
 				<div class="row">
-					<nav id="main-menu" class="col-md-offset-3 col-md-9 main-menu nav">
+					<nav id="main-menu" class="col-md-offset-2 col-md-10 main-menu">
 						<?php print render($page['main_menu']); ?>
 					</nav>
 				</div>
 			</div>
 		</div>
 			<div class="container">
-				<div id="logo" class="logo">
-					<a href=""><img src="logo.png" /></a>	
+				<div class="row">
+					<div id="logo" class="logo">
+						<a href="<?php print $front_page; ?>"><img alt="ask study logo" src="<?php print $logo; ?>" /></a>	
+					</div>
 				</div>
 			</div>
 	</div>
@@ -39,13 +42,13 @@
 	</section>
 <?php endif; ?>
 
-<div id="page">
+<div id="page" class="page">
 	<div id="main">
 		<?php if($title) : ?>
 			<div id="title" class="title">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-offset-3 col-md-9">
+						<div class="col-md-offset-2 col-md-10">
 							<h1><?php print $title; ?></h1>
 						</div>
 					</div>
@@ -55,7 +58,7 @@
 			<section class="container">
 				<div class="row">
 					<?php if( render($page['subnav']) ) : ?>
-						<div id="subnav" class="col-md-3 subnav">
+						<div id="subnav" class="col-md-2 subnav">
 							<?php print render($page['subnav']); ?>
 						</div>
 					<?php endif; ?>
