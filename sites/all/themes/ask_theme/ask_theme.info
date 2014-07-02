@@ -1,0 +1,28 @@
+name = ASK theme
+description = A custom theme developed for the ASK skin cancer study
+version = VERSION
+core = 7.x
+screenshot = ask_theme.jpg
+
+stylesheets[all][] = css/theme.css
+stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/bootstrap-theme.css
+stylesheets[all][] = css/bootstrap-responsive.css
+stylesheets[print][] = css/print.css
+
+scripts[] = js/bootstrap.js
+
+regions[page_top] = Page top
+regions[top_header] = Top header
+regions[main_menu] = Main menu
+regions[header_logo] = Main website logo
+regions[rotator] = Rotating homepage images
+regions[help] = Help
+regions[subnav] = Floating left subnav
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[page_bottom] = Page bottom
+regions[footer_logos] = Study sponsorship logos
+regions[footer_menu_copyright] = Footer menu and various copyright information
+regions[footer] = Footer

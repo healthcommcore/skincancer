@@ -1,0 +1,7 @@
+.header{height:174px; position:relative;}
+.top-area{height:50px; background:#7A992C;}
+.main-header{background:#F9F1C1;}
+nav li{float:left;}
+nav li ul{display:none;}
+.subnav{float:left;}
+.logo{height:144px; background:#0095BA; position:absolute; top:0; width:206px;z-index:50;}
