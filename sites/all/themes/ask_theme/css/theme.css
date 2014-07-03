@@ -1,12 +1,53 @@
-body{background:#0095BA;}
-.header{height:162px; position:relative;}
+/************************
+ * STATIC STYLING
+ ************************/
+
+/************************
+ * LARGE DESKTOP
+ ************************/
+
+/** Global styles **/
+.header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
 .tagline{background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px;}
-.main-header{background:#F9F1C1; height:124px;}
-.logo{height:164px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 20px solid; padding:0 15px;}
+.main-header{background:#F9F1C1; height:95px;}
+.logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
 nav li{float:left;}
 nav li ul{display:none;}
-.subnav{float:left;}
-.title{background:#D8A014;}
+.subnav{float:left;margin-top:15px;}
+.subnav-style, .title{background:#D8A014;}
+.subnav-style a{color:#fff; font-size:1em; line-height:1.2em;}
 .page{background:#fff;}
 .content-padding{padding:80px 15px;}
+
+/** Footer **/
+footer{padding:10px 30px 80px 30px;}
+.footer-topbar{height:44px; background:#F7F1C2;}
+.footer-logos{margin: 10px 0 0 0;}
+.footer-logos, .footer-logos a{float:left;}
+.footer-logos a{position:relative;}
+.footer-logos a{margin-right:60px;}
+.logo-padding{padding-top:36px;}
+.footer-menu-copyright{float:right; text-align:right;margin-right:0; margin-top:35px;}
+.footer-menu-copyright nav ul, .footer-menu-copyright nav li{list-style-image:none; list-style:none;}
+.footer-menu-copyright, .footer-menu-copyright nav a, .footer-menu-copyright .legal a{color:#F8F4D2;}
+.footer-menu-copyright nav li{background:none; padding:0 13px; border-right:#F8F4D2 1px solid; height:auto; line-height:1em; float:left;}
+.footer-menu-copyright nav li:last-child{padding-right:0; border:0;}
+.footer-menu-copyright nav a { padding:0; display:inline; font-size:1em;}
+.footer-menu-copyright nav ul{float:right;}
+.footer-menu-copyright .legal,.footer-menu-copyright .legal a {}
+.footer-menu-copyright .legal{clear:right; font-size:.65em; line-height:1.6em;}
+.footer-menu-copyright .legal a{ text-decoration:underline; margin-left:3px;}
+
+/************************
+ * MEDIUM DESKTOP
+ ************************/
+
+/************************
+ * TABLET
+ ************************/
+
+/************************
+ * PHONE
+ ************************/
+

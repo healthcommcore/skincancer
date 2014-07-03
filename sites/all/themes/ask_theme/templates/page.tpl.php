@@ -72,6 +72,7 @@
 </div><!-- page -->
 
 <!-- FOOTER  -->
+<div id="footer-topbar" class="footer-topbar"></div>
 <footer>
 	<div class="container">
 		<div class="row">

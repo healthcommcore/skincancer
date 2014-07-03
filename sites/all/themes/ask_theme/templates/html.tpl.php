@@ -26,7 +26,7 @@
 	var height = $(window).height();
 	var xPos = window.screenX + (window.outerWidth - width) / 2;
 	var yPos = window.screenY + (window.outerHeight - height) / 2;;
-	var options = "resizable=yes,menubar=yes,toolbar=yes,status=yes,location=yes," + 
+	var options = "scrollbars=yes,resizable=yes,menubar=yes,toolbar=yes,status=yes,location=yes," + 
 		"height=" + height + ",width=" + width + 
 		",top=" + yPos + ",left=" + xPos;
 	for(var i = 0; i < extLinks.length; i++){
