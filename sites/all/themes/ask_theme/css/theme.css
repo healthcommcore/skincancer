@@ -1,24 +1,36 @@
 /************************
  * STATIC STYLING
  ************************/
+/** Overall styles **/
 
-/************************
- * LARGE DESKTOP
- ************************/
-
-/** Global styles **/
+.region-content ul{list-style-position:inside;}
+/** Header **/
 .header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
-.tagline{background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px;}
+.top-header{}
+.tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
 nav li{float:left;}
 nav li ul{display:none;}
+.main-menu{margin-top:16px;}
+.nav li a:hover{background:none !important;}
+
 .subnav{float:left;margin-top:15px;}
 .subnav-style, .title{background:#D8A014;}
 .subnav-style a{color:#fff; font-size:1em; line-height:1.2em;}
 .page{background:#fff;}
 .content-padding{padding:80px 15px;}
+
+/** Subnav **/
+.subnav{float:left;margin:15px 30px 0 0;}
+.subnav-style, .title{background:#D8A014;}
+.subnav-style{padding:80px 13px 5px 13px;}
+.subnav-style ul.menu li{margin:0;}
+.subnav-style li{padding:12px 0; border-bottom:#fff 1px solid;}
+.subnav-style a{color:#fff; font-size:1.2em; line-height:1.2em;}
+.subnav-style li:last-child{border-bottom:none;}
+.subnav .nav li a{padding:0;}
 
 /** Footer **/
 footer{padding:10px 30px 80px 30px;}
@@ -40,12 +52,25 @@ footer{padding:10px 30px 80px 30px;}
 .footer-menu-copyright .legal a{ text-decoration:underline; margin-left:3px;}
 
 /************************
- * MEDIUM DESKTOP
+ * LARGE DESKTOP
  ************************/
 
+@media (min-width: 1200px) {
+	.logo{width:184px;}
+	.subnav{width:184px;}
+}
+
+
+/************************
+ * MEDIUM DESKTOP
+ ************************/
+@media (min-width: 768px) {
+}
 /************************
  * TABLET
  ************************/
+@media (min-width: 992px) {
+}
 
 /************************
  * PHONE

@@ -58,7 +58,7 @@
 			<section class="container">
 				<div class="row">
 					<?php if( render($page['subnav']) ) : ?>
-						<div id="subnav" class="col-md-2 subnav">
+						<div id="subnav" class="subnav">
 							<?php print render($page['subnav']); ?>
 						</div>
 					<?php endif; ?>

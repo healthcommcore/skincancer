@@ -130,5 +130,11 @@
 }
 
 body{background:#0095BA;font-family:'AllerLightRegular'; font-size:1.9em; line-height:1.9em; color:#6D727D;}
-h1, h2, h3{font-family:'alegreya_sanslight';}
-h1{color:#fff;}
+a{color:#394E77; text-decoration:underline; font-family:'AllerRegular';}
+.nav a{text-decoration:none;}
+.main-menu a{font-family:'alegreya_sansregular'; font-size:1.3em;}
+.main-menu a:hover, .main-menu a.active{color:#6C792A;}
+h1, h2, h3, .subnav-style a{font-family:'alegreya_sanslight';}
+h1{color:#fff; font-size:2.3em; margin:10px 0;}
+h2{color:#5D93B4; font-size:2.0em;}
+h2.references{font-family:'alegreya_sansmedium'; color:#D8A014; font-size:1.7em; text-transform:uppercase; border-top:#D8A014 2px solid; padding-top:20px; margin-top:30px;}
