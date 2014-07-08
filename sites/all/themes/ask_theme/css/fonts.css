@@ -137,4 +137,8 @@ a{color:#394E77; text-decoration:underline; font-family:'AllerRegular';}
 h1, h2, h3, .subnav-style a{font-family:'alegreya_sanslight';}
 h1{color:#fff; font-size:2.3em; margin:10px 0;}
 h2{color:#5D93B4; font-size:2.0em;}
-h2.references{font-family:'alegreya_sansmedium'; color:#D8A014; font-size:1.7em; text-transform:uppercase; border-top:#D8A014 2px solid; padding-top:20px; margin-top:30px;}
+.related-header, .reference-header{font-family:'alegreya_sansregular'; font-size:1.7em; text-transform:uppercase; padding-top:20px; margin:40px 0 15px 0;}
+.reference-header{color:#D8A014; border-top:#D8A014 2px solid;}
+.related-header{color:#7a992c; border-top:#7a992c 2px solid;}
+.reference-list li{font-size:1.4em; color:#D8A014; margin-bottom:18px;}
+.reference-list p{font-size:0.62em; color:#6D727D; line-height:1.6em;}

@@ -3,7 +3,7 @@
  ************************/
 /** Overall styles **/
 
-.region-content ul{list-style-position:inside;}
+.region-content ol, .region-content ul{width:auto; overflow:hidden; padding-left:50px;}
 /** Header **/
 .header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
@@ -23,7 +23,7 @@ nav li ul{display:none;}
 .content-padding{padding:80px 15px;}
 
 /** Subnav **/
-.subnav{float:left;margin:15px 30px 0 0;}
+.subnav{float:left;margin:15px 30px 20px 0;}
 .subnav-style, .title{background:#D8A014;}
 .subnav-style{padding:80px 13px 5px 13px;}
 .subnav-style ul.menu li{margin:0;}
