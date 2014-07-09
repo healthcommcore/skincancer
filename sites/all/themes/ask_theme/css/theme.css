@@ -3,7 +3,8 @@
  ************************/
 /** Overall styles **/
 
-.region-content ol, .region-content ul{width:auto; overflow:hidden; padding-left:50px;}
+.region-content ol, .region-content ul{width:auto; overflow:hidden; padding-left:25px;}
+.region-content ul{list-style-image:url('../images/square_bullet.gif');}
 /** Header **/
 .header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
@@ -11,19 +12,20 @@
 .tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
+.logo img{margin:12px 0 0 10px;}
 nav li{float:left;}
 nav li ul{display:none;}
 .main-menu{margin-top:16px;}
 .nav li a:hover{background:none !important;}
+.left-col-width{width:184px;}
+.title{height:66px;}
+.title-graphic{background:#E4BC5A; position:relative; float:left; height:66px;}
 
-.subnav{float:left;margin-top:15px;}
-.subnav-style, .title{background:#D8A014;}
-.subnav-style a{color:#fff; font-size:1em; line-height:1.2em;}
 .page{background:#fff;}
 .content-padding{padding:80px 15px;}
 
 /** Subnav **/
-.subnav{float:left;margin:15px 30px 20px 0;}
+.subnav{float:left; margin:15px 53px 20px 0;}
 .subnav-style, .title{background:#D8A014;}
 .subnav-style{padding:80px 13px 5px 13px;}
 .subnav-style ul.menu li{margin:0;}
@@ -56,8 +58,6 @@ footer{padding:10px 30px 80px 30px;}
  ************************/
 
 @media (min-width: 1200px) {
-	.logo{width:184px;}
-	.subnav{width:184px;}
 }
 
 

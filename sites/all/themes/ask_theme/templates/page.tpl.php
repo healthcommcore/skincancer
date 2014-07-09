@@ -26,7 +26,7 @@
 		</div>
 			<div class="container">
 				<div class="row">
-					<div id="logo" class="logo">
+					<div id="logo" class="logo left-col-width">
 						<a href="<?php print $front_page; ?>"><img alt="ask study logo" src="<?php print $logo; ?>" /></a>	
 					</div>
 				</div>
@@ -48,7 +48,8 @@
 			<div id="title" class="title">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-offset-2 col-md-10">
+						<div class="title-graphic left-col-width"></div>
+						<div class="col-md-10">
 							<h1><?php print $title; ?></h1>
 						</div>
 					</div>
@@ -58,7 +59,7 @@
 			<section class="container">
 				<div class="row">
 					<?php if( render($page['subnav']) ) : ?>
-						<div id="subnav" class="subnav">
+						<div id="subnav" class="subnav left-col-width">
 							<?php print render($page['subnav']); ?>
 						</div>
 					<?php endif; ?>
