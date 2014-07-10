@@ -129,17 +129,44 @@
 
 }
 
+@font-face {
+    font-family: 'alegreya_sansthin';
+    src: url('../fonts/AlegreyaSans-Thin-webfont.eot');
+    src: url('../fonts/AlegreyaSans-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/AlegreyaSans-Thin-webfont.woff') format('woff'),
+         url('../fonts/AlegreyaSans-Thin-webfont.ttf') format('truetype'),
+         url('../fonts/AlegreyaSans-Thin-webfont.svg#alegreya_sansthin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'alegreya_sansthin_italic';
+    src: url('../fonts/AlegreyaSans-ThinItalic-webfont.eot');
+    src: url('../fonts/AlegreyaSans-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/AlegreyaSans-ThinItalic-webfont.woff') format('woff'),
+         url('../fonts/AlegreyaSans-ThinItalic-webfont.ttf') format('truetype'),
+         url('../fonts/AlegreyaSans-ThinItalic-webfont.svg#alegreya_sansthin_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body{background:#0095BA;font-family:'AllerLightRegular'; font-size:1.9em; line-height:1.9em; color:#6D727D;}
 a{color:#394E77; text-decoration:underline; font-family:'AllerRegular';}
 .nav a{text-decoration:none;}
 .main-menu a{font-family:'alegreya_sansregular'; font-size:1.3em;}
-.main-menu a:hover, .main-menu a.active{color:#6C792A;}
-h1, h2, h3, .subnav-style a{font-family:'alegreya_sanslight';}
+.main-menu a:hover, .main-menu a.active{color:#d8a014;}
+.main-menu a.active{border-bottom:#d8a014 3px solid;}
+h1, h2, h3, .subnav-style a{font-family:'alegreya_sansthin';}
 h1{color:#fff; font-size:2.3em; margin:9px 0 0 35px;}
 h2{color:#5D93B4; font-size:2.0em;}
 .resource-header, .reference-header{font-family:'alegreya_sansregular'; font-size:1.5em; text-transform:uppercase; padding-top:20px; margin:40px 0 15px 0;}
-.reference-header{color:#D8A014; border-top:#D8A014 2px solid;}
-.resource-header{color:#7a992c; border-top:#7a992c 2px solid;}
+.reference-header{color:#D8A014; /*border-top:#D8A014 1px solid;*/}
+.resource-header{color:#7a992c; /*border-top:#7a992c 1px solid;*/}
 .region-content .reference-list{overflow:visible; padding-left:50px;}
 .reference-list li{font-size:1.4em; color:#D8A014; margin-bottom:18px;}
 .reference-list p{font-size:0.62em; color:#6D727D; line-height:1.6em;}
+.landing-page-opening{font-size:1.20em; line-height:2.0em;}
+.content-callout{font-family:'AllerLightItalic'; font-size:1.25em; line-height:1.6em; color:#6C792A;}
