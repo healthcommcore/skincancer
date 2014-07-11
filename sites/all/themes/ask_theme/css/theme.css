@@ -1,10 +1,11 @@
-/************************ * STATIC STYLING
+/********************
+ * STATIC STYLING
  ************************/
 /** Overall styles **/
 
 .region-content p{margin-bottom:30px;}
 .region-content ol, .region-content ul{width:auto; overflow:hidden; padding-left:25px;}
-.region-content ul{list-style-image:url('../images/square_bullet.gif');}
+.region-content ul{list-style-image:url('../images/square_bullet.gif'); margin-top:-27px;}
 /** Header **/
 .header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
@@ -20,11 +21,19 @@ nav li ul{display:none;}
 .nav li a:hover{background:none !important;}
 
 .left-col-width{width:184px;}
+
+/** page content **/
+.content-padding{padding:80px 55px;}
+.page{background:#fff;}
 .title{height:66px;}
 .title-graphic{background:#E4BC5A; position:relative; float:left; height:66px;}
+.landing-page-opening{border-bottom:#D8A014 2px solid; padding-bottom: 20px; margin-bottom:50px;}
 
-.page{background:#fff;}
-.content-padding{padding:80px 55px;}
+.reference-list li:before{content:""; display:block; height:135px; margin:-135px 0 0;}
+
+/** Misc **/
+.space-before-list{margin-bottom:30px;}
+.float-correct{width:auto; overflow:hidden;}
 
 /** Subnav **/
 .subnav{float:left; margin:15px 53px 20px 0;}
@@ -36,10 +45,9 @@ nav li ul{display:none;}
 .subnav-style li:last-child{border-bottom:none;}
 .subnav .nav li a{padding:0;}
 
-.landing-page-opening{border-bottom:#D8A014 2px solid; padding-bottom: 30px; margin-bottom:30px;}
 
 /** Content callout **/
-.content-callout{border-top:#D8A014 2px solid; border-bottom:#D8A014 2px solid; display:block; margin:60px auto 80px; padding:30px 0; width:80%; text-align:center;}
+.content-callout{border-top:#D8A014 2px solid; border-bottom:#D8A014 2px solid; display:block; margin:60px auto; padding:45px 0 30px; width:80%; text-align:center;}
 .content-callout p{padding:0 8%;}
 
 /** Footer **/
