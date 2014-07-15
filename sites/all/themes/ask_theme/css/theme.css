@@ -2,10 +2,10 @@
  * STATIC STYLING
  ************************/
 /** Overall styles **/
-
 .region-content p{margin-bottom:30px;}
 .region-content ol, .region-content ul{width:auto; overflow:hidden; padding-left:25px;}
 .region-content ul{list-style-image:url('../images/square_bullet.gif'); margin-top:-27px;}
+sup{margin-left:-.25em; margin-right:.4em;}
 /** Header **/
 .header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
@@ -18,12 +18,13 @@
 nav li{float:left;}
 nav li ul{display:none;}
 .main-menu{margin-top:16px;}
+.main-menu .nav li a{padding:10px 3px; margin:0 12px;}
 .nav li a:hover{background:none !important;}
 
 .left-col-width{width:184px;}
 
 /** page content **/
-.content-padding{padding:80px 55px;}
+.content-padding{padding:80px 90px;}
 .page{background:#fff;}
 .title{height:66px;}
 .title-graphic{background:#E4BC5A; position:relative; float:left; height:66px;}
