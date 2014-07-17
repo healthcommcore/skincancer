@@ -26,8 +26,9 @@ nav li ul{display:none;}
 /** page content **/
 .content-padding{padding:80px 90px;}
 .page{background:#fff;}
-.title{height:66px;}
-.title-graphic{background:#E4BC5A; position:relative; float:left; height:66px;}
+.title{overflow:hidden;}
+.title, .title-graphic{/*height:66px;*/}
+.title-graphic{background:#E4BC5A; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px;}
 .landing-page-opening{border-bottom:#D8A014 2px solid; padding-bottom: 20px; margin-bottom:50px;}
 
 .reference-list li:before{content:""; display:block; height:135px; margin:-135px 0 0;}
@@ -35,6 +36,9 @@ nav li ul{display:none;}
 /** Misc **/
 .space-before-list{margin-bottom:30px;}
 .float-correct{width:auto; overflow:hidden;}
+.clr, .clr-after:after{clear:both;}
+.clr-after:after{content:""; display:block;}
+.width-test{background:#7fcadc; height:40px; border:#000 1px solid;}
 
 /** Subnav **/
 .subnav{float:left; margin:15px 53px 20px 0;}
@@ -50,6 +54,10 @@ nav li ul{display:none;}
 /** Content callout **/
 .content-callout{border-top:#D8A014 2px solid; border-bottom:#D8A014 2px solid; display:block; margin:60px auto; padding:45px 0 30px; width:80%; text-align:center;}
 .content-callout p{padding:0 8%;}
+
+/** Risk factor **/
+.risk-factors{margin:0}
+.risk-factor{background:#f9f1c1; height:400px; margin:0 60px 60px 0; font-size:0.9em;}
 
 /** Footer **/
 footer{padding:10px 30px 80px 30px;}

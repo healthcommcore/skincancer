@@ -11,6 +11,7 @@ stylesheets[all][] = css/bootstrap-responsive.css
 stylesheets[print][] = css/print.css
 
 scripts[] = js/bootstrap.js
+scripts[] = js/defs.js
 
 regions[page_top] = Page top
 regions[top_header] = Top header
