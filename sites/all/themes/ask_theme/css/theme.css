@@ -51,6 +51,9 @@ nav li ul{display:none;}
 .subnav-style li:last-child{border-bottom:none;}
 .subnav .nav li a{padding:0;}
 
+/** Def-container **/
+.def-container{position:absolute; background:#f9f1c1; padding:15px 30px;}
+
 
 /** Content callout **/
 .content-callout{border-top:#D8A014 2px solid; border-bottom:#D8A014 2px solid; display:block; margin:60px auto; padding:45px 0 30px; width:80%; text-align:center;}
