@@ -31,7 +31,8 @@ nav li ul{display:none;}
 .title-graphic{background:#E4BC5A; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px;}
 .landing-page-opening{border-bottom:#D8A014 2px solid; padding-bottom: 20px; margin-bottom:50px;}
 
-.reference-list li:before{content:""; display:block; height:135px; margin:-135px 0 0;}
+.reference-list li:first-child{}
+.reference-list li:before{content:""; display:block; padding-top:135px; margin:-135px 0 0 0; position:relative; height:145px;}
 
 /** Misc **/
 .space-before-list{margin-bottom:30px;}
