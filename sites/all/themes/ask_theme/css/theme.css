@@ -52,7 +52,7 @@ nav li ul{display:none;}
 .subnav .nav li a{padding:0;}
 
 /** Def-container **/
-.def-container{position:absolute; background:#f9f1c1; padding:15px 30px;}
+.def-container{position:absolute; background:#F7F1C2; padding:10px 20px; 0px 20px; width:300px; z-index:100; color:#6C792A; border:#6C792A 1px solid;}
 
 
 /** Content callout **/

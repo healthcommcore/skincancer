@@ -17,39 +17,66 @@
   }
 
  $(document).ready(function() {
+	 var container = $('#def-container');
 	 var terms = $('.def');
-	 terms.on('click mouseover', function (e) {
+	 container.hide();
+	 terms.on('mouseover', function (e) {
 		 e.preventDefault();
 		 var id = e.target.id;
 		 id = id.split('-').join('_');
 		 var match = findMatch(Object.keys(defs), id);
-		 var defBox = contain(match);
-		 $(e.target).parent().prepend(defBox);
-		 $(defBox).toggle();
+		 $(container).append(match);
+		 position(container, e.target);
+		 $(container).show();
 		 //console.log(match);
 
 	 })
 	 .on('mouseout', function (e) {
-		 $('#defBox').remove();
+		 $(container).children().remove();
+		 $(container).hide();
 	 });
 
 	 // findMatch()
 	 var findMatch = function(keys, id) {
-	   var match;
+	   var match = '<p>';
 		 keys.forEach( function(term) {
 			 if(term == id) {
 			   //console.log(defs[term]);
-			   match = defs[term];
+			   match += defs[term];
+				 match += '</p>';
 			 }
 		 });
 		 return match;
 	 }
-
-	 var contain = function(def) {
-		 var container = '<div id="defBox" class="def-container"><p>';
-		 container += def;
-		 container += '</p></div>';
-		 return container;
+	 
+	 var setContainerTop = function(container, term) {
+		 var cTop, padding = '20';
+		 var termTop = $(term).position().top - window.scrollY;
+		 console.log(termTop);
+		 if (termTop <= (window.innderHeight / 2) ) {
+			 cTop = termTop + $(term).height() + padding;
+		 }
+		 else {
+			 cTop = termTop - $(container).height() - padding;
+		 }
+		 return cTop;
 	 }
+
+
+	 var position = function(container, term) {
+		 var termTop = $(term).position().top;
+		 var termLeft = $(term).position().left;
+		 var termCenter = termLeft + ($(term).width() / 2);
+		 var containerCenter = $(container).outerWidth() / 2;
+		 var containerTop = setContainerTop(container, term);
+		 //console.log(termCenter - containerCenter);
+		 $(container).css({
+       left: (termCenter - containerCenter) + 'px',
+       top: containerTop + 'px',
+		 });
+
+		 //console.log(termCenter);
+	 }
+
  });
 })(jQuery);

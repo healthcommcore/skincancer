@@ -44,6 +44,7 @@
 
 <div id="page" class="page">
 	<div id="main">
+	<div id="def-container" class="def-container"></div>
 		<?php if($title) : ?>
 			<div id="title" class="title">
 				<div class="container">
