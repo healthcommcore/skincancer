@@ -1,4 +1,5 @@
 (function($) {
+
   var defs = {
    bcc: 'Basal cell carcinoma (non-melanoma skin cancer), the most common form of skin cancer, not usually life-threatening.',
 	 carcinoma: 'A type of cancer that starts in cells that make up the skin or the tissue-lining organs',
@@ -17,23 +18,25 @@
   }
 
  $(document).ready(function() {
+
 	 var container = $('#def-container');
 	 var terms = $('.def');
 	 container.hide();
-	 terms.on('mouseover', function (e) {
+	 terms
+	 .on('click', function (e) {
 		 e.preventDefault();
+	 })
+	 .on('mouseover', function (e) {
 		 var id = e.target.id;
 		 id = id.split('-').join('_');
 		 var match = findMatch(Object.keys(defs), id);
 		 $(container).append(match);
-		 position(container, e.target);
 		 $(container).show();
-		 //console.log(match);
-
+		 position(container, e.target);
 	 })
-	 .on('mouseout', function (e) {
-		 $(container).children().remove();
+	 .on('mouseout', function () {
 		 $(container).hide();
+		 $(container).children().remove();
 	 });
 
 	 // findMatch()
@@ -41,7 +44,6 @@
 	   var match = '<p>';
 		 keys.forEach( function(term) {
 			 if(term == id) {
-			   //console.log(defs[term]);
 			   match += defs[term];
 				 match += '</p>';
 			 }
@@ -49,12 +51,12 @@
 		 return match;
 	 }
 	 
+	 // setContainerTop
 	 var setContainerTop = function(container, term) {
-		 var cTop, padding = '20';
-		 var termTop = $(term).position().top - window.scrollY;
-		 console.log(termTop);
-		 if (termTop <= (window.innderHeight / 2) ) {
-			 cTop = termTop + $(term).height() + padding;
+		 var cTop, padding = 12;
+		 var termTop = $(term).offset().top;
+		 if (termTop - window.scrollY <= (window.innerHeight / 2) ) {
+			 cTop = termTop + $(term).height();
 		 }
 		 else {
 			 cTop = termTop - $(container).height() - padding;
@@ -62,21 +64,18 @@
 		 return cTop;
 	 }
 
-
+	 // position()
 	 var position = function(container, term) {
 		 var termTop = $(term).position().top;
 		 var termLeft = $(term).position().left;
 		 var termCenter = termLeft + ($(term).width() / 2);
 		 var containerCenter = $(container).outerWidth() / 2;
 		 var containerTop = setContainerTop(container, term);
-		 //console.log(termCenter - containerCenter);
 		 $(container).css({
        left: (termCenter - containerCenter) + 'px',
        top: containerTop + 'px',
 		 });
-
-		 //console.log(termCenter);
 	 }
 
- });
+ });// document
 })(jQuery);
