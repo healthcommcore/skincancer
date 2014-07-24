@@ -5,9 +5,6 @@
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
-	<!--[if lt IE 9]>
-		<script src="<?php print $base_path . $directory; ?>/js/html5.js"></script>
-	<![endif]-->
   <?php print $scripts; ?>
 <!-- GOOGLE ANALYTICS -->
 </head>

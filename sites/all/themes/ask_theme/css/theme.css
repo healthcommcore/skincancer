@@ -10,10 +10,15 @@ sup{margin-left:-.25em; margin-right:.4em;}
 .header{height:133px; position:relative;}
 .top-area{height:38px; background:#7A992C;}
 .top-header{}
-.tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px;}
+.region-top-header{float:right;}
+.tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px; display:inline-block; width:403px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
 .logo img{margin:12px 0 0 10px;}
+.search{margin-left:20px;}
+.top-menu li{float:left;}
+.top-menu li.leaf{padding-top:0;}
+.top-menu .nav a{padding:0;}
 
 nav li{float:left;}
 nav li ul{display:none;}
@@ -31,12 +36,14 @@ nav li ul{display:none;}
 .title-graphic{background:#E4BC5A; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px;}
 .landing-page-opening{border-bottom:#D8A014 2px solid; padding-bottom: 20px; margin-bottom:50px;}
 
-.reference-list li:first-child{}
-.reference-list li:before{content:""; display:block; padding-top:135px; margin:-135px 0 0 0; position:relative; height:145px;}
+.reference-list a{z-index:10;}
+.reference-list li{}
+.reference-list li:before{content:""; display:block; padding-top:135px; margin:-135px 0 0 0; height:145px;}
 
 /** Misc **/
 .space-before-list{margin-bottom:30px;}
 .float-correct{width:auto; overflow:hidden;}
+.float-left{float:left;}
 .clr, .clr-after:after{clear:both;}
 .clr-after:after{content:""; display:block;}
 .width-test{background:#7fcadc; height:40px; border:#000 1px solid;}
