@@ -8,22 +8,25 @@
 sup{margin-left:-.25em; margin-right:.4em;}
 /** Header **/
 .header{height:133px; position:relative;}
-.top-area{height:38px; background:#7A992C;}
-.top-header{}
-.region-top-header{float:right;}
 .tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px; display:inline-block; width:403px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
 .logo img{margin:12px 0 0 10px;}
+
+/** Top area and top menu **/
+.top-area{height:38px; background:#7A992C;}
+.top-header{height:38px;}
+.region-top-header{float:right;}
 .search{margin-left:20px;}
 .top-menu li{float:left;}
 .top-menu li.leaf{padding-top:0;}
 .top-menu .nav a{padding:0;}
 
+/** Main menu **/
 nav li{float:left;}
 nav li ul{display:none;}
 .main-menu{margin-top:16px;}
-.main-menu .nav li a{padding:10px 3px; margin:0 12px;}
+.main-menu .nav li a{padding:7px 3px; margin:0 12px;}
 .nav li a:hover{background:none !important;}
 
 .left-col-width{width:184px;}
@@ -40,13 +43,6 @@ nav li ul{display:none;}
 .reference-list li{}
 .reference-list li:before{content:""; display:block; padding-top:135px; margin:-135px 0 0 0; height:145px;}
 
-/** Misc **/
-.space-before-list{margin-bottom:30px;}
-.float-correct{width:auto; overflow:hidden;}
-.float-left{float:left;}
-.clr, .clr-after:after{clear:both;}
-.clr-after:after{content:""; display:block;}
-.width-test{background:#7fcadc; height:40px; border:#000 1px solid;}
 
 /** Subnav **/
 .subnav{float:left; margin:15px 53px 20px 0;}
@@ -66,6 +62,13 @@ nav li ul{display:none;}
 .content-callout{border-top:#D8A014 2px solid; border-bottom:#D8A014 2px solid; display:block; margin:60px auto; padding:45px 0 30px; width:80%; text-align:center;}
 .content-callout p{padding:0 8%;}
 
+/** Header container **/
+.highlight-container{min-height:150px; margin-bottom:20px; width:auto; overflow:hidden;}
+.highlight-container .padding{padding:10px 25px;}
+.highlight-header{background:#FBF7DE;}
+.highlight-header h2, .highlight-header h3{margin:0 0 3px 0;}
+.highlight-content ul{margin-top:0;}
+
 /** Risk factor **/
 .risk-factors{margin:0}
 .risk-factor{background:#f9f1c1; height:400px; margin:0 60px 60px 0; font-size:0.9em;}
@@ -84,6 +87,15 @@ footer{padding:10px 30px 80px 30px;}
 .footer-menu-copyright nav li{background:none; padding:0 13px; border-right:#F8F4D2 1px solid; height:auto; line-height:1em; float:left;}
 .footer-menu-copyright nav li:last-child{padding-right:0; border:0;} .footer-menu-copyright nav a { padding:0; display:inline; font-size:1em;} .footer-menu-copyright nav ul{float:right;} .footer-menu-copyright .legal,.footer-menu-copyright .legal a {} .footer-menu-copyright .legal{clear:right; font-size:.65em; line-height:1.6em;}
 .footer-menu-copyright .legal a{ text-decoration:underline; margin-left:3px;}
+
+/** Misc **/
+.space-before-list{margin-bottom:30px;}
+.float-correct{width:auto; overflow:hidden;}
+.float-left{float:left;}
+.clr, .clr-after:after{clear:both;}
+.clr-after:after{content:""; display:block;}
+.width-test{background:#7fcadc; height:40px; border:#000 1px solid;}
+
 
 /************************
  * LARGE DESKTOP
