@@ -62,8 +62,9 @@ nav li ul{display:none;}
 .content-callout{border-top:#D8A014 2px solid; border-bottom:#D8A014 2px solid; display:block; margin:60px auto; padding:45px 0 30px; width:80%; text-align:center;}
 .content-callout p{padding:0 8%;}
 
-/** Header container **/
+/** Highlight container **/
 .highlight-container{min-height:150px; margin-bottom:20px; width:auto; overflow:hidden;}
+.ask-quiz .highlight-container{margin-bottom:35px;}
 .highlight-container .padding{padding:10px 25px;}
 .highlight-header{background:#FBF7DE;}
 .highlight-header h2, .highlight-header h3{margin:0 0 3px 0;}

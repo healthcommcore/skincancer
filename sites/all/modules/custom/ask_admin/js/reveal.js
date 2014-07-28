@@ -5,10 +5,17 @@
 (function($) {
 	$(document).ready(function() { 
 		var openclose = $('.openclose');
+		var quiz_questions = $('.ask-quiz .highlight-content');
 
 // Start with all images hidden
 		$('.openclose').each(function () {
 			$(this).hide();
+		});
+
+		$(quiz_questions).find('input').each(function () {
+			if( this.type == 'radio' && $(this).attr('checked', true) ) {
+				$(this).attr('checked', false);
+			}
 		});
 
 // Toggle slide effect for all elements when overall
@@ -31,17 +38,18 @@
 		});
 
 // ASK Quiz functionality
-		$('#ask-quiz li').on('click', function (e) {
+		$(quiz_questions).on('click', function (e) {
 			var chosen = e.target;
 			if($(chosen).attr('type') == 'radio') {
+			  //console.log('Radio button clicked!');
 				var answer = $(this).find('.openclose');
 				if ($(answer).is(':hidden')) {
 					$(answer).slideDown();
 					if (isCorrect($(chosen).val(), this)) {
-						$(answer).find('h2').html('Correct!');
+						$(answer).find('.answer').html('Correct!');
 					}
 					else {
-						$(answer).find('h2').html('Actually...');
+						$(answer).find('.answer').html('Actually...');
 					}
 				}
 			}
