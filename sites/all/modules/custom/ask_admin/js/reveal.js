@@ -20,7 +20,8 @@
 
 // Toggle slide effect for all elements when overall
 // open/close link clicked
-		$('#all-imgs').on('click', function () {
+		$('#all-imgs').on('click', function (e) {
+			e.preventDefault();
 			openclose.each(function () {
 				$(this).slideToggle();
 			});
@@ -28,12 +29,10 @@
 
 // Toggle slide effect for an individual element
 // when corresponding link clicked
-		$('.skin-imgs-page').on('click', function (e) {
+		$('.skin-imgs').on('click', function (e) {
 			e.preventDefault();
-			//console.log($(e.target).parent().parent());
-			var skin_imgs = $(e.target).parent().parent();
-			if(skin_imgs.hasClass('skin-imgs')) {
-				skin_imgs.find('.openclose').slideToggle();
+			if( $(e.target).hasClass('trigger') ) {
+				$(this).find('.openclose').slideToggle();
 			}
 		});
 

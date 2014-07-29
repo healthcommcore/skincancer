@@ -63,16 +63,21 @@ nav li ul{display:none;}
 .content-callout p{padding:0 8%;}
 
 /** Highlight container **/
-.highlight-container{min-height:150px; margin-bottom:20px; width:auto; overflow:hidden;}
-.ask-quiz .highlight-container{margin-bottom:35px;}
+.highlight-container{min-height:150px; margin-bottom:30px; width:auto; overflow:hidden;}
 .highlight-container .padding{padding:10px 25px;}
-.highlight-header{background:#FBF7DE;}
+.highlight-header{background:#FBF9E4;}
 .highlight-header h2, .highlight-header h3{margin:0 0 3px 0;}
 .highlight-content ul{margin-top:0;}
+
+/** Skin images **/
+.skin-imgs h2{margin:4px 0;}
+.first-letter-signs{background:#3194B7; margin:5px; padding:3px 10px; color:#fff;}
+h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 
 /** Risk factor **/
 .risk-factors{margin:0}
 .risk-factor{background:#f9f1c1; height:400px; margin:0 60px 60px 0; font-size:0.9em;}
+
 
 /** Footer **/
 footer{padding:10px 30px 80px 30px;}
