@@ -8,6 +8,7 @@
 sup{margin-left:-.25em; margin-right:.4em;}
 /** Header **/
 .header{height:133px; position:relative;}
+.header .navbar-fixed-top{z-index:400;}
 .tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px; display:inline-block; width:403px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
