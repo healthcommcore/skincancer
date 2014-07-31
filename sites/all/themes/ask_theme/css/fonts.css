@@ -193,9 +193,6 @@ h1{font-family:'alegreya_sansthin'; color:#fff; font-size:2.8em; margin:4px 0 0 
 h2{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
 h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em;}
 .resource-header, .reference-header{font-family:'alegreya_sansregular'; font-size:1.5em; text-transform:uppercase; padding-top:20px; margin:40px 0 15px 0;}
-.reference-header{color:#D8A014;}
-.resource-header{color:#7a992c;}
-.region-content .reference-list{overflow:visible; padding-left:50px;}
 .reference-list li{font-size:1.4em; color:#D8A014; margin-bottom:18px;}
 .reference-list p{font-size:0.62em; color:#6D727D; line-height:1.6em;}
 .resource-list p{font-size:0.88em; line-height:1.6em; margin-bottom:25px;}
@@ -207,6 +204,9 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 .def-container{font-family:'OpenSansItalic'; font-size:0.9em; line-height:1.5em;}
 
 .highlight-header h3{color:#7A992C; font-size:1.1em; font-family:'OpenSansItalic'; font-weight:normal;}
+
+.special-reference-container .citation{font-size:0.8em; line-height:1.6em;}
+.special-reference-container ol.citation li{margin-bottom:10px;}
 
 .first-letter-signs{font-size:110%; font-family:'OpenSansRegular';}
 h2 .first-letter-signs{font-size:150%; font-family:'alegreya_sansregular';}
