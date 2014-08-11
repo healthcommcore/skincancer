@@ -1,4 +1,5 @@
 <?php
+$mobile_class = "";
 ?>
 <header class="header">
 	<div class="navbar-fixed-top">
@@ -18,7 +19,7 @@
 		<div id="main-header" class="main-header">
 			<div class="container">
 				<div class="row">
-					<nav id="main-menu" class="col-md-offset-2 col-md-10 main-menu">
+					<nav id="main-menu" class="col-md-offset-2 col-md-10 main-menu hidden-xs">
 						<?php print render($page['main_menu']); ?>
 					</nav>
 				</div>
@@ -35,14 +36,26 @@
 </header>
 <!-- MAIN CONTENT AREA -->
 <?php if( render($page['rotator']) ) : ?>
-	<section>
+	<section class="hidden-xs">
 		<div id="rotator" class="rotator">
 			<?php print render($page['rotator']); ?>
 		</div>	
 	</section>
 <?php endif; ?>
+<?php if( render($page['mobile_home']) ) {
+	if(drupal_is_front_page()) {
+		$mobile_class="hidden-xs";
+	}
+?>
+	<section>
+		<div id="mobile-home" class="mobile-home">
+			<?php print render($page['mobile_home']); ?>
+		</div>	
+	</section>
+<?php } ?>
 
-<div id="page" class="page">
+
+<div id="page" class="page <?php echo $mobile_class; ?>">
 	<div id="main">
 	<div id="def-container" class="def-container"></div>
 		<?php if($title) : ?>

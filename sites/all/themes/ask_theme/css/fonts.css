@@ -210,3 +210,8 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 .first-letter-signs{font-size:110%; font-family:'OpenSansRegular';}
 h2 .first-letter-signs{font-size:150%; font-family:'alegreya_sansregular';}
+
+
+@media (max-width: 767px) {
+	body{padding-left:0; padding-right:0;}
+}

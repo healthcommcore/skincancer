@@ -133,7 +133,21 @@ footer{padding:10px 30px 80px 30px;}
 /************************
  * MEDIUM DESKTOP
  ************************/
-@media (min-width: 768px) {
+@media (max-width: 767px) {
+	.mobile-home{background:#F7F1C2; padding:20px; position:relative;}
+	.ask-icon, .dermalite-icon{display:block; float:left;}
+	.ask-icon img{height:110px; width:70px;}
+	.dermalite-icon img{height:90px; width:180px;}
+	.know{background:url("../images/know.svg") 0 0 no-repeat;}
+	.get{background:url("../images/get.svg") 0 0 no-repeat;}
+	.check{background:url("../images/check.svg") 0 0 no-repeat;}
+	.view{background:url("../images/view.svg") 0 0 no-repeat;}
+	.sunscreen{background:url("../images/sunscreen.svg") 0 0 no-repeat;}
+	.appt{background:url("../images/appt.svg") 0 0 no-repeat;}
+	.watch{background:url("../images/watch.svg") 0 0 no-repeat;}
+	.quiz{background:url("../images/quiz.svg") 0 0 no-repeat;}
+	.contact{background:url("../images/contact.svg") 0 0 no-repeat;}
+	.dermalite{background:url("../images/dermalite.svg") 0 0 no-repeat;}
 }
 /************************
  * TABLET

@@ -18,6 +18,7 @@ regions[top_header] = Top header
 regions[main_menu] = Main menu
 regions[header_logo] = Main website logo
 regions[rotator] = Rotating homepage images
+regions[mobile_home] = Special homepage area only for phones
 regions[help] = Help
 regions[subnav] = Floating left subnav
 regions[content] = Content
