@@ -47,7 +47,7 @@ $mobile_class = "";
 		$mobile_class="hidden-xs";
 	}
 ?>
-	<section>
+	<section class="visible-xs">
 		<div id="mobile-home" class="mobile-home">
 			<?php print render($page['mobile_home']); ?>
 		</div>	
