@@ -123,7 +123,7 @@
 // AJAX upload to php script and then format active admin form to reflect data submission
    function uploadVals(values, selectId) {
 	   $.ajax({
-       url:'sites/all/modules/custom/skincancer/includes/upload_data.php',
+       url:'/sites/all/modules/custom/ask_admin/includes/upload_data.php',
 			 type: 'POST',
        data: values,
 			 dataType: 'json',
