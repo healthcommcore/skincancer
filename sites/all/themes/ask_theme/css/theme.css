@@ -37,8 +37,8 @@ nav li ul{display:none;}
 .page{background:#fff;}
 .title{overflow:hidden;}
 .title, .title-graphic{/*height:66px;*/}
-.title-graphic{background:#E4BC5A; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px;}
-.landing-page-opening{border-bottom:#D8A014 2px solid; padding-bottom: 20px; margin-bottom:50px;}
+.title-graphic{background:#EEBA6F; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px;}
+.landing-page-opening{border-bottom:#E69C30 2px solid; padding-bottom: 20px; margin-bottom:50px;}
 
 .reference-list a{z-index:10;}
 .reference-list li{}
@@ -47,7 +47,7 @@ nav li ul{display:none;}
 
 /** Subnav **/
 .subnav{float:left; margin:15px 53px 20px 0;}
-.subnav-style, .title{background:#D8A014;}
+.subnav-style, .title{background:#E69C30;}
 .subnav-style{padding:80px 13px 5px 13px;}
 .subnav-style ul.menu li{margin:0;}
 .subnav-style li{padding:12px 0; border-bottom:#fff 1px solid;}
