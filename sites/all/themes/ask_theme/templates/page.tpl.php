@@ -9,7 +9,11 @@ $mobile_class = "";
 					<div class="col-md-offset-2 col-md-10">
 						<!-- Tagline to go here -->	
 						<div id="top-header" class="top-header">
-							<div id="tagline" class="tagline"></div>
+							<div class="tagline-wrap">
+								<div class="tagline">
+									<img class="img-responsive" src="/sites/default/files/images/ask_tagline.gif" />
+								</div>
+							</div>
 							<?php print render($page['top_header']); ?>
 						</div>
 					</div>
@@ -28,7 +32,7 @@ $mobile_class = "";
 			<div class="container">
 				<div class="row">
 					<div id="logo" class="logo left-col-width">
-						<a href="<?php print $front_page; ?>"><img alt="ask study logo" src="<?php print $logo; ?>" /></a>	
+						<a href="<?php print $front_page; ?>"><img alt="ask study logo" class="img-responsive" src="<?php print $logo; ?>" /></a>	
 					</div>
 				</div>
 			</div>

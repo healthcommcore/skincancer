@@ -9,7 +9,8 @@ sup{margin-left:-.25em; margin-right:.4em;}
 /** Header **/
 .header{height:133px; position:relative;}
 .header .navbar-fixed-top{z-index:400;}
-.tagline{margin-left:-28px; background:url('../images/ask_tagline.gif') 0 0 no-repeat; height:38px; display:inline-block; width:403px;}
+.tagline-wrap{margin-left:-28px; background:#A8B773; height:38px; display:inline-block; width:403px;}
+.tagline{margin:10px 0 0 20px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
 .logo img{margin:12px 0 0 10px;}
@@ -134,6 +135,13 @@ footer{padding:10px 30px 80px 30px;}
  * MEDIUM DESKTOP
  ************************/
 @media (max-width: 767px) {
+	.tagline-wrap{margin:0 0 0 6%; width:100%;}
+	.tagline{width:60%; margin:8px 0 0 90px;}
+	.logo{height:78px;}
+	.main-header{height:52px;}
+	.top-area, .top-header, .tagline-wrap{height:26px;}
+	.left-col-width{margin-left:5%; width:100px;}
+	/* Homepage icons */
 	.mobile-home{background:#FBF8E1; position:relative; padding:6% 0 0 3%; border-top:#E69C30 30px solid;}
 	.mobile-container{margin:0 auto; padding:0; width:100%;}
 	.ask-icon, .dermalite-icon{display:block; float:left;}
