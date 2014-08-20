@@ -23,8 +23,17 @@ $mobile_class = "";
 		<div id="main-header" class="main-header">
 			<div class="container">
 				<div class="row">
-					<nav id="main-menu" class="col-md-offset-2 col-md-10 main-menu hidden-xs">
-						<?php print render($page['main_menu']); ?>
+					<nav id="main-menu" class="col-md-offset-2 col-md-10 main-menu navbar navbar-default">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div id="main-menu-collapse" class="collapse navbar-collapse">
+							<?php print render($page['main_menu']); ?>
+						</div>
 					</nav>
 				</div>
 			</div>
@@ -46,6 +55,7 @@ $mobile_class = "";
 		</div>	
 	</section>
 <?php endif; ?>
+
 <?php if( render($page['mobile_home']) ) {
 	if(drupal_is_front_page()) {
 		$mobile_class="hidden-xs";
@@ -101,7 +111,7 @@ $mobile_class = "";
 				</div>
 			<?php endif; ?>
 			<?php if( render($page['footer_menu_copyright']) ) :?>
-				<div id="footer-menu-copyright" class="footer-menu-copyright col-md-5">
+				<div id="footer-menu-copyright" class="footer-menu-copyright col-md-5 col-xs-12">
 					<?php print render($page['footer_menu_copyright']); ?>
 				</div>
 			<?php endif; ?>

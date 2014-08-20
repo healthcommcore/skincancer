@@ -7,9 +7,9 @@ function ask_theme_menu_tree($variables) {
 }
 
 function ask_theme_preprocess_html(&$variables) {
-	$filepath = drupal_get_path('theme', 'ask_theme') . '/css/fonts.css';
-  if (file_exists($filepath)) {
-    drupal_add_css($filepath, array(
+	$css_path = drupal_get_path('theme', 'ask_theme') . '/css/fonts.css';
+  if (file_exists($css_path)) {
+    drupal_add_css($css_path, array(
       'preprocess' => TRUE,
       'group' => CSS_THEME,
       'media' => 'screen',
@@ -23,7 +23,7 @@ function ask_theme_preprocess_html(&$variables) {
 		'#tag' => 'meta',
 		'#attributes' => array(
 			'name' =>  'viewport',
-			'content' =>  'width=device-width, initial-scale=1.0'
+			'content' =>  'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
 		)
 	);
 	drupal_add_html_head($viewport, 'viewport');

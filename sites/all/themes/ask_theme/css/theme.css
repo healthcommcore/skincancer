@@ -27,6 +27,7 @@ sup{margin-left:-.25em; margin-right:.4em;}
 /** Main menu **/
 nav li{float:left;}
 nav li ul{display:none;}
+.header .navbar-default{background:none; border-radius:0; box-shadow:0 0 0 0; border:none;}
 .main-menu{margin-top:16px;}
 .main-menu .nav li a{padding:7px 3px; margin:0 12px;}
 .nav li a:hover{background:none !important;}
@@ -102,11 +103,13 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 footer{padding:10px 30px 80px 30px;}
 .footer-topbar{height:44px; background:#F7F1C2;}
 .footer-logos{margin: 10px 0 0 0;}
-.footer-logos, .footer-logos a{float:left;}
+/*.footer-logos, .footer-logos a{float:left;}*/
 .footer-logos a{position:relative;}
 .footer-logos a{margin-right:60px;}
+.logo-top-space{margin-top:30px;}
 .logo-padding{padding-top:36px;}
 .footer-menu-copyright{float:right; text-align:right;margin-right:0; margin-top:35px;}
+.footer-menu-copyright p{margin:0;}
 .footer-menu-copyright nav ul, .footer-menu-copyright nav li{list-style-image:none; list-style:none;}
 .footer-menu-copyright, .footer-menu-copyright nav a, .footer-menu-copyright .legal a{color:#F8F4D2;}
 .footer-menu-copyright nav li{background:none; padding:0 13px; border-right:#F8F4D2 1px solid; height:auto; line-height:1em; float:left;}
@@ -135,18 +138,22 @@ footer{padding:10px 30px 80px 30px;}
  * MEDIUM DESKTOP
  ************************/
 @media (max-width: 767px) {
+	.mobile-home, .header{overflow:hidden;}
+	.header{height:78px; background:#fff;}
 	.tagline-wrap{margin:0 0 0 6%; width:100%;}
 	.tagline{width:60%; margin:8px 0 0 90px;}
-	.logo{height:78px;}
+	.logo-top-space{margin-top:0;}
+	.logo{height:78px;border-bottom:#7FCADC 8px solid;}
+	.logo img{margin:9px 0 0 0;}
 	.main-header{height:52px;}
 	.top-area, .top-header, .tagline-wrap{height:26px;}
 	.left-col-width{margin-left:5%; width:100px;}
 	/* Homepage icons */
-	.mobile-home{background:#FBF8E1; position:relative; padding:6% 0 0 3%; border-top:#E69C30 30px solid;}
+	.mobile-home{background:#FBF8E1; position:relative; padding:6% 0 0 3%; border-top:#E69C30 30px solid; width:100%;}
 	.mobile-container{margin:0 auto; padding:0; width:100%;}
 	.ask-icon, .dermalite-icon{display:block; float:left;}
 	.ask-icon:hover, .dermalite-icon:hover{opacity:0.5;}
-	.ask-icon{width:37.6%; margin:2.5% -6.7%;}
+	.ask-icon{width:37.6%; margin:2.5% -6.6%;}
 	.dermalite-icon{width:60%; margin:2.5% 0 2.5% 5%;}
 	/*
 	*/
@@ -162,6 +169,11 @@ footer{padding:10px 30px 80px 30px;}
 	.quiz{background:url("../images/quiz.svg") 50% 0 no-repeat;}
 	.contact{background:url("../images/contact.svg") 50% 0 no-repeat;}
 	.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat;}
+
+	footer{padding-left:0;}
+	.footer-menu-copyright{float:none; text-align:center; font-size:0.9em;}
+	.footer-menu-copyright nav{margin:0 auto; display:inline-block;}
+	.footer-menu-copyright nav ul{padding:0;}
 }
 /************************
  * TABLET
