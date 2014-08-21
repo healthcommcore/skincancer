@@ -203,13 +203,15 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 .def-container{font-family:'OpenSansItalic'; font-size:0.9em; line-height:1.5em;}
 
-.highlight-header h3{color:#7A992C; font-size:1.1em; font-family:'OpenSansItalic'; font-weight:normal;}
+.highlight-header h3, .emphasize{color:#7A992C; font-size:1.1em; font-family:'OpenSansItalic'; font-weight:normal;}
 
 .special-reference-container .citation{font-size:0.8em; line-height:1.6em;}
 .special-reference-container ol.citation li{margin-bottom:10px;}
 
 .first-letter-signs{font-size:110%; font-family:'OpenSansRegular';}
 h2 .first-letter-signs{font-size:150%; font-family:'alegreya_sansregular';}
+.caution{font-family:'OpensansItalic';}
+.caution strong{font-family:'OpensansSemiboldItalic';}
 
 
 @media (max-width: 767px) {

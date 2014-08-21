@@ -14,6 +14,7 @@
 	 skincancer: 'The uncontrolled growth of abnormal skin cells.',
 	 skin_self_check: 'Thoroughly checking all of your skin to prevent untreated skin cancer',
 	 spf: 'Sun Protection Factor, the relative amount of sunburn protection that a sunscreen can provide an average user when used correctly',
+	 microscopy: 'No definition yet',
 	 uv_rays: 'Ultraviolet rays that you get from the sun and tanning beds'
   }
 

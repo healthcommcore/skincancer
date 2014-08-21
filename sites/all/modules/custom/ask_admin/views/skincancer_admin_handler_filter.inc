@@ -19,7 +19,7 @@ class skincancer_admin_handler_filter extends views_handler_filter{
 
 		$form['admin_options'] = array(
 			'#type' => 'select',
-			'#title' => t('Filter results by:'),
+			'#title' => t('Filter fields:'),
 			'#options' => $options,
 		);
 	}

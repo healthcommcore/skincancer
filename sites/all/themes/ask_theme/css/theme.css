@@ -3,7 +3,6 @@
  ************************/
 /** Overall styles **/
 .region-content p{margin-bottom:30px;}
-.region-content ol, .region-content ul{width:auto; overflow:hidden; padding-left:25px;}
 .region-content ul{list-style-image:url('../images/square_bullet.gif'); margin-top:-27px;}
 sup{margin-left:-.25em; margin-right:.4em;}
 /** Header **/
@@ -44,7 +43,7 @@ nav li ul{display:none;}
 
 .reference-list a{z-index:10;}
 .reference-list li{}
-.reference-list li:before{content:""; display:block; padding-top:135px; margin:-135px 0 0 0; height:145px;}
+.reference-list li:before, .jump:before{content:""; display:block; padding-top:135px; margin:-135px 0 0 0; height:145px;}
 
 
 /** Subnav **/
@@ -98,12 +97,14 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 .risk-factors{margin:0}
 .risk-factor{background:#f9f1c1; height:400px; margin:0 60px 60px 0; font-size:0.9em;}
 
+/** Dermlite content and form**/
+.your-dermlite ol{margin-left:15px;}
+
 
 /** Footer **/
 footer{padding:10px 30px 80px 30px;}
 .footer-topbar{height:44px; background:#F7F1C2;}
 .footer-logos{margin: 10px 0 0 0;}
-/*.footer-logos, .footer-logos a{float:left;}*/
 .footer-logos a{position:relative;}
 .footer-logos a{margin-right:60px;}
 .logo-top-space{margin-top:30px;}
@@ -117,13 +118,17 @@ footer{padding:10px 30px 80px 30px;}
 .footer-menu-copyright .legal a{ text-decoration:underline; margin-left:3px;}
 
 /** Misc **/
+.region-content .no-bullet{list-style:none;}
 .space-before-list{margin-bottom:30px;}
+.region-content .space-above-list{margin-top:0;}
 .float-correct{width:auto; overflow:hidden;}
 .float-left{float:left;}
+.float-list{width:auto; overflow:hidden; padding-left:25px;}
 .clr, .clr-after:after{clear:both;}
 .clr-after:after{content:""; display:block;}
 .width-test{background:#7fcadc; height:40px; border:#000 1px solid;}
 .indent{margin-left:30px;}
+.caution{background:#FFFFD1; padding:1% 2%; color:#D68C4F; border:#FFE57D 1px solid;}
 
 
 /************************
