@@ -38,7 +38,7 @@ nav li ul{display:none;}
 .page{background:#fff;}
 .title{overflow:hidden;}
 .title, .title-graphic{/*height:66px;*/}
-.title-graphic{background:#EEBA6F; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px;}
+.title-graphic{background:#EEBA6F; position:relative; float:left; padding-bottom:1000px; margin-bottom:-1000px; margin-left:-30px;}
 .landing-page-opening{border-bottom:#E69C30 2px solid; padding-bottom: 20px; margin-bottom:50px;}
 
 .reference-list a{z-index:10;}
@@ -129,6 +129,8 @@ footer{padding:10px 30px 80px 30px;}
 .width-test{background:#7fcadc; height:40px; border:#000 1px solid;}
 .indent{margin-left:30px;}
 .caution{background:#FFFFD1; padding:1% 2%; color:#D68C4F; border:#FFE57D 1px solid;}
+li.caution{margin:0.6% 0;}
+
 
 
 /************************
@@ -138,21 +140,30 @@ footer{padding:10px 30px 80px 30px;}
 @media (min-width: 1200px) {
 }
 
+@media (max-width: 991px) {
+	.content-padding{padding:5% 4% 5% 0;}
+	.region-content p{margin-bottom:20px;}
+	.landing-page-opening{padding-bottom:2%; margin-bottom:4%;}
+}
+
 
 /************************
  * MEDIUM DESKTOP
  ************************/
 @media (max-width: 767px) {
+	/** overall **/
 	.mobile-home, .header{overflow:hidden;}
 	.header{height:78px; background:#fff;}
 	.tagline-wrap{margin:0 0 0 6%; width:100%;}
 	.tagline{width:60%; margin:8px 0 0 90px;}
 	.logo-top-space{margin-top:0;}
-	.logo{height:78px;border-bottom:#7FCADC 8px solid;}
+	.logo{height:79px;border-bottom:#7FCADC 8px solid;}
 	.logo img{margin:9px 0 0 0;}
 	.main-header{height:52px;}
 	.top-area, .top-header, .tagline-wrap{height:26px;}
 	.left-col-width{margin-left:5%; width:100px;}
+	.region-content ul{margin-top:-20px;}
+
 	/* Homepage icons */
 	.mobile-home{background:#FBF8E1; position:relative; padding:6% 0 0 3%; border-top:#E69C30 30px solid; width:100%;}
 	.mobile-container{margin:0 auto; padding:0; width:100%;}
@@ -160,8 +171,6 @@ footer{padding:10px 30px 80px 30px;}
 	.ask-icon:hover, .dermalite-icon:hover{opacity:0.5;}
 	.ask-icon{width:37.6%; margin:2.5% -6.6%;}
 	.dermalite-icon{width:60%; margin:2.5% 0 2.5% 5%;}
-	/*
-	*/
 	.ask-icon img{width:100%;}
 	.dermalite-icon img{width:100%;}
 	.know{background:url("../images/know.svg") 50% 0 no-repeat;}
@@ -175,6 +184,19 @@ footer{padding:10px 30px 80px 30px;}
 	.contact{background:url("../images/contact.svg") 50% 0 no-repeat;}
 	.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat;}
 
+	/** Content callout **/
+	.content-callout{margin:30px auto; padding:20px 0 8px; width:90%;}
+
+	/** Highlight container **/
+	.highlight-content img{margin:0 auto;}
+	.highlight-container .padding{padding-bottom:5px; padding-top:5px;}
+	.highlight-container .padding:nth-child(1){padding-right:15px; padding-left:15px;}
+	.highlight-container .padding:nth-child(2){padding-right:0; padding-left:0;}
+	/** Special reference styles **/
+	.special-reference-container .padding{padding:8px 18px;}
+	.indent{margin-left:0;}
+
+	/** footer **/
 	footer{padding-left:0;}
 	.footer-menu-copyright{float:none; text-align:center; font-size:0.9em;}
 	.footer-menu-copyright nav{margin:0 auto; display:inline-block;}

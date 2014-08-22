@@ -75,19 +75,15 @@ $mobile_class = "";
 		<?php if($title) : ?>
 			<div id="title" class="title">
 				<div class="container">
-					<div class="row">
-						<div class="title-graphic left-col-width"></div>
-						<div class="col-md-10">
+						<div class="title-graphic left-col-width hidden-xs"></div>
 							<h1><?php print $title; ?></h1>
-						</div>
-					</div>
 				</div>
 			</div><!-- title -->
 		<?php endif; ?>	
 			<section class="container">
 				<div class="row">
 					<?php if( render($page['subnav']) ) : ?>
-						<div id="subnav" class="subnav left-col-width">
+						<div id="subnav" class="subnav left-col-width hidden-xs hidden-sm">
 							<?php print render($page['subnav']); ?>
 						</div>
 					<?php endif; ?>
