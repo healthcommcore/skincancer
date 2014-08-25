@@ -47,6 +47,7 @@ $mobile_class = "";
 			</div>
 	</div>
 </header>
+<!--<div class="test-bar">This is a test</div>-->
 <!-- MAIN CONTENT AREA -->
 <?php if( render($page['rotator']) ) : ?>
 	<section class="hidden-xs">

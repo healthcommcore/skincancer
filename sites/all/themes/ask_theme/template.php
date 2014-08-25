@@ -3,8 +3,15 @@
  * Implements theme_menu_tree().
  */
 function ask_theme_menu_tree($variables) {
+	dpm($variables);
   return '<ul class="menu nav">' . $variables['tree'] . '</ul>';
 }
+
+/*
+function ask_theme_menu_link($variables) {
+	return $variables;
+}
+ */
 
 function ask_theme_preprocess_html(&$variables) {
 	$css_path = drupal_get_path('theme', 'ask_theme') . '/css/fonts.css';

@@ -222,4 +222,5 @@ h2 .first-letter-signs{font-size:150%; font-family:'alegreya_sansregular';}
 @media (max-width: 767px) {
 	body{padding-left:0; padding-right:0; font-size:1.8em; line-height:1.8em; color:#45484F;}
 	.content-callout{font-size:1.1em;}
+	.main-menu a.active, .main-menu a.active-trail{border:none;}
 }
