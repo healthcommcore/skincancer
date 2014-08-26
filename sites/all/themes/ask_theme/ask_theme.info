@@ -12,6 +12,7 @@ stylesheets[print][] = css/print.css
 
 scripts[] = js/bootstrap.js
 scripts[] = js/defs.js
+scripts[] = js/menu_responsive.js
 
 regions[page_top] = Page top
 regions[top_header] = Top header

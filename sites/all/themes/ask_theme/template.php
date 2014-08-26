@@ -3,12 +3,15 @@
  * Implements theme_menu_tree().
  */
 function ask_theme_menu_tree($variables) {
-	dpm($variables);
   return '<ul class="menu nav">' . $variables['tree'] . '</ul>';
 }
 
 /*
 function ask_theme_menu_link($variables) {
+	//print_r($variables['element']);
+	if($variables['element']['#original_link']['menu_name'] == 'main-menu') {
+		print_r($variables['element']);
+	}
 	return $variables;
 }
  */
