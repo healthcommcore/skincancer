@@ -214,13 +214,20 @@ h2 .first-letter-signs{font-size:150%; font-family:'alegreya_sansregular';}
 .caution strong{font-family:'OpensansSemiboldItalic';}
 
 
+.nav li a:hover, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background:none;}
+
+
 @media(max-width: 991px) {
 	h1{font-size:2.4em; margin:0; line-height:0.95em; padding:2% 0;}
 	.landing-page-opening{line-height:1.85em; font-size:1.1em;}
+	/*
+	*/
+	.main-menu .nav li a.submenu-reveal{background:url('../images/dropdown_arrows.gif') 0 0 no-repeat;}
+	.main-menu .nav .open > a.subnav-on:hover, .main-menu .nav .open > a.subnav-on{background-position: -30px 3px;}
+	.main-menu a.active, .main-menu a.active-trail{border:none;}
 }
 
 @media (max-width: 767px) {
 	body{padding-left:0; padding-right:0; font-size:1.8em; line-height:1.8em; color:#45484F;}
 	.content-callout{font-size:1.1em;}
-	.main-menu a.active, .main-menu a.active-trail{border:none;}
 }
