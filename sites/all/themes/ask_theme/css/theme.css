@@ -57,6 +57,23 @@ nav li ul{display:none;}
 .subnav-style li:last-child{border-bottom:none;}
 .subnav .nav li a{padding:0;}
 
+/** Home page **/
+.porthole{text-align: center; margin:0 4% 20px 4%;}
+.porthole img{margin:0 auto;}
+.heading, .heading:hover{text-decoration:none;} 
+.heading{display:block; padding-bottom:13px; border-bottom:#e69c30 12px solid; margin-bottom:20px;}
+.meet-txt{padding-left:20px; padding-right:20px;}
+.take-txt{padding-left:50px; padding-right:70px;}
+/*
+.meet-img{background:url('../images/portholes.png') 0 0 no-repeat;}
+.take-img{background:url('../images/portholes.png') 0 0 no-repeat;}
+.appt-img{background:url('../images/portholes.png') 0 0 no-repeat;}
+*/
+/*
+.heading:after{content:""; display:block; height:200px;border-top:#e69c30 12px solid; margin:10px; width:auto;}
+.meet:after{content:""; display:block; background:url('../images/portholes.png') 0 10px no-repeat; }
+*/
+
 /** Def-container **/
 .def-container{position:absolute; background:#F7F1C2; padding:10px 20px 0px 20px; width:300px; z-index:100; color:#6C792A; border:#6C792A 1px solid;}
 

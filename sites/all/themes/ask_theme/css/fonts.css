@@ -169,6 +169,12 @@
 
 
 body{background:#0095BA;font-family:'OpenSansLight'; font-size:1.9em; line-height:1.9em; color:#6D727D;}
+
+.main-menu a, 
+h2 .first-letter-signs, 
+.resource-header, 
+.reference-header{font-family:'alegreya_sansregular'; }
+
 a, strong{font-family:'OpenSansSemibold';font-weight:normal;}
 em, .content-callout{font-family:'OpenSansLightItalic'; font-style:normal;}
 a, .subnav-style a:hover, .subnav-style a.active-trail{color:#394E77;}
@@ -177,7 +183,6 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 
 .nav a{text-decoration:none;}
 .main-menu a{font-size:1.3em;}
-.main-menu a{font-family:'alegreya_sansregular';}
 .main-menu a:hover, .main-menu a.active-trail, .main-menu a.active{color:#E69C30;}
 .main-menu a.active, .main-menu a.active-trail{border-bottom:#E69C30 3px solid;font-family:'alegreya_sansmedium';}
 
@@ -188,11 +193,15 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 .top-menu a{color:#F2E298;}
 .top-menu .active-trail, .top-menu a:hover{color:#fff;}
 
-h2, .subnav-style a{font-family:'alegreya_sanslight';}
+h2, .subnav-style a, .heading {font-family:'alegreya_sanslight';}
+h2 .first-letter-signs{font-size:150%;}
 h1{font-family:'alegreya_sansthin'; color:#fff; font-size:2.8em; margin:4px 0 0 220px; letter-spacing:-.01em; padding-bottom:5px;}
 h2{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
 h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em;}
-.resource-header, .reference-header{font-family:'alegreya_sansregular'; font-size:1.5em; text-transform:uppercase; padding-top:20px; margin:40px 0 15px 0;}
+
+.heading{font-size:1.5em; line-height:1.0em;}
+.resource-header, .reference-header{font-size:1.5em; text-transform:uppercase; padding-top:20px; margin:40px 0 15px 0;}
+
 .reference-list li{font-size:1.4em; color:#D8A014; margin-bottom:18px;}
 .reference-list p{font-size:0.62em; color:#6D727D; line-height:1.6em;}
 .resource-list p{font-size:0.88em; line-height:1.6em; margin-bottom:25px;}
@@ -209,10 +218,8 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 .special-reference-container ol.citation li{margin-bottom:10px;}
 
 .first-letter-signs{font-size:110%; font-family:'OpenSansRegular';}
-h2 .first-letter-signs{font-size:150%; font-family:'alegreya_sansregular';}
 .caution{font-family:'OpensansItalic';}
 .caution strong{font-family:'OpensansSemiboldItalic';}
-
 
 .nav li a:hover, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background:none;}
 

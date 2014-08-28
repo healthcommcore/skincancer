@@ -73,7 +73,7 @@ $mobile_class = "";
 <div id="page" class="page <?php echo $mobile_class; ?>">
 	<div id="main">
 	<div id="def-container" class="def-container"></div>
-		<?php if($title) : ?>
+		<?php if($title && !drupal_is_front_page()) : ?>
 			<div id="title" class="title">
 				<div class="container">
 						<div class="title-graphic left-col-width hidden-xs"></div>
