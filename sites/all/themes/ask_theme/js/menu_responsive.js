@@ -7,11 +7,6 @@
 		respond();
 		$(window).resize(respond);
 
-		/*
-		*/
-
-
-
 		function respond () {
 			if(window.innerWidth < WINDOW_SIZE) {
 				if( !($(submenus[0]).hasClass('dropdown-menu')) && !(existy(submenus[0])) ) {
@@ -19,7 +14,7 @@
 						$(this).addClass('dropdown-menu').parent().prepend(dropdown);
 					});
 				}
-				$('.submenu-reveal').on('click', function() {
+				$('.submenu-reveal').click(function() {
 					$(this).toggleClass('subnav-on');
 				});
 			}

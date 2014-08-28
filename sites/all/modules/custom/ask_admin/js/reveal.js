@@ -20,7 +20,7 @@
 
 // Toggle slide effect for all elements when overall
 // open/close link clicked
-		$('#all-imgs').on('click', function (e) {
+		$('#all-imgs').click(function (e) {
 			e.preventDefault();
 			openclose.each(function () {
 				$(this).slideToggle();
@@ -29,7 +29,7 @@
 
 // Toggle slide effect for an individual element
 // when corresponding link clicked
-		$('.skin-imgs').on('click', function (e) {
+		$('.skin-imgs').click(function (e) {
 			e.preventDefault();
 			if( $(e.target).hasClass('trigger') ) {
 				$(this).find('.openclose').slideToggle();
@@ -37,7 +37,7 @@
 		});
 
 // ASK Quiz functionality
-		$(quiz_questions).on('click', function (e) {
+		$(quiz_questions).click(function (e) {
 			var chosen = e.target;
 			if($(chosen).attr('type') == 'radio') {
 			  //console.log('Radio button clicked!');

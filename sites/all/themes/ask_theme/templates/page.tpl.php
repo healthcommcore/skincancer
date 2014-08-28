@@ -1,5 +1,6 @@
 <?php
 $mobile_class = "";
+$home_class = "";
 ?>
 <header class="header">
 	<div class="navbar-fixed-top">
@@ -60,6 +61,7 @@ $mobile_class = "";
 <?php if( render($page['mobile_home']) ) {
 	if(drupal_is_front_page()) {
 		$mobile_class="hidden-xs";
+		$home_class="home";
 	}
 ?>
 	<section class="visible-xs">
@@ -70,9 +72,11 @@ $mobile_class = "";
 <?php } ?>
 
 
-<div id="page" class="page <?php echo $mobile_class; ?>">
+<div id="page" class="page <?php echo $mobile_class . ' ' . $home_class; ?>">
 	<div id="main">
-	<div id="def-container" class="def-container"></div>
+		<?php if( !drupal_is_front_page()) : ?>
+			<div id="def-container" class="def-container"></div>
+		<?php endif; ?>
 		<?php if($title && !drupal_is_front_page()) : ?>
 			<div id="title" class="title">
 				<div class="container">

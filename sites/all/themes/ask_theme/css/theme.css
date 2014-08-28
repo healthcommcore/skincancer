@@ -58,12 +58,14 @@ nav li ul{display:none;}
 .subnav .nav li a{padding:0;}
 
 /** Home page **/
+.home .content-padding{padding-top:40px;}
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
 .heading, .heading:hover{text-decoration:none;} 
-.heading{display:block; padding-bottom:13px; border-bottom:#e69c30 12px solid; margin-bottom:20px;}
+.heading{display:block; padding-bottom:13px; border-bottom:#e69c30 15px solid; margin-bottom:20px;}
 .meet-txt{padding-left:20px; padding-right:20px;}
 .take-txt{padding-left:50px; padding-right:70px;}
+.rotator{border-bottom:#294D78 9px solid;}
 /*
 .meet-img{background:url('../images/portholes.png') 0 0 no-repeat;}
 .take-img{background:url('../images/portholes.png') 0 0 no-repeat;}
