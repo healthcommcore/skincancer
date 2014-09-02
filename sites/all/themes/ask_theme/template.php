@@ -25,6 +25,7 @@ function ask_theme_preprocess_html(&$variables) {
       'media' => 'screen',
       'every_page' => TRUE,
 		));
+		drupal_add_js(drupal_get_path('theme', 'ask_theme') . '/js/jquery-migrate-1.2.1.min.js');
 	}
 
 	// Add viewport tag

@@ -18,7 +18,7 @@ sup{margin-left:-.25em; margin-right:.4em;}
 .top-area{height:38px; background:#7A992C;}
 .top-header{height:38px;}
 .region-top-header{float:right;}
-.search{margin-left:20px;}
+.search{margin-left:20px; float:left;}
 .top-menu li{float:left;}
 .top-menu li.leaf{padding-top:0;}
 .top-menu .nav a{padding:0;}
@@ -169,6 +169,8 @@ li.caution{margin:0.6% 0;}
 	.main-header nav li{float:none;}
 	.submenu-reveal{float:right; display:inline-block; height:22px; width:22px;}
 	.main-menu .dropdown-menu{background:none; border-radius:0; box-shadow:0 0 0; position:relative; float:none;}
+	.search{position:absolute; margin:10px 0 0 130px; z-index:999; float:none;}
+	.search input[type=text]{width:140px;}
 }
 
 

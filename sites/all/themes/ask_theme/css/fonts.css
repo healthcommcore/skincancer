@@ -188,7 +188,7 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 
 .region-top-header{font-family:'alegreya_sans_scregular'; text-transform:uppercase; font-size:0.7em; }
 .search input{line-height:0.9em;}
-.search input[type=submit]{line-height:1.4em;}
+.search input[type=submit]{display:none;}
 .search input[type=text]{font-family:'OpenSansRegular';}
 .top-menu a{color:#F2E298;}
 .top-menu .active-trail, .top-menu a:hover{color:#fff;}
