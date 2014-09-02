@@ -173,7 +173,8 @@ body{background:#0095BA;font-family:'OpenSansLight'; font-size:1.9em; line-heigh
 .main-menu a, 
 h2 .first-letter-signs, 
 .resource-header, 
-.reference-header{font-family:'alegreya_sansregular'; }
+.reference-header, .md-object h2{font-family:'alegreya_sansregular'; }
+h2, .subnav-style a, .heading {font-family:'alegreya_sanslight';}
 
 a, strong{font-family:'OpenSansSemibold';font-weight:normal;}
 em, .content-callout{font-family:'OpenSansLightItalic'; font-style:normal;}
@@ -193,11 +194,14 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 .top-menu a{color:#F2E298;}
 .top-menu .active-trail, .top-menu a:hover{color:#fff;}
 
-h2, .subnav-style a, .heading {font-family:'alegreya_sanslight';}
-h2 .first-letter-signs{font-size:150%;}
 h1{font-family:'alegreya_sansthin'; color:#fff; font-size:2.8em; margin:4px 0 0 220px; letter-spacing:-.01em; padding-bottom:5px;}
 h2{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
+h2 .first-letter-signs{font-size:150%;}
 h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em;}
+
+
+.md-object h2{font-size:3.2em; letter-spacing:0.008em;}
+.md-object p{font-size:2.0em; line-height:1.35em;}
 
 .heading{font-size:1.5em; line-height:1.0em;}
 .resource-header, .reference-header{font-size:1.5em; text-transform:uppercase; padding-top:20px; margin:40px 0 15px 0;}

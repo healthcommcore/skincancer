@@ -30,7 +30,7 @@ nav li ul{display:none;}
 .navbar-default .navbar-collapse{border:none;}
 .navbar-collapse{border:#e69c30 2px solid;}
 .main-menu{margin-top:16px;}
-.main-menu .nav li a{padding:7px 3px; margin:0 12px;}
+.main-menu .nav li a{padding:7px 3px; margin:0 5px;}
 
 .left-col-width{width:184px;}
 
@@ -66,6 +66,12 @@ nav li ul{display:none;}
 .meet-txt{padding-left:20px; padding-right:20px;}
 .take-txt{padding-left:50px; padding-right:70px;}
 .rotator{border-bottom:#294D78 9px solid;}
+.md-objects .md-object{padding:15px 25px;}
+.md-slide-item{position:relative;}
+.md-object{background-color:rgba(230, 155, 46, 0.8); color:#fff;}
+.md-object h2{margin-top:0px; color:#fff; border-bottom:#fff 3px solid; padding:0 15px 10px 15px;}
+.md-object p{padding:0 15px;}
+
 /*
 .meet-img{background:url('../images/portholes.png') 0 0 no-repeat;}
 .take-img{background:url('../images/portholes.png') 0 0 no-repeat;}
