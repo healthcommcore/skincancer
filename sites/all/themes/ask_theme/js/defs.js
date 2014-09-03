@@ -20,6 +20,7 @@
 
  $(document).ready(function() {
 
+	 var MOBILE_SIZE = 768;
 	 var container = $('#def-container');
 	 var terms = $('.def');
 	 container.hide();
@@ -72,10 +73,18 @@
 		 var termCenter = termLeft + ($(term).width() / 2);
 		 var containerCenter = $(container).outerWidth() / 2;
 		 var containerTop = setContainerTop(container, term);
-		 $(container).css({
-       left: (termCenter - containerCenter) + 'px',
-       top: containerTop + 'px',
-		 });
+		 if(window.innerWidth < MOBILE_SIZE) {
+			 $(container).css({
+				 left: (window.innerWidth / 2 - containerCenter) + 'px',
+				 top: containerTop + 'px',
+			 });
+		 }
+		 else {
+			 $(container).css({
+				 left: (termCenter - containerCenter) + 'px',
+				 top: containerTop + 'px',
+			 });
+		 }
 	 }
 
  });// document
