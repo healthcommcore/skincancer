@@ -23,7 +23,9 @@
 		var na = $('#edit-field-skin-saw-health-provider-und-none');
 		var revealButtons = [spotChangedYes, sawProviderYes, otherCheck];
 		var firstLoad = true;
+		var upload_button = $('#edit-field-skin-photo-und-0-upload');
 
+		//$(upload_button).val();
 
 // When page first loads, hide all decision tree options
 		if(firstLoad){

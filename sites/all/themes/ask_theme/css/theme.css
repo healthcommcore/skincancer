@@ -121,6 +121,11 @@ nav li ul{display:none;}
 .skin-imgs .openclose img{margin:5px 2px;}
 .first-letter-signs{background:#3194B7; margin:5px; padding:3px 10px; color:#fff;}
 h2 .first-letter-signs{padding:0 15px; display:inline-block;}
+.img-toggle .citation{margin-top:-28px;}
+.img-toggle .citation:before{content:""; display:block; clear:both;}
+.evolving-imgs:after{content:""; display:block; clear:both;}
+.evolving-imgs p{float:left;}
+.evolving-imgs img{margin-right:10px;}
 
 /** Risk factor **/
 .risk-factors{margin:0}

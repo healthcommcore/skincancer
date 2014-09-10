@@ -207,7 +207,7 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 h1{font-family:'alegreya_sansthin'; color:#fff; font-size:2.8em; margin:4px 0 0 220px; letter-spacing:-.01em; padding-bottom:5px;}
 h2{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
 h2 .first-letter-signs{font-size:150%;}
-h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em;}
+h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em; color:#A6B87B;}
 
 
 .md-object h2{font-size:3.2em; letter-spacing:0.008em;}
@@ -228,7 +228,7 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 .highlight-header h3, .emphasize{color:#7A992C; font-size:1.1em; font-family:'OpenSansItalic'; font-weight:normal;}
 
-.special-reference-container .citation{font-size:0.8em; line-height:1.6em;}
+.citation{font-size:0.8em; line-height:1.6em;}
 .special-reference-container ol.citation li{margin-bottom:10px;}
 
 .first-letter-signs{font-size:110%; font-family:'OpenSansRegular';}
