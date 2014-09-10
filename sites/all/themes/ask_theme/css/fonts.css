@@ -168,13 +168,13 @@
 
 
 
-body{background:#0095BA;font-family:'OpenSansLight'; font-size:1.9em; line-height:1.9em; color:#6D727D;}
-
+body, .entitytype-image_upload-form .form-radios label{font-family:'OpenSansLight';color:#6D727D;}
+body{background:#0095BA; font-size:1.9em; line-height:1.9em; }
 .main-menu a, 
 h2 .first-letter-signs, 
 .resource-header, 
 .reference-header, .md-object h2{font-family:'alegreya_sansregular'; }
-h2, .subnav-style a, .heading {font-family:'alegreya_sanslight';}
+h2, .subnav-style a, .heading, .entitytype-image_upload-form label{font-family:'alegreya_sanslight';}
 
 a, strong{font-family:'OpenSansSemibold';font-weight:normal;}
 em, .content-callout{font-family:'OpenSansLightItalic'; font-style:normal;}
@@ -205,7 +205,8 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 .top-menu .active-trail, .top-menu a:hover{color:#fff;}
 
 h1{font-family:'alegreya_sansthin'; color:#fff; font-size:2.8em; margin:4px 0 0 220px; letter-spacing:-.01em; padding-bottom:5px;}
-h2{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
+h2, .entitytype-image_upload-form label{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
+
 h2 .first-letter-signs{font-size:150%;}
 h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em; color:#A6B87B;}
 
@@ -237,6 +238,8 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 .nav li a:hover, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background:none;}
 
+.entitytype-image_upload-form label{font-weight:normal;}
+.entitytype-image_upload-form .form-radios label{font-size:inherit;}
 
 @media(max-width: 991px) {
 	h1{font-size:2.4em; margin:0; line-height:0.95em; padding:2% 0;}
@@ -254,6 +257,7 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 }
 
 @media (max-width: 767px) {
+	h2, .entitytype-image_upload-form label{line-height:1.05em;}
 	body{padding-left:0; padding-right:0; font-size:1.8em; line-height:1.8em; color:#45484F;}
 	.content-callout{font-size:1.1em;}
 }

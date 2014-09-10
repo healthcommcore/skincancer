@@ -5,9 +5,12 @@
 		    submenus = $('#main-menu-collapse .expanded ul'),
 				top_header = $('#top-header');
 		var dropdown = '<a href="#" class="dropdown-toggle submenu-reveal" data-toggle="dropdown"></a>';
+		var photoLabel = $('.form-item-field-skin-photo-und-0').find('label');
+		//var newUpload = $('#custom-upload-button');
 
 		respond();
 		$(window).resize(respond);
+
 
 		function respond () {
 			if(window.innerWidth < WINDOW_SIZE) {
@@ -17,6 +20,7 @@
 					$(submenus).each(function () {
 						$(this).addClass('dropdown-menu').parent().prepend(dropdown);
 					});
+					$(photoLabel).text('Take a photo');
 				}
 				if( existy( $(top_header).find(search) ) ) {
 					$(search).remove();
@@ -32,6 +36,7 @@
 				if( existy( $(menu_container).find(search) ) ) {
 					$(search).remove();
 					$(top_header).find('.region-top-header').append(search);
+					$(photoLabel).text('Upload a photo');
 				}
 				$(submenus).each(function () {
 					$(this).removeClass('dropdown-menu').prevAll('.dropdown-toggle').remove();

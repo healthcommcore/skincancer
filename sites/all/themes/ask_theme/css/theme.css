@@ -134,6 +134,16 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 /** Dermlite content and form**/
 .your-dermlite ol{margin-left:15px;}
 
+/** Image upload form **/
+/*#edit-field-skin-photo-und-0-upload{opacity:0; position:absolute;}
+#image-upload-entityform-edit-form .image-widget-data{position:relative;}
+.custom-upload-button{position:absolute; opacity:0;}
+.image-widget-data img{z-index:50;}*/
+.entitytype-image_upload-form .form-select{display:block;}
+.field-type-datetime legend{display:none;}
+.field-type-datetime .container-inline-date .date-padding{padding:0;}
+.image-widget-data .form-file{padding:10px; background:#f9f1c1; margin-bottom:20px;}
+
 
 /** Footer **/
 footer{padding:10px 30px 80px 30px;}
@@ -185,6 +195,7 @@ li.caution{margin:0.6% 0;}
 	.main-menu .dropdown-menu{background:none; border-radius:0; box-shadow:0 0 0; position:relative; float:none;}
 	.search{position:absolute; margin:10px 0 0 130px; z-index:999; float:none;}
 	.search input[type=text]{width:140px;}
+	.entitytype-image_upload-form .form-select{width:100%;}
 }
 
 
@@ -241,6 +252,9 @@ li.caution{margin:0.6% 0;}
 	/** Special reference styles **/
 	.special-reference-container .padding{padding:8px 18px;}
 	.indent{margin-left:0;}
+
+	/** Photo upload **/
+	.image-widget-data, .form-submit, .form-file{width:100%;}
 
 	/** footer **/
 	footer{padding-left:0;}

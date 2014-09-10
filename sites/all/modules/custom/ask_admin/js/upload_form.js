@@ -22,8 +22,11 @@
 		var otherSymptoms = $('#edit-field-skin-symptom-other');
 		var na = $('#edit-field-skin-saw-health-provider-und-none');
 		var revealButtons = [spotChangedYes, sawProviderYes, otherCheck];
+		var newUpload = $('#edit-field-skin-photo-und-0-upload');
+		var uploadContainer = $('.image-widget-data');
+		var remove = $('#edit-field-skin-photo-und-0-remove-button');
+		//var uploadImg = $('.take-upload-img');
 		var firstLoad = true;
-		var upload_button = $('#edit-field-skin-photo-und-0-upload');
 
 		//$(upload_button).val();
 
@@ -31,6 +34,38 @@
 		if(firstLoad){
 			hideAll();
 		}
+
+/*
+		browseButtonSwitch();
+		$(window).resize(browseButtonSwitch);
+		$(remove).click(function() { console.log('This is a test') });
+		//$(remove).click(browseButtonSwitch);
+*/
+		
+		function browseButtonSwitch() {
+			if(window.innerWidth < 1024) {
+				replaceButton('take');
+			}
+			else {
+				replaceButton('upload');
+			}
+		}
+
+		function replaceButton(name) {
+			var imgTag = '<img class="take-upload-img" src="/sites/default/files/images/' + name + '_photo.gif" />';
+			if($(uploadContainer).find('img').length) {
+				$(uploadContainer).find('img').remove();
+			}
+			$(newUpload).after(imgTag);
+		}
+			
+/*
+		$(remove).click(function() {
+			location.reload();
+		});
+*/
+
+
 
 // If any radio buttons are already selected, keep them selected
 		$(revealButtons).each(function(){
