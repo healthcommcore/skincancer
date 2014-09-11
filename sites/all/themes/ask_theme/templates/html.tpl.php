@@ -15,8 +15,9 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+
 <!-- Popup window for external links -->
-<script>
+<script text="javascript">
 (function($){
 	var extLinks = $('.popup');
 	var width = $(window).width() / 1.5;
