@@ -135,12 +135,9 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 .your-dermlite ol{margin-left:15px;}
 
 /** Image upload form **/
-/*#edit-field-skin-photo-und-0-upload{opacity:0; position:absolute;}
-#image-upload-entityform-edit-form .image-widget-data{position:relative;}
-.custom-upload-button{position:absolute; opacity:0;}
-.image-widget-data img{z-index:50;}*/
 .entitytype-image_upload-form .form-select{display:block;}
-.field-type-datetime legend{display:none;}
+.field-type-datetime legend{border:none; margin-bottom:10px;}
+.field-type-datetime #edit-field-skin-date-taken-und-0-value label{display:none;}
 .field-type-datetime .container-inline-date .date-padding{padding:0;}
 .image-widget-data .form-file{padding:10px; background:#f9f1c1; margin-bottom:20px;}
 
