@@ -242,6 +242,8 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 .entitytype-image_upload-form .form-radios label{font-size:inherit;}
 .entitytype-image_upload-form .description{line-height:1.52em; font-size:0.7em; margin-bottom:8px;}
 
+.trigger:hover{text-decoration:none; border-color:#2a6496;}
+
 @media(max-width: 991px) {
 	h1{font-size:2.4em; margin:0; line-height:0.95em; padding:2% 0;}
 	.landing-page-opening{line-height:1.85em; font-size:1.1em;}

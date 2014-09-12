@@ -13,20 +13,20 @@ function ask_login_init() {
   global $user;
   $dest = drupal_get_destination();
   if(!drupal_is_front_page() && empty($user->name) && $dest['destination'] != 'user') {
-  //if(!drupal_is_front_page()) {
-    //dpm(drupal_get_destination());
-    //drupal_set_message(drupal_get_destination());
-	variable_set('destination', $dest);
-	drupal_goto('user');
+		variable_set('redirect', $dest);
+		drupal_goto('user');
   }
+	/*
+	*/
 }
 
 /**
  * Implements hook_user_login
  */
 function ask_login_user_login(&$edit, $account) {
-  $dest = variable_get('destination', $default = '/');
+  $dest = variable_get('redirect', $default = '');
   $edit['redirect'] = $dest;
+	variable_del('redirect');
 }
   
 

@@ -42,12 +42,25 @@ $home_class = "";
 			<div class="container">
 				<div class="row">
 					<div id="logo" class="logo left-col-width">
-						<a href="<?php print $front_page; ?>"><img alt="ask study logo" class="img-responsive" src="<?php print $logo; ?>" /></a>	
+						<a href="<?php print $front_page; ?>"><img alt="ask study logo" class="img-responsive logo-img" src="<?php print $logo; ?>" /></a>	
+<?php if(drupal_is_front_page()) : ?>
+	<div class="login-arm3-button visible-md visible-lg">
+		<div class="row">
+			<?php if($user->uid == 0) : ?>
+				<a class="login-button left-col-width" href="/user">Login</a>
+			<?php else : ?>
+				<a class="dermalite-icon" href="/eform/submit/image-upload"><img class="dermalite" src="/sites/default/files/images/blank.gif" /></a>
+			<?php endif; ?>	
+		</div>
+	</div>
+<?php endif; ?>
 					</div>
 				</div>
 			</div>
 	</div>
 </header>
+<!-- Toggle login button/dermlite icon -->
+
 <!--<div class="test-bar">This is a test</div>-->
 <!-- MAIN CONTENT AREA -->
 <?php if( render($page['rotator']) ) : ?>
@@ -85,6 +98,12 @@ $home_class = "";
 				</div>
 			</div><!-- title -->
 		<?php endif; ?>	
+	<!-- Messages -->
+		<?php if ($messages): ?>
+			<div id="messages"><div class="section clearfix">
+				<?php print $messages; ?>
+			</div></div> <!-- /.section, /#messages -->
+		<?php endif; ?>
 			<section class="container">
 				<div class="row">
 					<?php if( render($page['subnav']) ) : ?>

@@ -12,7 +12,7 @@ sup{margin-left:-.25em; margin-right:.4em;}
 .tagline{margin:10px 0 0 20px;}
 .main-header{background:#F9F1C1; height:95px;}
 .logo{height:133px; background:#0095BA; position:absolute; top:0; z-index:50;border-bottom:#7FCADC 14px solid; padding:0 15px;}
-.logo img{margin:12px 0 0 10px;}
+.logo .logo-img{margin:12px 0 0 10px;}
 
 /** Top area and top menu **/
 .top-area{height:38px; background:#7A992C;}
@@ -59,6 +59,12 @@ nav li ul{display:none;}
 
 /** Home page **/
 .home .content-padding{padding-top:40px;}
+.login-arm3-button{position:absolute; z-index:100; margin-top:45px;}
+.login-button{color:#fff; background:#ff0000; display:block; padding:5px 15px; position:relative; text-align:center; text-decoration:none;}
+.login-button:hover{background:#C91010; color:#fff; text-decoration:none;}
+.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat;}
+.dermalite-icon{width:200px;display:block; background:#fff; padding:5px 12px; height:100px}
+.dermalite-icon img{width:100%;}
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
 .heading, .heading:hover{text-decoration:none;} 
@@ -72,15 +78,6 @@ nav li ul{display:none;}
 .md-object h2{margin-top:0px; color:#fff; border-bottom:#fff 3px solid; padding:0 15px 10px 15px;}
 .md-object p{padding:0 15px;}
 
-/*
-.meet-img{background:url('../images/portholes.png') 0 0 no-repeat;}
-.take-img{background:url('../images/portholes.png') 0 0 no-repeat;}
-.appt-img{background:url('../images/portholes.png') 0 0 no-repeat;}
-*/
-/*
-.heading:after{content:""; display:block; height:200px;border-top:#e69c30 12px solid; margin:10px; width:auto;}
-.meet:after{content:""; display:block; background:url('../images/portholes.png') 0 10px no-repeat; }
-*/
 
 /** Def-container **/
 .def-container{position:absolute; background:#F7F1C2; padding:10px 20px 0px 20px; width:300px; z-index:100; color:#6C792A; border:#6C792A 1px solid;}
@@ -135,6 +132,7 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 .your-dermlite ol{margin-left:15px;}
 
 /** Image upload form **/
+.entitytype-image_upload-form .form-wrapper{margin:2.0em 0;}
 .entitytype-image_upload-form .form-select{display:block;}
 .field-type-datetime legend{border:none; margin-bottom:10px;}
 .field-type-datetime #edit-field-skin-date-taken-und-0-value label{display:none;}
@@ -171,6 +169,18 @@ footer{padding:10px 30px 80px 30px;}
 .indent{margin-left:30px;}
 .caution{background:#FFFFD1; padding:1% 2%; color:#D68C4F; border:#FFE57D 1px solid;}
 li.caution{margin:0.6% 0;}
+.trigger{
+	display:inline-block;
+	width:auto;
+	background:#fff url('../images/reveal_img.gif') 98% 45% no-repeat;
+	border:#394E77 2px solid;
+	border-radius:10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	padding:3px 50px 3px 10px;
+	text-decoration:none;
+	margin:5px 0;}
+}
 
 
 
@@ -193,6 +203,7 @@ li.caution{margin:0.6% 0;}
 	.search{position:absolute; margin:10px 0 0 130px; z-index:999; float:none;}
 	.search input[type=text]{width:140px;}
 	.entitytype-image_upload-form .form-select{width:100%;}
+	.trigger{width:100%;}
 }
 
 
@@ -222,9 +233,8 @@ li.caution{margin:0.6% 0;}
 	.ask-icon, .dermalite-icon{display:block; float:left;}
 	.ask-icon:hover, .dermalite-icon:hover{opacity:0.5;}
 	.ask-icon{width:37.6%; margin:2.5% -6.6%;}
-	.dermalite-icon{width:60%; margin:2.5% 0 2.5% 5%;}
+	.dermalite-icon{width:60%; margin:2.5% 0 2.5% 5%; background:none;}
 	.ask-icon img{width:100%;}
-	.dermalite-icon img{width:100%;}
 	.know{background:url("../images/know.svg") 50% 0 no-repeat;}
 	.get{background:url("../images/get.svg") 50% 0 no-repeat;}
 	.check{background:url("../images/check.svg") 50% 0 no-repeat;}
@@ -234,7 +244,6 @@ li.caution{margin:0.6% 0;}
 	.watch{background:url("../images/watch.svg") 50% 0 no-repeat;}
 	.quiz{background:url("../images/quiz.svg") 50% 0 no-repeat;}
 	.contact{background:url("../images/contact.svg") 50% 0 no-repeat;}
-	.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat;}
 
 	/** Content callout **/
 	.content-callout{margin:30px auto; padding:20px 0 8px; width:90%;}
