@@ -59,12 +59,11 @@ nav li ul{display:none;}
 
 /** Home page **/
 .home .content-padding{padding-top:40px;}
-.login-arm3-button{position:absolute; z-index:100; margin-top:45px;}
+.login-arm3-button{z-index:100; margin-top:25px; position:absolute;}
 .login-button{color:#fff; background:#ff0000; display:block; padding:5px 15px; position:relative; text-align:center; text-decoration:none;}
 .login-button:hover{background:#C91010; color:#fff; text-decoration:none;}
-.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat;}
-.dermalite-icon{width:200px;display:block; background:#fff; padding:5px 12px; height:100px}
-.dermalite-icon img{width:100%;}
+.dermlite-home{}
+.dermlite-home img{background:url('../images/dermlite_home.gif') 0 0 no-repeat; height:49px;}
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
 .heading, .heading:hover{text-decoration:none;} 
@@ -128,8 +127,12 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 .risk-factors{margin:0}
 .risk-factor{background:#f9f1c1; height:400px; margin:0 60px 60px 0; font-size:0.9em;}
 
-/** Dermlite content and form**/
+/** arm 3 stuff**/
 .your-dermlite ol{margin-left:15px;}
+.your-dermlite .img-inline-margins{display:inline; margin:0 0.3em;}
+.your-dermlite .fortypx{max-width:40px;}
+.your-dermlite .img-float-margins{margin:5px 12px;}
+.your-dermlite ol li{margin-bottom:15px;}
 
 /** Image upload form **/
 .entitytype-image_upload-form .form-wrapper{margin:2.0em 0;}
@@ -162,6 +165,7 @@ footer{padding:10px 30px 80px 30px;}
 .region-content .space-above-list{margin-top:0;}
 .float-correct{width:auto; overflow:hidden;}
 .float-left{float:left;}
+.float-right{float:right;}
 .float-list{width:auto; overflow:hidden; padding-left:25px;}
 .clr, .clr-after:after{clear:both;}
 .clr-after:after{content:""; display:block;}
@@ -233,6 +237,7 @@ li.caution{margin:0.6% 0;}
 	.ask-icon, .dermalite-icon{display:block; float:left;}
 	.ask-icon:hover, .dermalite-icon:hover{opacity:0.5;}
 	.ask-icon{width:37.6%; margin:2.5% -6.6%;}
+	.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat; width:100%;}
 	.dermalite-icon{width:60%; margin:2.5% 0 2.5% 5%; background:none;}
 	.ask-icon img{width:100%;}
 	.know{background:url("../images/know.svg") 50% 0 no-repeat;}
@@ -259,7 +264,7 @@ li.caution{margin:0.6% 0;}
 	.special-reference-container .padding{padding:8px 18px;}
 	.indent{margin-left:0;}
 
-	/** Photo upload **/
+	/** arm 3 stuff **/
 	.image-widget-data, .form-submit, .form-file{width:100%;}
 
 	/** footer **/
