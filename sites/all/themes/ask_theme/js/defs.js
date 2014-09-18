@@ -12,7 +12,7 @@
 	 non_melanoma: 'Skin cancer that forms in the lower part of the epidermis (the outer layer of the skin) or in squamous cells, but not in melanocytes (skin cells that make pigment).',
 	 scc: 'Squamous cell carcinoma (non-melanoma skin cancer), another common form of skin cancer, not usually life-threatening.',
 	 skincancer: 'The uncontrolled growth of abnormal skin cells.',
-	 skin_self_check: 'Thoroughly checking all of your skin to prevent untreated skin cancer',
+	 skin_self_check: 'Checking your own skin regularly and completely for any warning signs of skin cancer.',
 	 spf: 'Sun Protection Factor, the relative amount of sunburn protection that a sunscreen can provide an average user when used correctly',
 	 microscopy: 'No definition yet',
 	 uv_rays: 'Ultraviolet rays that you get from the sun and tanning beds'

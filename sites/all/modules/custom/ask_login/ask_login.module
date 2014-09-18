@@ -5,16 +5,43 @@
  * ASK Customized login
  */
 
+define('USER', 'user');
+define('IMAGE_UPLOAD', 'eform/submit/image-upload'); 
+define('CONTACT', 'contact-us'); 
+define('ARMS1AND2_REDIRECT', 'if-you-have-a-dermlite');
+define('PHYSICIAN_REDIRECT', 'physicians');
+define('ARM1', 'ASK arm 1');
+define('ARM2', 'ASK arm 2');
+define('ASK_PHYSICIAN', 'ASK participant physician');
+
  /**
   * Implements hook_init()
   */
 
 function ask_login_init() {
   global $user;
+  $old_var = variable_get('ask_redirect');
   $dest = drupal_get_destination();
-  if(!drupal_is_front_page() && empty($user->name) && $dest['destination'] != 'user') {
-		variable_set('redirect', $dest);
-		drupal_goto('user');
+
+// Make sure any stored destination variables are destroyed
+  if ($old_var == '' || empty($old_var) || count($old_var) == 0) {
+    variable_del('ask_redirect');
+  }
+
+// Allow all users to access the contact page
+	if ($dest['destination'] == CONTACT) {
+		drupal_goto(CONTACT);
+	}
+
+  else if (!drupal_is_front_page() && empty($user->name) && $dest['destination'] != USER) {
+		variable_set('ask_redirect', $dest);
+		drupal_goto(USER);
+  }
+
+// Check to see if user from arm1 or arm2 group tries to access the image upload area.
+// If so, redirect to page explaining why they cannot access that content
+  else if ( !empty($user->name) && isArm1orArm2($user->roles) && $dest['destination'] == IMAGE_UPLOAD ) {
+    drupal_goto(ARMS1AND2_REDIRECT);
   }
 	/*
 	*/
@@ -24,9 +51,39 @@ function ask_login_init() {
  * Implements hook_user_login
  */
 function ask_login_user_login(&$edit, $account) {
-  $dest = variable_get('redirect', $default = '');
+  global $user;
+	$dest = variable_get('ask_redirect', $default = '');
+
+// If a user from arm1 or arm2 tried accessing the image upload page
+// before logging, overwrite the destination variable with the appropriate
+// page explaining why they can't access that content 
+  if (isArm1orArm2($user->roles) && $dest == IMAGE_UPLOAD) {
+    $dest = ARMS1AND2_REDIRECT;
+  } 
+
+// We want physicians redirected to the physician page when logging in as long as
+// there is nothing stored in the destination variable
+  else if (in_array(ASK_PHYSICIAN, $user->roles) && ($dest == '' || $dest == '/') ) {
+		$dest = PHYSICIAN_REDIRECT;
+  }
+
+// Use the $dest variable to redirect the user to the appropriate page and
+// then delete the stored variable
   $edit['redirect'] = $dest;
-	variable_del('redirect');
+  variable_del('ask_redirect');
+}
+
+/**
+ * Implements hook_form_FORMID_alter
+ */
+function ask_login_form_user_login_alter(&$form, &$form_state) {
+  $form['name']['#description'] = t('Your <strong>username</strong> is the cell phone number you provided us on the skin cancer survey');
+  $form['pass']['#description'] = t('Your <strong>password</strong> is the cell phone number you provided us on the skin cancer survey');
+  drupal_set_title(t('Log in'));
+}
+
+function isArm1orArm2($roles) {
+  return in_array(ARM1, $roles) || in_array(ARM2, $roles);
 }
   
 

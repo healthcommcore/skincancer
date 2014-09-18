@@ -6,16 +6,16 @@ function ask_theme_menu_tree($variables) {
   return '<ul class="menu nav">' . $variables['tree'] . '</ul>';
 }
 
-/*
-function ask_theme_menu_link($variables) {
-	//print_r($variables['element']);
-	if($variables['element']['#original_link']['menu_name'] == 'main-menu') {
-		print_r($variables['element']);
-	}
-	return $variables;
+function ask_theme_preprocess_page(&$variables) {
+	//dpm($variables);
 }
- */
 
+/**
+ * Implements theme_preprocess_html
+ *
+ * Adding css, jqery library to fix legacy jquery code, viewport tag
+ * giving appropriate settings for optimized viewing on  mobile browser 
+ */
 function ask_theme_preprocess_html(&$variables) {
 	$css_path = drupal_get_path('theme', 'ask_theme') . '/css/fonts.css';
   if (file_exists($css_path)) {
@@ -25,6 +25,7 @@ function ask_theme_preprocess_html(&$variables) {
       'media' => 'screen',
       'every_page' => TRUE,
 		));
+		// Needed to add this in order for javascript in the MD Slider module to work
 		drupal_add_js(drupal_get_path('theme', 'ask_theme') . '/js/jquery-migrate-1.2.1.min.js');
 	}
 
@@ -41,6 +42,12 @@ function ask_theme_preprocess_html(&$variables) {
 
 }
 
+/**
+ * Implements hook_form_element
+ *
+ * This function is used to rearrange Drupal's default placement of form 
+ * element labels from under the element to above the element.
+ */
 function ask_theme_form_element($variables) {
   $element = &$variables['element'];
 

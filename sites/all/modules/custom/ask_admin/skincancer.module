@@ -27,6 +27,7 @@ function skincancer_init() {
  * previous questions
  */
 function skincancer_form_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_skin_location']['und']['#options']['_none'] = t('-Select an area-');
   $form['#validate'][] = 'image_upload_form_validate';
 }
 

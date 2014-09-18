@@ -110,7 +110,7 @@ $home_class = "";
 							<?php print render($page['subnav']); ?>
 						</div>
 					<?php endif; ?>
-					<?php if ($tabs): ?>
+					<?php if ($tabs && in_array('administrator', $user->roles)): ?>
 						<div class="tabs">
 							<?php print render($tabs); ?>
 						</div>
