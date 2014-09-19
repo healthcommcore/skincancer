@@ -7,7 +7,7 @@
 
 define('USER', 'user');
 define('IMAGE_UPLOAD', 'eform/submit/image-upload'); 
-define('CONTACT', 'contact-us'); 
+define('CONTACT', 'node/31'); 
 define('ARMS1AND2_REDIRECT', 'if-you-have-a-dermlite');
 define('PHYSICIAN_REDIRECT', 'physicians');
 define('ARM1', 'ASK arm 1');
@@ -29,13 +29,9 @@ function ask_login_init() {
   }
 
 // Allow all users to access the contact page
-	if ($dest['destination'] == CONTACT) {
-		drupal_goto(CONTACT);
-	}
-
-  else if (!drupal_is_front_page() && empty($user->name) && $dest['destination'] != USER) {
-		variable_set('ask_redirect', $dest);
-		drupal_goto(USER);
+  if (empty($user->name) && $dest['destination'] == CONTACT) {
+    //drupal_goto('');
+	return;
   }
 
 // Check to see if user from arm1 or arm2 group tries to access the image upload area.
@@ -43,6 +39,14 @@ function ask_login_init() {
   else if ( !empty($user->name) && isArm1orArm2($user->roles) && $dest['destination'] == IMAGE_UPLOAD ) {
     drupal_goto(ARMS1AND2_REDIRECT);
   }
+
+// Check if user hasn't logged in, is not already on the login page, is not accessing the contact us page,
+// then redirect them to the login page, storing his/her intended destination in a variable
+  else if (!drupal_is_front_page() && empty($user->name) && $dest['destination'] != USER && $dest['destination'] != CONTACT) {
+		variable_set('ask_redirect', $dest);
+		drupal_goto(USER);
+  }
+
 	/*
 	*/
 }
