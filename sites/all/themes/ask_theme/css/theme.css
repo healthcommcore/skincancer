@@ -66,6 +66,7 @@ nav li ul{display:none;}
 .dermlite-home img{background:url('../images/dermlite_home.gif') 0 0 no-repeat; height:49px;}
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
+.porthole .meet-img{margin-top:-10px;}
 .heading, .heading:hover{text-decoration:none;} 
 .heading{display:block; padding-bottom:13px; border-bottom:#e69c30 15px solid; margin-bottom:20px;}
 .meet-txt{padding-left:20px; padding-right:20px;}
@@ -201,18 +202,24 @@ li.caution{margin:0.6% 0;}
 
 @media (max-width: 991px) {
 	.content-padding{padding:5% 4% 5% 0;}
-	.region-content p{margin-bottom:20px;}
-	.header .navbar-default{background:#f9f1c1; z-index:2;}
 	.landing-page-opening{padding-bottom:2%; margin-bottom:4%;}
+	.region-content p{margin-bottom:20px;}
+
+	/* header */
+	.header .navbar-default{background:#f9f1c1; z-index:2;}
+	.main-header{height:52px;}
+	.top-area, .top-header, .tagline-wrap{height:26px;}
 	.main-menu .nav > li > a {display:inline-block;}
 	.main-header nav li{float:none;}
 	.submenu-reveal{float:right; display:inline-block; height:22px; width:22px;}
 	.main-menu .dropdown-menu{background:none; border-radius:0; box-shadow:0 0 0; position:relative; float:none;}
 	.search{position:absolute; margin:10px 0 0 130px; z-index:999; float:none;}
 	.search input[type=text]{width:140px;}
+
 	.entitytype-image_upload-form .form-select{width:100%;}
 	.trigger{width:100%;}
 	.caution{width:100%;}
+
 }
 
 

@@ -7,7 +7,7 @@
 
 define('USER', 'user');
 define('IMAGE_UPLOAD', 'eform/submit/image-upload'); 
-define('CONTACT', 'node/31'); 
+define('CONTACT', 'contact'); 
 define('ARMS1AND2_REDIRECT', 'if-you-have-a-dermlite');
 define('PHYSICIAN_REDIRECT', 'physicians');
 define('ARM1', 'ASK arm 1');
