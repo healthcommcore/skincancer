@@ -210,6 +210,7 @@ li.caution{margin:0.6% 0;}
 	/* header */
 	.header{height:100px;}
 	.header .navbar-default{background:#f9f1c1; z-index:2;}
+	.header .navbar{z-index:40;}
 	.main-header{height:70px;}
 	.top-area, .top-header, .tagline-wrap{height:30px;}
 	.tagline-wrap{margin-left:-10px; width:405px;}
