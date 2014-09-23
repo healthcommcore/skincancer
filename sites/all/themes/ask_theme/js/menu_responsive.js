@@ -1,6 +1,7 @@
 (function($) {
 	$(document).ready(function() {
-		var WINDOW_SIZE = 992;
+		var TABLET_WINDOW_SIZE = 992;
+		var CELL_WINDOW_SIZE = 768;
 		var search = $('#block-search-form'),  menu_container = $('#main-header'),
 		    submenus = $('#main-menu-collapse .expanded ul'),
 				top_header = $('#top-header');
@@ -13,7 +14,7 @@
 
 
 		function respond () {
-			if(window.innerWidth < WINDOW_SIZE) {
+			if(window.innerWidth < TABLET_WINDOW_SIZE) {
 			  var submenu = submenus[0];
 				if( !($(submenu).hasClass('dropdown-menu')) && 
 					  !( existy( $(submenu).find('dropdown-toggle') ) ) ) {
@@ -22,22 +23,32 @@
 					});
 					$(photoLabel).text('Take a photo');
 				}
-				if( existy( $(top_header).find(search) ) ) {
-					$(search).remove();
-					$(menu_container).find('.row').prepend(search);
+				if(window.innerWidth < CELL_WINDOW_SIZE ) {
+					if( existy($(top_header).find(search)) ){
+						$(search).remove();
+						$(menu_container).find('.row').prepend(search);
+					}
+				}
+				else {
+					if( existy($(menu_container).find(search)) ){
+						$(search).remove();
+						$(top_header).find('.region-top-header').append(search);
+					}
 				}
 				$('.submenu-reveal').click(function() {
 					$(this).toggleClass('subnav-on');
 				});
 			}
+/*
+			else if( existy( $(menu_container).find(search) ) && (window.innerWidth > CELL_WINDOW_SIZE && window.innerWidth < TABLET_WINDOW_SIZE) ) {
+			}
+*/
 			else {
 				/*
 				 */
-				if( existy( $(menu_container).find(search) ) ) {
 					$(search).remove();
 					$(top_header).find('.region-top-header').append(search);
 					$(photoLabel).text('Upload a photo');
-				}
 				$(submenus).each(function () {
 					$(this).removeClass('dropdown-menu').prevAll('.dropdown-toggle').remove();
 				});
