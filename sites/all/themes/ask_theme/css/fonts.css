@@ -279,6 +279,6 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 	.content-callout{font-size:1.1em;}
 
 	/* navbar */
-	.navbar-toggle{padding:8px 9px;}
+	.navbar-toggle{padding:8px 9px; margin-bottom:0;}
 	.navbar-default .navbar-toggle .icon-bar{height:3px;}
 }

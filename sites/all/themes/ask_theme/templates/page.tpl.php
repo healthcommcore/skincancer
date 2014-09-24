@@ -92,7 +92,7 @@ $home_class = "";
 		<?php if($title && !drupal_is_front_page()) : ?>
 			<div id="title" class="title">
 				<div class="container">
-						<div class="title-graphic left-col-width hidden-xs"></div>
+						<div class="title-graphic left-col-width hidden-xs hidden-sm"></div>
 							<h1><?php print $title; ?></h1>
 				</div>
 			</div><!-- title -->
