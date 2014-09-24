@@ -218,14 +218,16 @@ li.caution{margin:0.6% 0;}
 	.search{margin-left:10px;}
 	.search input{width:120px;}
 	.logo{height:100px; border-bottom:#7FCADC 11px solid;}
+	.main-menu{margin-top:5px;}
 	.main-menu .nav > li > a {display:inline-block;}
 	.main-header nav li{float:none;}
 	.submenu-reveal{float:right; display:inline-block; height:22px; width:22px;}
 	.main-menu .dropdown-menu{background:none; border-radius:0; box-shadow:0 0 0; position:relative; float:none;}
-	/*
-	.search{position:absolute; margin:10px 0 0 130px; z-index:999; float:none;}
-	.search input[type=text]{width:140px;}
-	*/
+
+	/* home */
+	.porthole img{padding:0 8px;}
+	.porthole .app-img{padding:0;}
+	.take-txt{padding-left:30px; padding-right:50px;}
 
 	.entitytype-image_upload-form .form-select{width:100%;}
 	.trigger{width:100%;}

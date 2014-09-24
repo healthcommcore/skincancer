@@ -28,11 +28,12 @@ function ask_login_init() {
     variable_del('ask_redirect');
   }
 
+/*
 // Allow all users to access the contact page
   if (empty($user->name) && $dest['destination'] == CONTACT) {
-    //drupal_goto('');
 	return;
   }
+*/
 
 // Check to see if user from arm1 or arm2 group tries to access the image upload area.
 // If so, redirect to page explaining why they cannot access that content
@@ -42,7 +43,7 @@ function ask_login_init() {
 
 // Check if user hasn't logged in, is not already on the login page, is not accessing the contact us page,
 // then redirect them to the login page, storing his/her intended destination in a variable
-  else if (!drupal_is_front_page() && empty($user->name) && $dest['destination'] != USER && $dest['destination'] != CONTACT) {
+  else if (!drupal_is_front_page() && empty($user->name) && $dest['destination'] != USER) {
 		variable_set('ask_redirect', $dest);
 		drupal_goto(USER);
   }
