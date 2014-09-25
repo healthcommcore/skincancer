@@ -6,7 +6,6 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
-<!-- GOOGLE ANALYTICS -->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
@@ -16,8 +15,21 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 
+<!-- CLICKY -->
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(100774893);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+
 <!-- Popup window for external links -->
-<script text="javascript">
+<script type="text/javascript">
 (function($){
 	var extLinks = $('.popup');
 	var width = $(window).width() / 1.5;

@@ -76,7 +76,7 @@ nav li ul{display:none;}
 .md-objects .md-object{padding:15px 25px;}
 .md-slide-item{position:relative;}
 .md-object{background-color:rgba(230, 155, 46, 0.8); color:#fff;}
-.md-object h2{margin-top:0px; color:#fff; border-bottom:#fff 3px solid; padding:0 15px 10px 15px;}
+.md-object h2{margin-top:0px; color:#fff; border-bottom:#fff 2px solid; padding:0 15px 10px 15px;}
 .md-object p{padding:0 15px;}
 
 
@@ -179,28 +179,39 @@ footer{padding:10px 30px 80px 30px;}
 .indent{margin-left:30px;}
 .caution{background:#FFFFD1; padding:1% 2%; color:#D68C4F; border:#FFE57D 1px solid; width:85%;}
 li.caution{margin:0.6% 0;}
-.trigger{
-	display:inline-block;
+.trigger, .action-button{
+	display:inline-block; 
 	width:auto;
-	background:#fff url('../images/reveal_img.gif') 98% 45% no-repeat;
-	border:#394E77 2px solid;
 	border-radius:10px;
 	-webkit-border-radius:10px;
 	-moz-border-radius:10px;
-	padding:3px 50px 3px 10px;
 	text-decoration:none;
+	padding:2px 50px 3px 10px;
 	margin:5px 0;}
+
+.trigger{
+	background:#fff url('../images/reveal_img.gif') 98% 45% no-repeat;
+	border:#394E77 2px solid;
 }
 
+.action-button{
+	background:#ECB666;
+	color:#fff;
+}
+
+.action-button:hover{background:#E69C30; text-decoration:none;}
 
 
-/************************
- * LARGE DESKTOP
- ************************/
+
+
+
 
 @media (min-width: 1200px) {
 }
 
+/************************
+ * TABLET PORTRAIT
+ ************************/
 @media (max-width: 991px) {
 	/* overall */
 	.content-padding{padding:5% 4% 5% 0;}
@@ -238,11 +249,16 @@ li.caution{margin:0.6% 0;}
 	/* skin images */
 	.img-toggle .citation{margin-top:-17px;}
 
+	/** footer **/
+	footer{padding-left:0;}
+	.footer-menu-copyright{float:none; text-align:center; font-size:0.9em;}
+	.footer-menu-copyright nav{margin:0 auto; display:inline-block;}
+	.footer-menu-copyright nav ul{padding:0;}
 }
 
 
 /************************
- * MEDIUM DESKTOP
+ * PHONE
  ************************/
 @media (max-width: 767px) {
 	/** overall **/
@@ -301,11 +317,6 @@ li.caution{margin:0.6% 0;}
 	/** arm 3 stuff **/
 	.image-widget-data, .form-submit, .form-file{width:100%;}
 
-	/** footer **/
-	footer{padding-left:0;}
-	.footer-menu-copyright{float:none; text-align:center; font-size:0.9em;}
-	.footer-menu-copyright nav{margin:0 auto; display:inline-block;}
-	.footer-menu-copyright nav ul{padding:0;}
 }
 /************************
  * TABLET

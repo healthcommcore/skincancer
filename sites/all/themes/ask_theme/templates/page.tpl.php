@@ -45,7 +45,7 @@ $home_class = "";
 						<a href="<?php print $front_page; ?>"><img alt="ask study logo" class="img-responsive logo-img" src="<?php print $logo; ?>" /></a>	
 					</div>
 <?php if(drupal_is_front_page()) : ?>
-	<div class="login-arm3-button visible-md visible-lg">
+	<div class="login-arm3-button hidden-xs">
 			<?php if($user->uid == 0) : ?>
 				<a class="login-button left-col-width" href="/user">Login</a>
 			<?php else : ?>
