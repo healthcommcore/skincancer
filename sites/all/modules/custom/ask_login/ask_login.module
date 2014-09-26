@@ -58,6 +58,7 @@ function ask_login_init() {
 function ask_login_user_login(&$edit, $account) {
   global $user;
 	$dest = variable_get('ask_redirect', $default = '');
+	userTrackingInit($user->name, $user->roles);
 
 // If a user from arm1 or arm2 tried accessing the image upload page
 // before logging, overwrite the destination variable with the appropriate
@@ -91,4 +92,24 @@ function isArm1orArm2($roles) {
   return in_array(ARM1, $roles) || in_array(ARM2, $roles);
 }
   
+function userTrackingInit($name, $roles) {
+	$data = array('askUsername' => $name);
+	$arm = filterRoles($roles);
+	if($arm) {
+		$data['askRole'] = $arm;
+	}
+	//dpm($data);
+	drupal_add_js($data, 'setting' );
+}
+
+function filterRoles($roles) {
+	$arm = false;
+	foreach($roles as $role) {
+		if( preg_match('/arm/', $role) === 1 ) {
+			return $arm = $role;
+		}
+	}
+	return $arm;
+}
+		
 

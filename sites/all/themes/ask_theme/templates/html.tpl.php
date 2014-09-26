@@ -15,6 +15,18 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 
+<!-- CLICKY CUSTOM-->
+<script type="text/javascript">
+	console.log(Drupal.settings.username);
+	var clicky_custom = clicky_custom || {};
+	clicky_custom = {
+		visitor: {
+			username: Drupal.settings.askUsername || 'anonymous',
+			role: Drupal.settings.askRole || 'site user'
+		}
+	};
+</script>
+
 <!-- CLICKY -->
 <script type="text/javascript">
 var clicky_site_ids = clicky_site_ids || [];
