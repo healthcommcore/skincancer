@@ -245,9 +245,31 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 .trigger:hover{text-decoration:none; border-color:#2a6496;}
 .action-button:hover{color:#fff;} 
 
+/*******************
+ * TABLET LANDSCAPE
+ *******************/
+@media (min-width:992px) and (max-width: 1199px) {
+	/* header */
+	.region-top-header{font-size:0.65em; line-height:2.55em;}
+
+	/* nav */
+	.main-menu a, .main-menu a:active{font-size:1.1em;}
+
+	/* page content */
+	h1{font-size:2.5em; margin:4px 0 0 182px; letter-spacing:-.01em; padding-bottom:5px;}
+}
+
+/************************
+ * TABLET PORTRAIT ONLY
+ ************************/
+@media (min-width: 768px) and (max-width: 991px){
+}
+
+/***************************
+ * TABLET PORTRAIT AND PHONE
+ ***************************/
 @media(max-width: 991px) {
 	.region-top-header{font-size:0.55em; line-height:2.8em;}
-	.region-top-header .menu{}
 
 	/* home */
 	.heading{font-size:1.3em;}

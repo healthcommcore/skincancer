@@ -49,7 +49,7 @@ $home_class = "";
 			<?php if($user->uid == 0) : ?>
 				<a class="login-button left-col-width" href="/user">Login</a>
 			<?php else : ?>
-				<a class="dermlite-home" href="/eform/submit/image-upload"><img class="left-col-width" src="/sites/default/files/images/blank.gif" /></a>
+				<a class="dermlite-home" href="/eform/submit/image-upload"><img class="img-responsive left-col-width" src="/sites/default/files/images/dermlite_home.gif" /></a>
 			<?php endif; ?>	
 	</div>
 <?php endif; ?>
@@ -60,7 +60,6 @@ $home_class = "";
 </header>
 <!-- Toggle login button/dermlite icon -->
 
-<!--<div class="test-bar">This is a test</div>-->
 <!-- MAIN CONTENT AREA -->
 <?php if( render($page['rotator']) ) : ?>
 	<section class="hidden-xs">

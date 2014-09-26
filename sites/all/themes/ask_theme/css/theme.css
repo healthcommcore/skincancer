@@ -64,7 +64,7 @@ nav li ul{display:none;}
 .login-button{color:#fff; background:#ff0000; display:block; padding:5px 15px; position:relative; text-align:center; text-decoration:none;}
 .login-button:hover{background:#C91010; color:#fff; text-decoration:none;}
 .dermlite-home{}
-.dermlite-home img{background:url('../images/dermlite_home.gif') 0 0 no-repeat; height:49px;}
+/*.dermlite-home img{background:url('../images/dermlite_home.gif') 0 0 no-repeat; height:49px;}*/
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
 .porthole .meet-img{margin-top:-10px;}
@@ -204,44 +204,52 @@ li.caution{margin:0.6% 0;}
 
 
 
+/************************
+ * TABLET LANDSCAPE
+ ************************/
+@media (min-width: 992px) and (max-width: 1199px) {
+	/* header */
+	.header{height:112px;}
+	.main-header{height:80px;}
+	.top-area, .top-header, .tagline-wrap{height:32px;}
+	.tagline-wrap{margin-left:-35px; height:32px; width:345px;}
+	.tagline{width:290px; margin-left:25px;}
+	.logo{height:112px;border-bottom:#7FCADC 10px solid; padding:0 18px;}
+	.logo .logo-img{margin:12px 0 0 2px;}
 
+	/* nav */
+	.main-menu{margin-top:10px;}
+	.main-menu .nav li a{padding:6px 2px 2px 2px; margin:0 5px;}
 
-@media (min-width: 1200px) {
+	/* page elements */
+	.left-col-width{width:144px;}
+	.title-graphic{margin-left:-15px;}
+	.content-padding{padding:60px 90px;}
+	.subnav-style{padding-top:60px;}
+	.subnav-style a{font-size:1.05em;}
 }
 
-/************************
- * TABLET PORTRAIT
- ************************/
+
+/***************************
+ * TABLET PORTRAIT AND PHONE
+ ***************************/
 @media (max-width: 991px) {
 	/* overall */
 	.content-padding{padding:5% 4% 5% 0;}
 	.landing-page-opening{padding-bottom:2%; margin-bottom:4%;}
 	.region-content p{margin-bottom:20px;}
-	.left-col-width{width:127px;}
 	.title .container {padding:0;}
 
 	/* header */
-	.header{height:100px;}
 	.header .navbar-default{background:#f9f1c1; z-index:2;}
 	.header .navbar{z-index:40;}
-	.main-header{height:70px;}
-	.top-area, .top-header, .tagline-wrap{height:30px;}
-	.tagline-wrap{margin-left:-10px; width:405px;}
-	.tagline{width:250px; margin:10px 0 0 135px;}
-	.search{margin-left:10px;}
-	.search input{width:120px;}
-	.logo{height:100px; border-bottom:#7FCADC 11px solid;}
 	.main-menu{margin-top:5px;}
 	.main-menu .nav > li > a {display:inline-block;}
 	.main-header nav li{float:none;}
 	.submenu-reveal{float:right; display:inline-block; height:22px; width:22px;}
 	.main-menu .dropdown-menu{background:none; border-radius:0; box-shadow:0 0 0; position:relative; float:none;}
 
-	/* home */
-	.porthole img{padding:0 8px;}
-	.porthole .app-img{padding:0;}
-	.take-txt{padding-left:30px; padding-right:50px;}
-
+	/* page content */
 	.entitytype-image_upload-form .form-select{width:100%;}
 	.trigger{width:100%;}
 	.caution{width:100%;}
@@ -256,7 +264,26 @@ li.caution{margin:0.6% 0;}
 	.footer-menu-copyright nav ul{padding:0;}
 }
 
+/************************
+ * TABLET PORTRAIT ONLY
+ ************************/
+@media (min-width: 768px) and (max-width: 991px){
+	.header{height:100px;}
+	.left-col-width{width:127px;}
+	.main-header{height:70px;}
+	.top-area, .top-header, .tagline-wrap{height:30px;}
+	.tagline-wrap{margin-left:-10px; width:405px;}
+	.tagline{width:250px; margin:10px 0 0 135px;}
+	.search{margin-left:10px;}
+	.search input{width:120px;}
+	.logo{height:100px; border-bottom:#7FCADC 11px solid;}
 
+	/* home */
+	.porthole img{padding:0 8px;}
+	.porthole .app-img{padding:0;}
+	.take-txt{padding-left:30px; padding-right:50px;}
+
+}
 /************************
  * PHONE
  ************************/
@@ -318,13 +345,4 @@ li.caution{margin:0.6% 0;}
 	.image-widget-data, .form-submit, .form-file{width:100%;}
 
 }
-/************************
- * TABLET
- ************************/
-@media (min-width: 992px) {
-}
-
-/************************
- * PHONE
- ************************/
 
