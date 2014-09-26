@@ -37,7 +37,7 @@ function ask_login_init() {
 
 // Check to see if user from arm1 or arm2 group tries to access the image upload area.
 // If so, redirect to page explaining why they cannot access that content
-  else if ( !empty($user->name) && isArm1orArm2($user->roles) && $dest['destination'] == IMAGE_UPLOAD ) {
+  if ( !empty($user->name) && isArm1orArm2($user->roles) && $dest['destination'] == IMAGE_UPLOAD ) {
     drupal_goto(ARMS1AND2_REDIRECT);
   }
 
