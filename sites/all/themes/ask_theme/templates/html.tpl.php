@@ -16,13 +16,24 @@
   <?php print $page_bottom; ?>
 
 <!-- CLICKY CUSTOM-->
+<?php
+	global $user;
+	function filterRoles($roles) {
+		$arm = 'site user';
+		foreach($roles as $role) {
+			if( preg_match('/arm/', $role) === 1 ) {
+				return $arm = $role;
+			}
+		}
+		return $arm;
+	}
+?>
 <script type="text/javascript">
-	console.log(Drupal.settings.username);
 	var clicky_custom = clicky_custom || {};
 	clicky_custom = {
 		visitor: {
-			username: Drupal.settings.askUsername || 'anonymous',
-			role: Drupal.settings.askRole || 'site user'
+			username: '<?php if(!empty($user->name)){echo $user->name;} ?>',
+			role: '<?php if(!empty($user->roles)){echo filterRoles($user->roles);} ?>'
 		}
 	};
 </script>
