@@ -82,9 +82,35 @@ function ask_login_user_login(&$edit, $account) {
  * Implements hook_form_FORMID_alter
  */
 function ask_login_form_user_login_alter(&$form, &$form_state) {
-  $form['name']['#description'] = t('Your <strong>username</strong> is the cell phone number you provided us on the skin cancer survey');
-  $form['pass']['#description'] = t('Your <strong>password</strong> is the cell phone number you provided us on the skin cancer survey');
+
+	$form['login_instr'] = array(
+    '#type' => 'item',
+    '#markup' => '<p><span class="emphasize">Study participants:</span> Your username and password are the cell phone number (with no hyphens, spaces, or parantheses) you provided us on the skin cancer survey (for example: 2345678912).<br /><span class="emphasize">Physicians and health care providers:</span> refer to study materials for your username and password.</p>',
+    '#weight' => -1,
+  );
+
+  $form['name']['#description'] = '';
+  $form['pass']['#description'] = '';
+
+/*
+  $form['name']['#description'] = t('<p>Your <strong>username</strong> is the cell phone number (with no hyphens, spaces, or parentheses) you provided us on the skin cancer survey<br />For example: 2345678912</p>');
+  $form['name']['#description'] = '';
+  $form['pass']['#description'] = t('<p>Your <strong>password</strong> is the same cell phone number you provided us on the skin cancer survey<br />(Same as username)</p>');
+*/
+  
+
+  $form['login_trouble'] = array(
+    '#type' => 'item',
+    '#markup' => '<p class="citation">If you are having trouble logging in: <br /><strong>Email:</strong> <a href="mailto:ask@hsph.harvard.edu">ask@hsph.harvard.edu</a><br /><strong>Call (toll free):</strong> 844.ASK.ABCD (844.275.2223)</p>',
+    '#weight' => 9999,
+  );
+
   drupal_set_title(t('Log in'));
+}
+
+function ask_login_form_contact_site_form_alter(&$form, &$form_state) {
+	$form['name']['#title'] = t('Your username');
+	$form['mail']['#default_value'] = '';
 }
 
 function isArm1orArm2($roles) {

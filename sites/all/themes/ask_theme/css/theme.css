@@ -64,7 +64,6 @@ nav li ul{display:none;}
 .login-button{color:#fff; background:#ff0000; display:block; padding:5px 15px; position:relative; text-align:center; text-decoration:none;}
 .login-button:hover{background:#C91010; color:#fff; text-decoration:none;}
 .dermlite-home{}
-/*.dermlite-home img{background:url('../images/dermlite_home.gif') 0 0 no-repeat; height:49px;}*/
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
 .porthole .meet-img{margin-top:-10px;}
@@ -168,6 +167,7 @@ footer{padding:10px 30px 80px 30px;}
 /** Misc **/
 .region-content .no-bullet{list-style:none;}
 .space-before-list{margin-bottom:30px;}
+.region-content .space-reduce-below{margin-bottom:0;}
 .region-content .space-above-list{margin-top:0;}
 .float-correct{width:auto; overflow:hidden;}
 .float-left{float:left;}

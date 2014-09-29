@@ -172,12 +172,14 @@ body, .entitytype-image_upload-form .form-radios label{font-family:'OpenSansLigh
 body{background:#0095BA; font-size:1.9em; line-height:1.9em; }
 .main-menu a, 
 h2 .first-letter-signs, 
-.resource-header, 
+.resource-header, .login-style, 
 .reference-header, .md-object h2{font-family:'alegreya_sansregular'; }
-h2, .subnav-style a, .heading, .entitytype-image_upload-form label, .entitytype-image_upload-form legend{font-family:'alegreya_sanslight';}
+h2, .subnav-style a, .heading, .entitytype-image_upload-form label, .entitytype-image_upload-form legend, label .login-style{font-family:'alegreya_sanslight';}
 
 a, strong{font-family:'OpenSansSemibold';font-weight:normal;}
 em, .content-callout{font-family:'OpenSansLightItalic'; font-style:normal;}
+
+label .login-style{font-weight:normal;}
 
 a, .subnav-style a:hover, 
 .subnav-style a.active-trail,
@@ -205,7 +207,7 @@ a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 .top-menu .active-trail, .top-menu a:hover{color:#fff;}
 
 h1{font-family:'alegreya_sansthin'; color:#fff; font-size:2.8em; margin:4px 0 0 220px; letter-spacing:-.01em; padding-bottom:5px;}
-h2, .entitytype-image_upload-form label, .entitytype-image_upload-form legend{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em;}
+h2, .entitytype-image_upload-form label, .entitytype-image_upload-form legend, .login-style{color:#5D93B4; font-size:2.0em; letter-spacing:-.02em; }
 
 h2 .first-letter-signs{font-size:150%;}
 h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; line-height:1.5em; color:#A6B87B;}
