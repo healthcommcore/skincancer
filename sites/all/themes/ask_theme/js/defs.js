@@ -36,13 +36,17 @@
 		 $(container).show();
 		 position(container, e.target);
 	 })
-	 .on('mouseout', function () {
+	 .on('mouseout', removeContainer);
+
+	 container.on('click', removeContainer);
+
+	 function removeContainer() {
 		 $(container).hide();
 		 $(container).children().remove();
-	 });
+	 }
 
 	 // findMatch()
-	 var findMatch = function(keys, id) {
+	 function findMatch(keys, id) {
 	   var match = '<p>';
 		 keys.forEach( function(term) {
 			 if(term == id) {
@@ -54,7 +58,7 @@
 	 }
 	 
 	 // setContainerTop
-	 var setContainerTop = function(container, term) {
+	 function setContainerTop(container, term) {
 		 var cTop, padding = 12;
 		 var termTop = $(term).offset().top;
 		 if (termTop - window.scrollY <= (window.innerHeight / 2) ) {
@@ -67,7 +71,7 @@
 	 }
 
 	 // position()
-	 var position = function(container, term) {
+	 function position(container, term) {
 		 var termTop = $(term).position().top;
 		 var termLeft = $(term).position().left;
 		 var termCenter = termLeft + ($(term).width() / 2);

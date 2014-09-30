@@ -86,7 +86,9 @@ $home_class = "";
 <div id="page" class="page <?php echo $mobile_class . ' ' . $home_class; ?>">
 	<div id="main">
 		<?php if( !drupal_is_front_page()) : ?>
-			<div id="def-container" class="def-container"></div>
+			<div id="def-container" class="def-container">
+				<!-- <a id="close" class="float-right close">close</a> -->
+			</div>
 		<?php endif; ?>
 		<?php if($title && !drupal_is_front_page()) : ?>
 			<div id="title" class="title">

@@ -186,10 +186,14 @@ a, .subnav-style a:hover,
 .main-menu .dropdown-menu li a{color:#394E77;}
 
 .main-menu a:hover, 
+.main-menu a:focus, 
 .main-menu a.active-trail, 
 .main-menu a.active,
 .main-menu .dropdown-menu li a:hover,
+.main-menu .dropdown-menu li a:focus,
 .main-menu .dropdown-menu li a.active{color:#E69C30;}
+
+.nav > li > a:hover, .nav > li > a:focus{background:none;}
 
 a{text-decoration:underline;}
 a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
