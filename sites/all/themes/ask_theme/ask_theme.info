@@ -16,6 +16,7 @@ scripts[] = js/menu_responsive.js
 
 regions[page_top] = Page top
 regions[top_header] = Top header
+regions[text_sizer] = Text sizer
 regions[main_menu] = Main menu
 regions[header_logo] = Main website logo
 regions[rotator] = Rotating homepage images

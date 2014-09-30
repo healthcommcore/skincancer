@@ -35,6 +35,12 @@ nav li ul{display:none;}
 
 .left-col-width{width:184px;}
 
+/** Text sizer **/
+.text-sizer{float:right; font-size:65%; margin:18px 120px 0 0;}
+.text-sizer ul{padding-left:0; margin:0;}
+.text-sizer li{float:left;}
+.text-sizer h2{margin:0 0 6px 0; font-size:1.9em; color:#e69c30;}
+
 /** page content **/
 .content-padding{padding:80px 90px;}
 .page{background:#fff;}
@@ -61,8 +67,8 @@ nav li ul{display:none;}
 /** Home page **/
 .home .content-padding{padding-top:40px;}
 .login-arm3-button{z-index:100; margin-top:25px; position:absolute;}
-.login-button{color:#fff; background:#ff0000; display:block; padding:5px 15px; position:relative; text-align:center; text-decoration:none;}
-.login-button:hover{background:#C91010; color:#fff; text-decoration:none;}
+.login-button{color:#fff; background:#D23B22; display:block; padding:5px 15px; position:relative; text-align:center; text-decoration:none;}
+.login-button:hover{background:#ff0000; color:#fff; text-decoration:none;}
 .dermlite-home{}
 .porthole{text-align: center; margin:0 4% 20px 4%;}
 .porthole img{margin:0 auto;}
@@ -195,7 +201,7 @@ li.caution{margin:0.6% 0;}
 }
 
 .action-button{
-	background:#ECB666;
+	background:#F2B661;
 	color:#fff;
 }
 
@@ -227,6 +233,10 @@ li.caution{margin:0.6% 0;}
 	.content-padding{padding:60px 90px;}
 	.subnav-style{padding-top:60px;}
 	.subnav-style a{font-size:1.05em;}
+
+	/** Text sizer **/
+	.text-sizer{font-size:58%; margin-top:8px;}
+	.text-sizer h2{font-size:1.9em;}
 }
 
 
@@ -282,6 +292,11 @@ li.caution{margin:0.6% 0;}
 	.porthole img{padding:0 8px;}
 	.porthole .app-img{padding:0;}
 	.take-txt{padding-left:30px; padding-right:50px;}
+
+	/** Text sizer **/
+	.text-sizer{font-size:58%; margin:8px 0 0 0; width:50%;}
+	.text-sizer h2{font-size:1.7em; float:left; margin:-3px 10px 0 0;}
+	.text-sizer ul{margin-top:5px;}
 
 }
 /************************

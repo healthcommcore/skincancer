@@ -56,7 +56,7 @@ $home_class = "";
 
 				</div>
 			</div>
-	</div>
+	</div><!-- fixed top -->
 </header>
 <!-- Toggle login button/dermlite icon -->
 
@@ -96,10 +96,14 @@ $home_class = "";
 				</div>
 			</div><!-- title -->
 		<?php endif; ?>	
+
+
 	<!-- Messages -->
 		<?php if ($messages): ?>
 			<div id="messages"><div class="section clearfix">
-				<?php print $messages; ?>
+				<div class="container">
+					<?php print $messages; ?>
+				</div>
 			</div></div> <!-- /.section, /#messages -->
 		<?php endif; ?>
 			<section class="container">
@@ -109,6 +113,14 @@ $home_class = "";
 							<?php print render($page['subnav']); ?>
 						</div>
 					<?php endif; ?>
+
+			<!-- Text sizer -->
+					<?php if( render($page['text_sizer']) ) : ?>
+						<div class="text-sizer hidden-xs">
+							<?php print render($page['text_sizer']); ?>
+						</div>
+					<?php endif; ?>
+
 					<?php if ($tabs && in_array('administrator', $user->roles)): ?>
 						<div class="tabs">
 							<?php print render($tabs); ?>
