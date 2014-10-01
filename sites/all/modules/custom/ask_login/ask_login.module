@@ -85,7 +85,7 @@ function ask_login_form_user_login_alter(&$form, &$form_state) {
 
 	$form['login_instr'] = array(
     '#type' => 'item',
-    '#markup' => '<p><span class="emphasize">Study participants:</span> Your username and password are the cell phone number (with no hyphens, spaces, or parantheses) you provided us on the skin cancer survey (for example: 2345678912).<br /><span class="emphasize">Physicians and health care providers:</span> refer to study materials for your username and password.</p>',
+    '#markup' => '<p><span class="emphasize">Study participants:</span> your username and password are the cell phone number (with no hyphens, spaces, or parentheses) you provided us on the skin cancer survey (for example: 2345678912).<br /><span class="emphasize">Physicians and health care providers:</span> refer to study materials for your username and password.</p>',
     '#weight' => -1,
   );
 
@@ -101,7 +101,7 @@ function ask_login_form_user_login_alter(&$form, &$form_state) {
 
   $form['login_trouble'] = array(
     '#type' => 'item',
-    '#markup' => '<p class="citation">If you are having trouble logging in: <br /><strong>Email:</strong> <a href="mailto:ask@hsph.harvard.edu">ask@hsph.harvard.edu</a><br /><strong>Call (toll free):</strong> 844.ASK.ABCD (844.275.2223)</p>',
+    '#markup' => '<p class="citation">If you are having trouble logging in: <br/><strong>Email:</strong> <a href="mailto:ask@hsph.harvard.edu">ask@hsph.harvard.edu</a><br /><strong>Call (toll free):</strong> <span class="hidden-xs">844-ASK-ABCD</span><span class="visible-xs"><a href="tel:844-275-2223">844-ASK-ABCD</a></span> (844.275.2223)</p>',
     '#weight' => 9999,
   );
 

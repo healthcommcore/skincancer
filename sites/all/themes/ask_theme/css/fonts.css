@@ -195,7 +195,7 @@ a, .subnav-style a:hover,
 
 .nav > li > a:hover, .nav > li > a:focus{background:none;}
 
-a{text-decoration:underline;}
+a{text-decoration:underline; word-wrap:break-word; white-space: pre;}
 a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 
 .nav a{text-decoration:none;}

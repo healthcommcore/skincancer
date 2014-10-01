@@ -272,6 +272,9 @@ li.caution{margin:0.6% 0;}
 	.footer-menu-copyright{float:none; text-align:center; font-size:0.9em;}
 	.footer-menu-copyright nav{margin:0 auto; display:inline-block;}
 	.footer-menu-copyright nav ul{padding:0;}
+
+	/** misc **/
+	.form-text{width:100%;}
 }
 
 /************************
