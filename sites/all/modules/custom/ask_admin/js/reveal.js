@@ -30,8 +30,8 @@
 // Toggle slide effect for an individual element
 // when corresponding link clicked
 		$('.img-toggle').click(function (e) {
-			e.preventDefault();
 			if( $(e.target).hasClass('trigger') ) {
+				e.preventDefault();
 				$(this).find('.openclose').slideToggle();
 			}
 		});

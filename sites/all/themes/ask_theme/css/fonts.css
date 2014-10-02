@@ -195,7 +195,7 @@ a, .subnav-style a:hover,
 
 .nav > li > a:hover, .nav > li > a:focus{background:none;}
 
-a{text-decoration:underline; word-wrap:break-word; white-space: pre;}
+a{text-decoration:underline; word-wrap:break-word;}
 a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 
 .nav a{text-decoration:none;}
@@ -263,6 +263,11 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 	/* page content */
 	h1{font-size:2.5em; margin:4px 0 0 182px; letter-spacing:-.01em; padding-bottom:5px;}
+
+	/* home */
+	.heading{font-size:1.3em;}
+
+
 }
 
 /************************
