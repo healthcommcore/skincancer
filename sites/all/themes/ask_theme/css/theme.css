@@ -27,7 +27,7 @@ sup{margin-left:-.25em; margin-right:.4em;}
 /** Main menu **/
 nav li{float:left;}
 nav li ul{display:none;}
-.header .navbar-default{background:none; border-radius:0; box-shadow:0 0 0 0; border:none;}
+.header .navbar-default{background:none; border-radius:0; box-shadow:0 0 0 0; border:none; color:#fff;}
 .navbar-default .navbar-collapse{border:none;}
 .navbar-collapse{border:#e69c30 2px solid;}
 .main-menu{margin-top:16px;}
@@ -87,6 +87,7 @@ nav li ul{display:none;}
 /** serch and sitemap **/
 #site-map .title, .search-results .title {background:none;}
 #site-map .title{margin-bottom:28px;}
+#mobile-search .trigger{background:none; border:none; border-radius:none;}
 
 
 /** Def-container **/
@@ -148,7 +149,7 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 
 /** Image upload form **/
 .entitytype-image_upload-form .form-wrapper{margin:2.0em 0;}
-.entitytype-image_upload-form .form-select{display:block;}
+.entitytype-image_upload-form .form-select{display:block; width:100%;}
 .field-type-datetime legend{border:none; margin-bottom:10px;}
 .field-type-datetime #edit-field-skin-date-taken-und-0-value label{display:none;}
 .field-type-datetime .container-inline-date .date-padding{padding:0;}
@@ -291,6 +292,8 @@ li.caution{margin:0.6% 0;}
 
 	/** misc **/
 	.form-text{width:100%;}
+	.trigger{padding:5px 50px 6px 12px;}
+	.submissions-link a, .action-button{padding:7px 12px 10px;}
 }
 
 /************************
@@ -317,6 +320,7 @@ li.caution{margin:0.6% 0;}
 	.text-sizer h2{font-size:1.7em; float:left; margin:-3px 10px 0 0;}
 	.text-sizer ul{margin-top:5px;}
 
+
 }
 /************************
  * PHONE
@@ -331,19 +335,20 @@ li.caution{margin:0.6% 0;}
 	.mobile-container{overflow:hidden;}
 	.header{height:78px; background:#fff;}
 	.tagline-wrap{margin:0 0 0 6%; width:100%;}
-	.tagline{width:65%; margin:8px 0 0 80px;}
+	.tagline{width:65%; margin:8px 0 0 65px;}
 	.logo-top-space{margin-top:0;}
 	.logo{height:79px;border-bottom:#7FCADC 8px solid;}
-	.logo img{margin:9px 0 0 0;}
+	.logo .logo-img{margin:12px 0 0 0;}
 	.main-header{height:52px;}
 	.top-area, .top-header, .tagline-wrap{height:26px;}
-	.left-col-width{margin-left:0; width:100px;}
-	.search{position:absolute; margin:10px 0 0 130px; z-index:999; float:none;}
-	.search input[type=text]{width:140px;}
+	.left-col-width{margin-left:0; width:90px;}
+	.mobile-search{margin-left:6%;}
+	.search{position:absolute; margin:10px 0 0 95px; z-index:999; float:none; width:35%;}
+	.search input[type=text]{width:100%;}
 	.region-content ul{margin-top:-20px;}
 
 	/* Homepage icons */
-	.mobile-home{background:#FBF8E1; padding:6% 0 0 3%; border-top:#E69C30 30px solid; width:100%;}
+	.mobile-home{background:#FBF8E1; padding:1% 0 0 3%; border-top:#E69C30 30px solid; width:100%;}
 	.mobile-container{margin:0 auto; padding:0; width:100%;}
 	.ask-icon, .dermalite-icon{display:block; float:left;}
 	.ask-icon:hover, .dermalite-icon:hover{opacity:0.5;}

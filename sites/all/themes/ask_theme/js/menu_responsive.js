@@ -5,6 +5,7 @@
 		var search = $('#block-search-form'),  menu_container = $('#main-header'),
 		    submenus = $('#main-menu-collapse .expanded ul'),
 				top_header = $('#top-header');
+		var mobile_search = $('#mobile-search');
 		var dropdown = '<a href="#" class="dropdown-toggle submenu-reveal" data-toggle="dropdown"></a>';
 		var photoLabel = $('.form-item-field-skin-photo-und-0').find('label');
 		//var newUpload = $('#custom-upload-button');
@@ -26,11 +27,11 @@
 				if(window.innerWidth < CELL_WINDOW_SIZE ) {
 					if( existy($(top_header).find(search)) ){
 						$(search).remove();
-						$(menu_container).find('.row').prepend(search);
+						$(mobile_search).append(search);
 					}
 				}
 				else {
-					if( existy($(menu_container).find(search)) ){
+					if( existy($(mobile_search).find(search)) ){
 						$(search).remove();
 						$(top_header).find('.region-top-header').append(search);
 					}

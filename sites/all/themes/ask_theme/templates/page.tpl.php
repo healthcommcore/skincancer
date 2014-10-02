@@ -24,12 +24,12 @@ $home_class = "";
 		<div id="main-header" class="main-header">
 			<div class="container">
 				<div class="row">
+					<div id="mobile-search" class="mobile-search hidden-lg hidden-md">
+					</div>
 					<nav id="main-menu" class="col-md-offset-2 col-md-10 main-menu navbar navbar-default">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-collapse">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
+								Menu
 							</button>
 						</div>
 						<div id="main-menu-collapse" class="collapse navbar-collapse">
@@ -87,7 +87,6 @@ $home_class = "";
 	<div id="main">
 		<?php if( !drupal_is_front_page()) : ?>
 			<div id="def-container" class="def-container">
-				<!-- <a id="close" class="float-right close">close</a> -->
 			</div>
 		<?php endif; ?>
 		<?php if($title && !drupal_is_front_page()) : ?>
