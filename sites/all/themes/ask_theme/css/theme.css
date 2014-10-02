@@ -331,7 +331,7 @@ li.caution{margin:0.6% 0;}
 	ul, ol{padding-left:25px;}
 	.top-area{overflow:hidden;}
 	.title .container {padding:0 15px;}
-	/*.mobile-home, .header{overflow:hidden;}*/
+
 	.mobile-container{overflow:hidden;}
 	.header{height:78px; background:#fff;}
 	.tagline-wrap{margin:0 0 0 6%; width:100%;}
@@ -348,11 +348,11 @@ li.caution{margin:0.6% 0;}
 	.region-content ul{margin-top:-20px;}
 
 	/* Homepage icons */
-	.mobile-home{background:#FBF8E1; padding:1% 0 0 3%; border-top:#E69C30 30px solid; width:100%;}
+	.mobile-home{background:#FBF8E1; padding:1% 0 0 3%; border-top:#E69C30 20px solid; width:100%;}
 	.mobile-container{margin:0 auto; padding:0; width:100%;}
 	.ask-icon, .dermalite-icon{display:block; float:left;}
 	.ask-icon:hover, .dermalite-icon:hover{opacity:0.5;}
-	.ask-icon{width:37.6%; margin:2.5% -6.6%;}
+	.ask-icon{width:37.6%; margin:2.0% -6.6%;}
 	.dermalite{background:url("../images/dermalite.svg") 50% 0 no-repeat; width:100%;}
 	.dermalite-icon{width:60%; margin:2.5% 0 2.5% 5%; background:none;}
 	.ask-icon img{width:100%;}

@@ -113,6 +113,10 @@ function ask_login_form_contact_site_form_alter(&$form, &$form_state) {
 	$form['mail']['#default_value'] = '';
 }
 
+function ask_login_form_search_block_form_alter(&$form, &$form_state) {
+  $form['search_block_form']['#attributes']['placeholder'] = t('Search');
+}
+
 function isArm1orArm2($roles) {
   return in_array(ARM1, $roles) || in_array(ARM2, $roles);
 }
