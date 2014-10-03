@@ -10,6 +10,28 @@ function ask_theme_preprocess_page(&$variables) {
 	//dpm($variables);
 }
 
+/** 
+ *Implements theme_menu_link()
+ */
+function ask_theme_menu_link($variables) {
+	// What we want to do here is add a class just to the "Physicians"
+	// menu link, leaving all others untouched
+	$element = $variables['element'];
+	if(isset($element['#href']) && $element['#href'] == 'node/2') {
+		$element['#attributes']['class'][] = 'physician-link';
+		$submenu = '';
+
+	// build menu item, render, and return
+		if($element['#below']) {
+			$submenu = drupal_render($element['#below']);
+		}
+		$output = l($element['#title'], $element['#href'], $element['#localized_options']);
+		return '<li' . drupal_attributes($element['#attributes']) . '>' . $output .
+			$submenu . "</li>\n";
+	}
+	return theme_menu_link($variables);
+}
+
 /**
  * Implements theme_preprocess_html
  *

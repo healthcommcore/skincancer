@@ -167,7 +167,6 @@
 }
 
 
-
 body, .entitytype-image_upload-form .form-radios label{font-family:'OpenSansLight';color:#6D727D;}
 body{background:#0095BA; font-size:1.9em; line-height:1.9em; }
 .main-menu a, 
@@ -181,6 +180,7 @@ em, .content-callout{font-family:'OpenSansLightItalic'; font-style:normal;}
 
 label .login-style{font-weight:normal;}
 
+/** main menu **/
 a, .subnav-style a:hover, 
 .subnav-style a.active-trail,
 .main-menu .dropdown-menu li a{color:#394E77;}
@@ -195,7 +195,16 @@ a, .subnav-style a:hover,
 
 .nav > li > a:hover, .nav > li > a:focus{background:none;}
 
+/** physician link **/
+.main-menu .physician-link a{color:#fff; background:#D23B22; font-family:'alegreya_sansmedium';}
+.main-menu .physician-link .dropdown-menu a, .main-menu .physician-link .dropdown-menu a.active, .main-menu .physician-link .dropdown-menu a.active-trail, .main-menu .physician-link .dropdown-menu a:hover{background:none;}
+.main-menu .physician-link a.active, .main-menu .physician-link a.active-trail, .main-menu .physician-link a:hover{background:#ff0000;}
+.main-menu .physician-link a.active, .main-menu .physician-link a.active-trail{border:none;}
+
+
+
 a{text-decoration:underline; word-wrap:break-word;}
+.main-menu .dropdown-menu a{white-space:normal;}
 a.def{font-family:'OpenSansBold'; color:#E69C30; text-decoration:none; }
 
 .nav a{text-decoration:none;}
@@ -245,7 +254,6 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 .caution strong{font-family:'OpensansSemiboldItalic';}
 
 .nav li a:hover, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background:none;}
-
 .entitytype-image_upload-form label{font-weight:normal;}
 .entitytype-image_upload-form .form-radios label{font-size:inherit;}
 .entitytype-image_upload-form .description{line-height:1.52em; font-size:0.7em; margin-bottom:8px;}
@@ -262,6 +270,7 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 	/* nav */
 	.main-menu a, .main-menu a:active{font-size:1.1em;}
+	.main-menu .physician-link a.active, .main-menu .physician-link a.active-trail, .main-menu .physician-link a:hover{background:#ff0000;}
 
 	/* page content */
 	h1{font-size:2.5em; margin:4px 0 0 182px; letter-spacing:-.01em; padding-bottom:5px;}
@@ -289,13 +298,13 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 	h1{font-size:2.4em; margin:0; line-height:0.95em; padding:1.5% 0;}
 	.landing-page-opening{line-height:1.85em; font-size:1.1em;}
-	/*
-	*/
+
+	/** main menu **/
 	.main-menu .nav li a.submenu-reveal{background:url('../images/dropdown_arrows.gif') 0 0 no-repeat; margin-top:10px;}
 	.main-menu .nav .open > a.subnav-on:hover, .main-menu .nav .open > a.subnav-on{background-position: -30px 3px;}
 	.main-menu a.active, .main-menu a.active-trail{border:none;}
 	.main-menu .dropdown-menu{background:#FBF8E1;}
-	
+
 	/* navbar */
 	.navbar-collapse{padding:0;}
 	.navbar-collapse ul{padding:15px 0;}

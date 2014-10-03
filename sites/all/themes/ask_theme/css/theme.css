@@ -32,6 +32,7 @@ nav li ul{display:none;}
 .navbar-collapse{border:#e69c30 2px solid;}
 .main-menu{margin-top:16px;}
 .main-menu .nav li a{padding:7px 3px; margin:0 5px;}
+.main-menu .nav .physician-link a{padding:1px 12px 4px 12px; margin:5px 0;}
 
 .left-col-width{width:184px;}
 
@@ -238,6 +239,7 @@ li.caution{margin:0.6% 0;}
 	/* nav */
 	.main-menu{margin-top:10px;}
 	.main-menu .nav li a{padding:6px 2px 2px 2px; margin:0 5px;}
+.main-menu .nav .physician-link a{padding:0 10px 3px 10px; margin:5px 0;}
 
 	/* page elements */
 	.left-col-width{width:144px;}
