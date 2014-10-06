@@ -244,7 +244,9 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 .def-container{font-family:'OpenSansItalic'; font-size:0.9em; line-height:1.5em;}
 
-.highlight-header h3, .emphasize{color:#7A992C; font-size:1.1em; font-family:'OpenSansItalic'; font-weight:normal;}
+.highlight-header h3, .emphasize, .video-frame h3{color:#7A992C; font-family:'OpenSansItalic'; font-weight:normal;}
+.highlight-header h3, .emphasize{font-size:1.1em;}
+.video-frame h3{text-align:center;font-size:1.4em; margin:8px 0 20px 0;}
 
 .citation{font-size:0.8em; line-height:1.6em;}
 .special-reference-container ol.citation li{margin-bottom:10px;}
@@ -278,6 +280,9 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 	/* home */
 	.heading{font-size:1.3em;}
 
+	/** videos **/
+	.video-frame h3{font-size:1.2em; margin:3px 0 12px 0;}
+
 
 }
 
@@ -285,6 +290,8 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
  * TABLET PORTRAIT ONLY
  ************************/
 @media (min-width: 768px) and (max-width: 991px){
+	/** videos **/
+	.video-frame h3{font-size:1.1em;} 
 }
 
 /***************************
@@ -322,6 +329,10 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 	.navbar-default .navbar-toggle:hover .icon-bar{background:#e69c30;}
 	.navbar-toggle .icon-bar + .icon-bar{margin-top:5px;}
 
+	/** videos **/
+	.video-frame{padding:5% 8%;}
+	.video-frame h3{margin:0 0 8px 0; line-height:1.2em;}
+
 	/** misc **/
 	.trigger, .action-button, .submissions-link{line-height:1.28em;}
 
@@ -335,4 +346,7 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 	/* navbar */
 	.navbar-default .navbar-toggle{padding:1px 10px 2px; margin-bottom:0;}
 	.navbar-default .navbar-toggle .icon-bar{height:3px;}
+
+	/** videos **/
+	.video-frame h3{font-size:1.0em;} 
 }
