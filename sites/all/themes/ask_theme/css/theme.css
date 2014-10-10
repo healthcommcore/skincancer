@@ -165,9 +165,9 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 /** Footer **/
 footer{padding:10px 30px 80px 30px;}
 .footer-topbar{height:44px; background:#F7F1C2;}
-.footer-logos{margin: 10px 0 0 0;}
+.footer-logos{margin: 15px 0 0 0;}
 .footer-logos a{position:relative;}
-.footer-logos a{margin-right:60px;}
+.footer-logos a{margin-right:40px;}
 .logo-top-space{margin-top:30px;}
 .logo-padding{padding-top:36px;}
 .footer-menu-copyright{float:right; text-align:right;margin-right:0; margin-top:35px;}
@@ -292,6 +292,7 @@ li.caution{margin:0.6% 0;}
 	.footer-menu-copyright{float:none; text-align:center; font-size:0.9em;}
 	.footer-menu-copyright nav{margin:0 auto; display:inline-block;}
 	.footer-menu-copyright nav ul{padding:0;}
+	.footer-logos, .footer-logos img{margin-left:auto; margin-right:auto;}
 
 	/** videos **/
 	.video-frame{margin:50px 0;}

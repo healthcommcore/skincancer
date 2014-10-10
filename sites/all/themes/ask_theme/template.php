@@ -47,9 +47,26 @@ function ask_theme_preprocess_html(&$variables) {
       'media' => 'screen',
       'every_page' => TRUE,
 		));
-		// Needed to add this in order for javascript in the MD Slider module to work
-		drupal_add_js(drupal_get_path('theme', 'ask_theme') . '/js/jquery-migrate-1.2.1.min.js');
 	}
+
+	$ie8_path = drupal_get_path('theme', 'ask_theme') . '/css/ie8.css';
+  if (file_exists($ie8_path)) {
+    drupal_add_css($ie8_path, array(
+			'browsers' => array(
+				'IE' => 'lte IE 8',
+				'!IE' => FALSE
+			),
+      'preprocess' => TRUE,
+      'group' => CSS_THEME,
+      'media' => 'screen',
+      'every_page' => TRUE,
+		));
+	}
+
+
+		// Needed to add this in order for javascript in the MD Slider module to work
+	drupal_add_js(drupal_get_path('theme', 'ask_theme') . '/js/jquery-migrate-1.2.1.min.js');
+	drupal_add_js('http://html5shiv.googlecode.com/svn/trunk/html5.js');
 
 	// Add viewport tag
 	$viewport = array(
