@@ -66,7 +66,7 @@ function ask_theme_preprocess_html(&$variables) {
 
 		// Needed to add this in order for javascript in the MD Slider module to work
 	drupal_add_js(drupal_get_path('theme', 'ask_theme') . '/js/jquery-migrate-1.2.1.min.js');
-	drupal_add_js('http://html5shiv.googlecode.com/svn/trunk/html5.js');
+	drupal_add_js('https://html5shiv.googlecode.com/svn/trunk/html5.js');
 
 	// Add viewport tag
 	$viewport = array(

@@ -23,6 +23,22 @@
 	 var MOBILE_SIZE = 768;
 	 var container = $('#def-container');
 	 var terms = $('.def');
+
+	 // Polyfill for Object.keys method compatibility with IE 8
+	 if (!Object.keys) Object.keys = function (o) {
+	   if (o !== Object(o)) {
+		   throw new TypeError('Object.keys called on a non-object');
+		 }
+		 var k = [], p;
+		 for (p in o) {
+		   if (Object.prototype.hasOwnProperty.call(o, p)) {
+			   k.push(p);
+			 }
+		 }
+		 return k;
+	 }
+
+	 // begin defs code
 	 container.hide();
 	 terms
 	 .on('click', function (e) {
@@ -48,12 +64,12 @@
 	 // findMatch()
 	 function findMatch(keys, id) {
 	   var match = '<p>';
-		 keys.forEach( function(term) {
-			 if(term == id) {
-			   match += defs[term];
+		 for( var i = 0; i < keys.length; i++) {
+			 if(keys[i] == id) {
+			   match += defs[keys[i]];
 				 match += '</p>';
 			 }
-		 });
+		 }
 		 return match;
 	 }
 	 
