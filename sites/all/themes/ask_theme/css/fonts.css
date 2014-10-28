@@ -175,7 +175,12 @@ h2 .first-letter-signs,
 .reference-header, .md-object h2{font-family:'alegreya_sansregular'; }
 h2, .subnav-style a, .heading, .entitytype-image_upload-form label, .entitytype-image_upload-form legend, label .login-style{font-family:'alegreya_sanslight';}
 
-a, strong{font-family:'OpenSansSemibold';font-weight:normal;}
+a, strong
+/*
+.entitytype-image_upload-form #edit-submit
+*/
+{font-family:'OpenSansSemibold';font-weight:normal;}
+
 em, .content-callout{font-family:'OpenSansLightItalic'; font-style:normal;}
 
 label .login-style{font-weight:normal;}

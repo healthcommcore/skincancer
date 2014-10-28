@@ -151,6 +151,9 @@ h2 .first-letter-signs{padding:0 15px; display:inline-block;}
 /** Image upload form **/
 .entitytype-image_upload-form .form-wrapper{margin:2.0em 0;}
 .entitytype-image_upload-form .form-select{display:block; width:100%;}
+/*
+.entitytype-image_upload-form #edit-submit{background:url('../images/submit.gif') 0 0 no-repeat; color:#fff; padding:2px 18px 3px 18px;}
+*/
 .field-type-datetime legend{border:none; margin-bottom:10px;}
 .field-type-datetime #edit-field-skin-date-taken-und-0-value label{display:none;}
 .field-type-datetime .container-inline-date .date-padding{padding:0;}
@@ -195,7 +198,11 @@ footer{padding:10px 30px 80px 30px;}
 .indent{margin-left:30px;}
 .caution{background:#FFFFD1; padding:8px 15px; color:#D68C4F; border:#FFE57D 1px solid; width:85%;}
 li.caution{margin:0.6% 0;}
+/*.form-item-field-skin-photo-und-0 .description{display:none;}*/
 .trigger, .action-button, .submissions-link a{
+/*
+.entitytype-image_upload-form #edit-submit
+*/
 	display:inline-block; 
 	width:auto;
 	border-radius:10px;
