@@ -1,0 +1,13 @@
+.md-object{background:#E69B2E; color:#fff;}
+@media (max-width: 767px) {
+	.dermalite{background:url("../images/dermlite.gif") 50% 0 no-repeat; width:100%;}
+	.mobile-container .know{background:url("../images/know.gif") 50% 0 no-repeat;}
+	.mobile-container .get{background:url("../images/get.gif") 50% 0 no-repeat;}
+	.mobile-container .check{background:url("../images/check.gif") 50% 0 no-repeat;}
+	.mobile-container .view{background:url("../images/view.gif") 50% 0 no-repeat;}
+	.mobile-container .sunscreen{background:url("../images/sunscreen.gif") 50% 0 no-repeat;}
+	.mobile-container .appt{background:url("../images/appt.gif") 50% 0 no-repeat;}
+	.mobile-container .watch{background:url("../images/watch.gif") 50% 0 no-repeat;}
+	.mobile-container .quiz{background:url("../images/quiz.gif") 50% 0 no-repeat;}
+	.mobile-container .contact{background:url("../images/contact.gif") 50% 0 no-repeat;}
+}

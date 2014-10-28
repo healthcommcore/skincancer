@@ -15,7 +15,7 @@
 
 
 		function respond () {
-			if(window.innerWidth < TABLET_WINDOW_SIZE) {
+			if($(window).width() < TABLET_WINDOW_SIZE) {
 			  var submenu = submenus[0];
 				if( !($(submenu).hasClass('dropdown-menu')) && 
 					  !( existy( $(submenu).find('dropdown-toggle') ) ) ) {
@@ -24,7 +24,7 @@
 					});
 					$(photoLabel).text('Take a photo');
 				}
-				if(window.innerWidth < CELL_WINDOW_SIZE ) {
+				if($(window).width() < CELL_WINDOW_SIZE ) {
 					if( existy($(top_header).find(search)) ){
 						$(search).remove();
 						$(mobile_search).append(search);
@@ -41,7 +41,7 @@
 				});
 			}
 /*
-			else if( existy( $(menu_container).find(search) ) && (window.innerWidth > CELL_WINDOW_SIZE && window.innerWidth < TABLET_WINDOW_SIZE) ) {
+			else if( existy( $(menu_container).find(search) ) && ($(window).width() > CELL_WINDOW_SIZE && $(window).width() < TABLET_WINDOW_SIZE) ) {
 			}
 */
 			else {
