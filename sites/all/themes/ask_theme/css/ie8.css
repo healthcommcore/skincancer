@@ -1,4 +1,5 @@
 .md-object{background:#E69B2E; color:#fff;}
+.reference-list li:before, .jump:before{display:none;}
 @media (max-width: 767px) {
 	.dermalite{background:url("../images/dermlite.gif") 50% 0 no-repeat; width:100%;}
 	.mobile-container .know{background:url("../images/know.gif") 50% 0 no-repeat;}
