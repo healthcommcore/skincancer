@@ -204,7 +204,7 @@ a, .subnav-style a:hover,
 .main-menu .physician-link a.active, .main-menu .physician-link a.active-trail, .main-menu .physician-link a:hover{background:#ff0000;}
 .main-menu .physician-link a.active, .main-menu .physician-link a.active-trail{border:none;}
 
-
+#backtotop{height:auto;}
 
 a{text-decoration:underline; word-wrap:break-word;}
 .main-menu .dropdown-menu a{white-space:normal;}
