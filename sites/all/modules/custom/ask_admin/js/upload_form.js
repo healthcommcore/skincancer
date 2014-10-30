@@ -13,6 +13,7 @@
   $(document).ready(function(){
 		var form = $('#image-upload-entityform-edit-form');
 		var submittedBefore = $('#edit-field-skin-submitted-before');
+		var imgWidget = $('.form-item-field-skin-photo-und-0 .image-widget');
 // Gotta love Drupals's auto-generated IDs
     var spotChangedYes = $('#edit-field-skin-submitted-before-und-yes-this-spot-has-changed-since-the-last-photo-that-i-submitted');
     var spotChangedFollowup = $('#edit-field-skin-saw-health-provider');
@@ -27,6 +28,11 @@
 		var remove = $('#edit-field-skin-photo-und-0-remove-button');
 		//var uploadImg = $('.take-upload-img');
 		var firstLoad = true;
+		var takePhotoDescr = '<div class="description">Touch the \'Choose file\' button ' + 
+		'below and then select the option to take a photo. Next, place the DermLite lens ' +
+		'directly on the mole, mark, or spot you\'re concerned about, press down, ' +
+		'and take a photo using your phone or iPad\'s camera function. ' +
+		'Touch \'Upload\' and answer the rest of the questions below</div>';
 
 		//$(upload_button).val();
 
@@ -34,6 +40,8 @@
 		if(firstLoad){
 			hideAll();
 		}
+
+		$(imgWidget).before(takePhotoDescr);
 
 /*
 		browseButtonSwitch();
