@@ -247,7 +247,10 @@ function entityform_form_wrapper($entityform, $mode = 'submit', $form_context = 
       if (!empty($results)) {
         $output['submissions_link'] = array(
           '#type' => 'markup',
-          '#markup' => "<div class='submissions-link' >" . l(t('View your previous submissions'), "eform/{$entityform_type->type}/submissions") . "</div>",
+          '#markup' => "<div class='submissions-link' >" . l(t('Click here if you would like to see photos you previously uploaded'), "eform/{$entityform_type->type}/submissions") . "</div>",
+          /*'#markup' => "<div class='submissions-link' >" . l(t('View your
+					previous submissions'), "eform/{$entityform_type->type}/submissions")
+					. "</div>",*/
           '#weight' => -100,
         );
       }

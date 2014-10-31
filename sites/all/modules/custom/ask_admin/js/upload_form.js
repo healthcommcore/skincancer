@@ -41,7 +41,7 @@
 			hideAll();
 		}
 
-		$(imgWidget).before(takePhotoDescr);
+		//$(imgWidget).before(takePhotoDescr);
 
 /*
 		browseButtonSwitch();
