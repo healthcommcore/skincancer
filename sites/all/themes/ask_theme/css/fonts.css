@@ -250,7 +250,7 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 .highlight-header h3, .emphasize, .video-frame h3{color:#7A992C; font-family:'OpenSansItalic'; font-weight:normal;}
 .highlight-header h3, .emphasize{font-size:1.1em;}
-.video-frame h3{text-align:center;font-size:1.4em; margin:8px 0 20px 0;}
+.video-frame h3{text-align:center;font-size:1.4em; margin:5px 0 10px 0;}
 
 .citation{font-size:0.8em; line-height:1.6em;}
 .special-reference-container ol.citation li{margin-bottom:10px;}
@@ -335,7 +335,7 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 
 	/** videos **/
 	.video-frame{padding:5% 8%;}
-	.video-frame h3{margin:0 0 8px 0; line-height:1.2em;}
+	.video-frame h3{margin:0 0 12px 0; line-height:1.2em;}
 
 	/** misc **/
 	.trigger, .action-button, .submissions-link{line-height:1.28em;}
