@@ -302,9 +302,10 @@ li.caution{margin:0.6% 0;}
 	.header .navbar-default{background:#f9f1c1; z-index:2;}
 	.header .navbar{z-index:40;}
 	.main-menu{margin-top:5px;}
+	.main-menu .nav li a{margin:2px 0;}
 	.main-menu .nav > li > a {display:inline-block;}
 	.main-header nav li{float:none;}
-	.submenu-reveal{float:right; display:inline-block; height:22px; width:22px;}
+	.submenu-reveal{float:right; display:inline-block; }
 	.main-menu .dropdown-menu{background:none; border-radius:0; box-shadow:0 0 0; position:relative; float:none;}
 
 	/* page content */

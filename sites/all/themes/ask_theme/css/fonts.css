@@ -311,8 +311,11 @@ h3{font-family:'OpenSansSemibold'; margin-bottom:0px; letter-spacing:-.03em; lin
 	.landing-page-opening{line-height:1.85em; font-size:1.1em;}
 
 	/** main menu **/
+	/*
 	.main-menu .nav li a.submenu-reveal{background:url('../images/dropdown_arrows.gif') 0 0 no-repeat; margin-top:10px;}
 	.main-menu .nav .open > a.subnav-on:hover, .main-menu .nav .open > a.subnav-on{background-position: -30px 3px;}
+	*/
+	.main-menu .nav li a.submenu-reveal{background:#e69c30; margin-top:10px; font-size:0.9em; line-height:1em; color:#fff; padding:3px 6px 6px 6px;}
 	.main-menu a.active, .main-menu a.active-trail{border:none;}
 	.main-menu .dropdown-menu{background:#FBF8E1;}
 
