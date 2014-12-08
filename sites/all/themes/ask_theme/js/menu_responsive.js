@@ -1,3 +1,9 @@
+/**
+ * This file is necessary because this Drupal theme was made from scratch
+ * and does not use Drupal's available bootstrap base theme. Therefore I 
+ * needed a way to reconfigure the main menu migrate the search bar at smaller
+ * screen width sizes.
+ */
 (function($) {
 	$(document).ready(function() {
 		var TABLET_WINDOW_SIZE = 992;
@@ -36,16 +42,7 @@
 						$(top_header).find('.region-top-header').append(search);
 					}
 				}
-				/*
-				$('.submenu-reveal').click(function() {
-					$(this).toggleClass('subnav-on');
-				});
-				*/
 			}
-/*
-			else if( existy( $(menu_container).find(search) ) && ($(window).width() > CELL_WINDOW_SIZE && $(window).width() < TABLET_WINDOW_SIZE) ) {
-			}
-*/
 			else {
 				/*
 				 */

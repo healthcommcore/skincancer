@@ -1,0 +1,266 @@
+-------------------------------------------------------------
+ASK ABOUT SKIN CANCER WEB INTERVENTION DOCUMENTATION
+-------------------------------------------------------------
+
+CONTENTS
+-------------------------------------------------------------
+1. Summary of study
+2. Important notes
+3. User roles/privileges
+4. Primary website features
+5. Contributed modules
+6. ASK custom modules
+7. ASK website theme
+
+
+
+SUMMARY OF STUDY
+-------------------------------------------------------------
+ASK (Advancing Survivors Knowledge) is a study to help increase awareness of skin cancer risk to childhood cancer survivors. The web component to this study serves 3 main purposes:
+1. Provides comprehensive skin cancer information for all participants of the ASK study as well as participant physicians
+2. Provides a utility for participants in the teledermatology arm of the study (ASK arm 3) to take and upload photos of their skin and answer a series of relevant information pertaining to the photos taken.
+3. Allows ASK study staff and ASK dermatologist to access a resource in which they can review, categorize, and comment on all ASK arm 3 photo uploads.
+
+
+
+*******************************************************************************************************
+IMPORTANT NOTES
+* All website files should be housed on HCC’s production server in the /var/www/html/skincancer directory
+* All ASK arm 3 images contained in skincancer/sites/default/files/skin_photos
+* Modules located in skincancer/sites/all/modules
+* Theme located in skincancer/sites/all/themes/ask_theme
+* All website files use git version control (except for user uploaded images and crucial config files) and are available on Github at: https://github.com/healthcommcore/skincancer
+* Domain name and security certificate are handled by Network Solutions
+* ASK website uses Clicky (www.clicky.com) for site analytics
+*******************************************************************************************************
+
+
+
+USER ROLES/PRIVILEGES
+-------------------------------------------------------------
+Aside from the website administrator, there are 6 roles used for the ASK study:
+
+
+ASK arm 1
+Able to access all site content except admin area, image upload form, and physician content
+
+
+ASK arm 2
+Exactly the same privileges as arm 1. The reason for creating a separate role was for analytics/tracking purposes
+
+
+ASK arm 3
+Able to access all site content including image upload form. No access to admin or physician content
+
+
+ASK participant physician
+Able to access all content including special physician area. No access to image upload form or admin area
+
+
+ASK dermatologist
+Able to access all site content including the special ASK admin area. He/she is able to view image submissions, choose from a list of findings, and leave comments for ASK study admin
+
+
+ASK study admin
+Like the dermatologist, study admins are able to access all site content including the special ASK admin area. He/she is able to give each photo submission a status and leave comments for ASK dermatologist. Additionally, he/she is able to create new site users and specify roles for each user.
+
+
+
+
+
+
+PRIMARY WEBSITE FEATURES
+-------------------------------------------------------------
+Here are the primary pieces of functionality required for the ASK website
+
+
+Definitions
+Appearing similar to links, these pieces of text, when hovered over(or clicked on with mobile devices) trigger a box to appear containing the corresponding definition of the word or phrase. 
+See ASK website theme for more information
+
+
+Quiz
+All website users are able to take a simple one page, 5 question, true-false quiz. It is simple enough that it does not require a custom module but borrows the reveal.js code used in other parts of the site. The quiz content is stored as a Basic Page in Drupal as is most other content.
+See ASK custom modules -> ask_admin for more information
+
+
+Photo upload
+ASK arm 3 participants (using their Dermlite phone attachment) use this website utility to take and upload photos as well as answer a series of questions pertaining to the photo taken. The EntityForm contributed module provides the bulk of functionality but decision tree functionality was needed which EntityForm does not provide. Consequently, a portion of the ask_admin custom module was devoted to decision tree functionality.
+See ASK custom modules -> ask_admin for more information
+
+
+ASK admin area
+ASK study staff and an appointed dermatologist are able to review, and comment on ASK arm 3 uploaded photos using this admin area. The user interface for this area uses a 3 column table to display all user upload information in the first column, ASK study admin tasks in the second column, and dermatologist tasks in the third column. Staff and dermatologist are able to give each upload a status or initial finding using a select list of options. There is also a free text “Comments” area where staff and dermatologist can leave notes for each other. Furthermore, selecting certain status/finding options causes the corresponding table row to be color coded. There were no Drupal contributed modules that could satisfy all the criteria required for this functionality so a custom module needed to be built.
+See ASK custom modules -> ask_admin for more information
+
+
+
+
+CONTRIBUTED MODULES
+-------------------------------------------------------------
+All of the contributed modules should be located in the sites/all/modules directory
+
+
+Administer Users by Role
+This enables the admin to grant another user specific admin privileges without having to make him/her a full blown admin. This was used to allow an ASK study admin to create users for the ASK study.
+
+
+Content Access
+Provides a way to restrict pieces of content to certain users or roles
+
+
+Entity and EntityForm
+EntityForm is the module used to create the form where arm 3 users are able to upload images of their skin. It has built in validation and all of the fields are available to Views.
+
+
+Page Theme
+Provides the ability to swap themes depending on the user and which piece of content is to be viewed
+
+
+RespondJS
+Allows responsive layouts to display properly in IE 8
+
+
+Role Assign
+Working in conjunction with Administer Users by Role, this module allows admins to assign role granting privileges to a certain user. This allowed an ASK study admin to assign roles to users
+
+
+Views Bulk Operations
+Allows admins to delete EntityForm submissions 
+
+
+Views Field Views
+A key player in the admin section of the ASK website. Although heavy on processing, it embeds an entire view within a single field of another view. This was used to display all fields in a user's image upload within cells of the admin area view's table.
+
+
+
+
+ASK CUSTOM MODULES
+-------------------------------------------------------------
+There are 2 custom modules required for the ASK website: ask_login and ask_admin. Both of these modules should be located in the sites/all/modules/custom directory.
+
+
+Ask_login
+ask_login
+ |- ask_login.info
+ |- ask_login.module
+
+
+Small custom module responsible for storing the intended destination when a user who has not yet logged in clicks on a menu item or link. The user is first directed to the login page and once logged in successfully, redirected to the intended destination.
+Files
+- ask_login.info: describes the module
+- ask_login.module: all functionality contained in this file
+
+
+Ask_admin
+ask_admin
+ |- skincancer.info
+ |- skincancer.install
+ |- skincancer.module
+ |- skincancer.css
+ |
+ |- includes
+ |    |- admin_output_builder.inc
+ |    |- upload_data.php
+ |
+ |- js
+ |    |- admin_filter.js
+ |    |- admin_handler.js
+ |    |- reveal.js
+ |    |- upload_form.js
+ | 
+ |- theme
+ |    |- views-view-table--skin-cancer-admin-view.tpl.php
+ |
+ |- views
+      |- skincancer.views.inc
+      |- skincancer_admin_handler.inc
+      |- skincancer_admin_handler_filter.inc
+
+
+Large custom module responsible both for decision tree functionality of ASK arm 3 photo upload utility and all components of ASK study admin area.
+Files
+*******************************************************************************************************
+NOTE: the file names do not follow the convention of following the module directory’s name. This is because the module development began before the project had a name. Attempts have been made to rename all files more appropriately but resulted in broken module functionality. More time needs to be spent on renaming everything properly
+*******************************************************************************************************
+- skincancer.info: describes the module, dependencies, and any other necessary files
+
+
+- skincancer.install: contains schema of the database table, named skincancer_admin,  for storing ASK staff/dermatologist generated data. This file is only executed when ask_admin module is first installed/enabled.
+
+
+- skincancer.module: adds custom validation to ASK arm 3 upload utility and defines custom views/views themes for ASK admin area
+
+
+- skincancer.css: custom styles for all components of ASK admin area and ASK arm 3 upload utility
+
+
+- includes/admin_output_builder.inc: a custom class for generating layout output for the ASK study admin/dermatologist feedback areas (where they can assign photo status/findings and create comments)
+
+
+- includes/upload_data.php: the server side script used in AJAX calls for all CRUD operations pertaining to ASK study admin/dermatologist feedback area. Works in conjunction with the js/admin_handler.js script.
+
+
+- js/admin_filter.js: because ASK study admin/dermatologist generated data is stored in a way incompatible with how Views aggregates data, filtering and sorting this data needed to be done manually. Admin_filter.js does this client-side using DOM manipulation. Granted, not the most elegant solution but it was done in the face of time constraint and lack of success integrating it into Views.
+
+
+- js/admin_handler.js: code responsible for all operations of the ASK study admin/dermatologist feedback area.  Relies heavily on jQuery for DOM manipulation. Handles data creation/update/deletion, row color coding, and input validation. Data operations also require the includes/upload_data.php file.
+
+
+- js/reveal.js: a handy file responsible for executing the slide-up/slide-down effect used in the ASK quiz, skin cancer images, and responsive menu.
+
+
+- js/upload_form.js: code that controls decision tree logic and functionality of specific questions within the ASK arm 3 upload utility.
+
+
+- theme/views-view-table--skin-cancer-admin-view.tpl.php: theme file to override the default Views output. Specifically, it separates the ASK arm 3 user’s uploaded image and uploaded data into 2 distinct entities by wrapping all data into a div. This allows the image to occupy the left portion of the table cell and the data, the right, without it wrapping around the image.
+
+
+- views/skincancer_admin_handler_filter.inc: All this file does is set up the select list display of the filterable options within the ASK admin area. It doesn’t actually process/execute anything. The js/admin_filter.js file is responsible for that
+
+
+- views/skincancer_admin_handler.inc: a class extended from the views_handler_field class that executes the creation of a custom field within a view. For ASK, the field is, in actuality, a feedback area for ASK study admins and dermatologist. Working in conjunction with includes/admin_output_builder.inc, this file creates the custom Views field, allows the field to be associated with either an ASK study admin or dermatologist (via a radio button form group), and creates the feedback layout which is housed within the Views field.
+
+
+- views/skincancer.views.inc: code that uses the Views api to describe what sort of customization will be done to a View and what files to be used in the customization process. It is here that a custom view field is described and assigned to be a global field allowing it to be included in any type of view. The appropriate custom view field and custom view filter handlers are also listed.
+
+
+
+
+ASK WEBSITE THEME
+-------------------------------------------------------------
+A custom theme was developed for the ASK website to accommodate all the required pieces of functionality. Here are the associated files:
+
+
+- ask_theme.info: describes the theme, all of the regions in which content (blocks and nodes) can be placed, and all files associated with the theme
+
+
+- template.php: modifies the default Drupal layout/formatting of page elements. Specifically adds a class to the ul elements in the main menu, adds a special class to the physician menu item in the main menu, adds the fonts.css stylesheet, adds supporting JavaScript files, adds a meta tag for viewport sizing, and rearranges form element descriptions so that they display before the form element instead of after.
+
+
+- fonts directory: contains all fonts (and various file formats) used in ASK website
+
+
+- images directory: contains all images used for layout purposes, no images used in actual site content. Those images are stored in skincancer/sites/default/files/images
+
+
+- css directory: contains all bootstrap and theme-specific css files. 
+*******************************************************************************************************
+NOTE: I used the uncompressed bootstrap css files because I had to do some modifications to prevent stupid errors in IE 8 which could not be done with the minified bootstrap.
+*******************************************************************************************************
+- js/bootstrap.*: all bootstrap-related JavaScript
+
+
+- js/defs.js: code that provides pop-up definition effect to words/phrases within the ASK website content. The file consists of an object literal with all terms and corresponding definitions, code that executes the popup effect, and code that positions the popup according to page scroll amount and window size.
+
+
+- menu_responsive.js: because this theme was built from scratch and does not use Drupal’s available bootstrap base theme, this js file was necessary to enable bootstrap’s rebuilding the main menu when viewport size is reduced. It also is responsible for moving the search bar from the top of the header into the navigation bar when screen sizes are smaller than 767 px.
+
+
+- templates/html.tpl.php: outer template html for theme. Loads default Drupal stuff along with Clicky analytics code, Clicky custom variables (web user’s username and role), and popup windows for external links.
+
+
+- templates/page.tpl.php: main html template responsible for layout and structure of all page elements. Some custom variables set to determine if screen width is sized for mobile or desktop. Also code for swapping homepage elements based on screen width.
+
+
+- templates/views-view-table--user-entityforms.tpl.php: custom override of a views template, this one intended for the ASK arm 3 “view previous responses” table layout. In order to make the table mobile-friendly, I simply added some classes to the layout. No other overrides needed.
