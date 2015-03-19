@@ -22,7 +22,8 @@
 		$arm = 'site user';
 		foreach($roles as $role) {
 			if( preg_match('/arm/', $role) === 1 ) {
-				return $arm = $role;
+				$arm = $role;
+				return $arm;
 			}
 		}
 		return $arm;
