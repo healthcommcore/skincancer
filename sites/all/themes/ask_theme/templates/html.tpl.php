@@ -13,20 +13,13 @@
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 		<?php
+			echo "ga('create', 'UA-60978411-1', 'auto');\n\t\t";
 			if(user_is_logged_in()) {
 				$roles = filterRoles($user->roles);
-				$username = $user->name;
-				$gacode = "ga('create', 'UA-60978411-1', {'userid' : '%s'});";
-				$ga_dims = array(
-					"ga('set', 'dimension1', $user->uid);",
-					"ga('set', 'dimension2', $username);",
-					"ga('set', 'dimension3', $roles);"
-				);
-				foreach($ga_dims as $dim){}
-				echo sprintf($gacode, $user->uid);
-			}
-			else {
-				echo "ga('create', 'UA-60978411-1', 'auto');";
+				$dims = array($user->uid, $user->name, $roles);
+				for($i = 0; $i < count($dims); $i++) {
+					echo "ga('set', 'dimension" . ($i + 1) . "', '" . $dims[$i] . "');\n\t\t";
+				}
 			}
 		?>
 		ga('require', 'displayfeatures');
