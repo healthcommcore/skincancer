@@ -101,7 +101,7 @@ function ask_login_form_user_login_alter(&$form, &$form_state) {
 
   $form['login_trouble'] = array(
     '#type' => 'item',
-    '#markup' => '<p class="citation">If you are having trouble logging in: <br/><strong>Email:</strong> <a href="mailto:ask@hsph.harvard.edu">ask@hsph.harvard.edu</a><br /><strong>Call (toll free):</strong> <span class="hidden-xs">844-ASK-ABCD</span><span class="visible-xs"><a href="tel:844-275-2223">844-ASK-ABCD</a></span> (844.275.2223)</p>',
+    '#markup' => '<p class="citation">If you are having trouble logging in: <br/><strong>Email:</strong> <a href="mailto:ask@hsph.harvard.edu">ask@hsph.harvard.edu</a><br /><strong>Call (toll free):</strong> <span class="hidden-xs">844-ASK-ABCD</span><span class="visible-xs"><a href="tel:844-275-2223">844-ASK-ABCD</a></span> (844-275-2223)</p>',
     '#weight' => 9999,
   );
 
